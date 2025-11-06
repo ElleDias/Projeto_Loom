@@ -1,0 +1,414 @@
+/*
+  VARIÁVEIS DE CORES (Mantidas para o esquema escuro)
+*/
+:root {
+  --cor-fundo-tela: #0c1f1a;   
+  --cor-fundo-card: #eaeaea;      
+  --cor-texto-principal: #000000; 
+  --cor-subtitulo: #989898;       
+  
+  /* Cores dos gráficos para a Legenda */
+  --cor-concluidas: #0A423D;
+  --cor-pendentes: #2E6962;
+  --cor-emandamento: #58A69A;
+}
+    
+/* .monitoramento-container {
+  background-color: var(--cor-fundo-tela);
+  color: var(--cor-texto-principal);
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  transition: margin-left 0.4s ease;
+} */
+
+.monitoramento-container.sidebar-open {
+   margin-left: 170px;
+}
+
+.monitoramento-container.sidebar-close,
+.monitoramento-container.sidebar-mini {
+  margin-left: 80px;
+}
+/*
+  2. CARD PRINCIPAL (Painel Escuro)
+*/
+.painel {
+  background-color: var(--cor-fundo-card);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/*
+  3. LAYOUT E CONTEÚDO
+*/
+.graficos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.grafico-pizza, .grafico-barras {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TÍTULOS */
+.titulo-grafico {
+  font-size: 1.4em;
+  font-weight: 900;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #000000; 
+}
+
+.subtitulo-grafico {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #000
+}
+
+/* GRÁFICO DE PIZZA (Centralizado) */
+.grafico-pizza {
+    align-items: center;
+    text-align: center;
+}
+
+/* LEGENDA */
+.legenda {
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: #e9e9e9; /* mesmo fundo que o container */
+  display: inline-block;
+  text-align: left;
+}
+
+.item-legenda {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.quadrado {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+/* Cores da Legenda */
+.cor-concluidas { background-color: #173C4C }
+.cor-pendentes { background-color: #326D6B}
+.cor-emandamento { background-color: #568F7C }
+
+
+/*
+  4. GRÁFICO DE BARRAS (Alinhado à Esquerda e Cores do Recharts)
+*/
+.grafico-barras {
+  align-items: flex-start; 
+  text-align: left; 
+  min-height: 350px;
+}
+
+/* *** AJUSTE PRINCIPAL: Nomes dos Funcionários e Números em PRETO *** */
+/* COR DOS NOMES (Eixo Y) */
+.recharts-yAxis .recharts-cartesian-axis-tick-value text {
+    fill: #000000; /* FORÇA O PRETO como solicitado */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* COR DOS NÚMEROS (Eixo X) */
+.recharts-xAxis .recharts-cartesian-axis-tick-value text {
+    fill: #000000; /* FORÇA O PRETO como solicitado */
+}
+
+/*
+  5. BOTÃO INFERIOR
+*/
+.botao-gerais {
+  background-color: transparent;
+  border: 2px solid var(--cor-texto-principal);
+  color: var(--cor-texto-principal);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  transition: 0.3s;
+}
+
+.botao-gerais:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: #000;
+}
+
+.recharts-pie-label-text {
+  font-weight: bold;
+  fill: #000000;
+  font-size: 14px;
+}
+.filtro-departamento {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.filtro-departamento label {
+  font-weight: bold;
+  color: #0a423d;
+}
+
+.filtro-departamento select {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #2e6962;
+  outline: none;
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+
+
+/*
+  6. MEDIA QUERY
+*/
+@media (max-width: 768px) {
+  .graficos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .painel {
+    padding: 20px;
+  }
+  
+  .grafico-pizza {
+      width: 100%;
+  }
+  
+  .grafico-barras {
+      width: 100%;
+      align-items: flex-start;
+  }
+}
+
+:root {
+  --cor-fundo-tela: #0c1f1a;   
+  --cor-fundo-card: #eaeaea;      
+  --cor-texto-principal: #000000; 
+  --cor-subtitulo: #989898;       
+  
+  --cor-concluidas: #0A423D;
+  --cor-pendentes: #2E6962;
+  --cor-emandamento: #58A69A;
+}
+
+.monitoramento-container.sidebar-open {
+  margin-left: 170px;
+}
+
+.monitoramento-container.sidebar-close,
+.monitoramento-container.sidebar-mini {
+  margin-left: 80px;
+}
+
+/* CARD PRINCIPAL */
+.painel {
+  background-color: var(--cor-fundo-card);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* LAYOUT E GRÁFICOS */
+.graficos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap; /* Permite quebrar em telas pequenas */
+}
+
+.grafico-pizza, .grafico-barras {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px; /* Evita que quebre totalmente */
+}
+
+/* TÍTULOS */
+.titulo-grafico {
+  font-size: 1.4em;
+  font-weight: 900;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #000; 
+}
+
+.subtitulo-grafico {
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #000;
+}
+
+/* GRÁFICO DE PIZZA */
+.grafico-pizza {
+  align-items: center;
+  text-align: center;
+}
+
+/* LEGENDA */
+.legenda {
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: #e9e9e9;
+  display: inline-block;
+  text-align: left;
+}
+
+.item-legenda {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.quadrado {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.cor-concluidas { background-color: #173C4C; }
+.cor-pendentes { background-color: #326D6B; }
+.cor-emandamento { background-color: #568F7C; }
+
+/* GRÁFICO DE BARRAS */
+.grafico-barras {
+  align-items: flex-start; 
+  text-align: left; 
+  min-height: 350px;
+}
+
+/* NOMES E NÚMEROS EM PRETO */
+.recharts-yAxis .recharts-cartesian-axis-tick-value text,
+.recharts-xAxis .recharts-cartesian-axis-tick-value text {
+    fill: #000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* BOTÃO INFERIOR */
+.botao-gerais {
+  background-color: transparent;
+  border: 2px solid var(--cor-texto-principal);
+  color: var(--cor-texto-principal);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  transition: 0.3s;
+}
+
+.botao-gerais:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #000;
+}
+
+.recharts-pie-label-text {
+  font-weight: bold;
+  fill: #000;
+  font-size: 14px;
+}
+
+/* FILTRO DE DEPARTAMENTO */
+.filtro-departamento {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.filtro-departamento label {
+  font-weight: bold;
+  color: #0a423d;
+}
+
+.filtro-departamento select {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #2e6962;
+  outline: none;
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  .graficos {
+    gap: 25px;
+  }
+
+  .titulo-grafico {
+    font-size: 1.2em;
+  }
+
+  .subtitulo-grafico {
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 768px) {
+  .graficos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .painel {
+    padding: 20px;
+  }
+
+  .grafico-pizza, .grafico-barras {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .filtro-departamento {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botao-gerais {
+    width: 100%;
+    padding: 12px;
+  }
+}

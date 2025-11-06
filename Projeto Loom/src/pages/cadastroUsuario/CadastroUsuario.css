@@ -1,0 +1,289 @@
+.main_cadastro {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.fundo_loom {
+  flex: 1;
+  background-image: url("../../assets/img/fundoLoom.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.section_cadastro {
+  flex: 1;
+  background-color: #0B0D0E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.logo_superior {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.form_cadastro {
+  width: 80%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.form_cadastro h1 {
+  font-size: 2.2rem;
+  margin-bottom: 5px;
+}
+
+.form_cadastro h2 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-bottom: 25px;
+  color: #aaa;
+}
+
+/* Inputs */
+.campo_input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo_input label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.campo_input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #444;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.campo_input input:focus {
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Campo senha com ícone */
+.input_senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input_senha input {
+  flex: 1;
+  padding-right: 35px; /* espaço pro ícone */
+}
+
+.icone_senha {
+  position: absolute;
+  right: 10px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.2s;
+}
+
+.icone_senha:hover {
+  color: #ffffff;
+}
+
+/* Botão */
+.btn_cadastrar {
+  margin-top: 20px;
+  padding: 12px;
+  background: #043d35;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn_cadastrar:hover {
+  background: #06614e;
+}
+
+.login_link{
+    color: #ffffff;
+}
+
+.main_cadastro {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Lado da imagem */
+.fundo_loom {
+  flex: 1;
+  background-image: url("../../assets/img/fundoLoom.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Lado do formulário */
+.section_cadastro {
+  flex: 1;
+  background-color: #0B0D0E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.logo_superior {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.form_cadastro {
+  width: 80%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.form_cadastro h1 {
+  font-size: 2.9rem;
+  margin-bottom: 5px;
+}
+
+.form_cadastro h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 25px;
+  color: #aaa;
+}
+
+/* Inputs */
+.campo_input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo_input label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.campo_input input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #444;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.campo_input input:focus {
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Campo senha com ícone */
+.input_senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input_senha input {
+  flex: 1;
+  padding-right: 35px; /* espaço pro ícone */
+}
+
+.icone_senha {
+  position: absolute;
+  right: 10px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.2s;
+}
+
+.icone_senha:hover {
+  color: #ffffff;
+}
+
+/* Botão */
+.btn_cadastrar {
+  margin-top: 20px;
+  padding: 12px;
+  background: #043d35;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn_cadastrar:hover {
+  background: #06614e;
+}
+
+.login_link{
+    color: #ffffff;
+}
+
+
+@media (max-width: 750px) {
+  .main_cadastro {
+    flex-direction: column;
+  }
+
+  .fundo_loom {
+    display: none;
+  }
+
+  .section_cadastro {
+    flex: 1;
+    width: 100%;
+  }
+
+  .form_cadastro {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+}

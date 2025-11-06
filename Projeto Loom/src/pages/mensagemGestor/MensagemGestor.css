@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap');
+
+/* Fundo geral */
+.pagina-mensagens {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    transition: margin-left 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+/* Ajuste de deslocamento quando a sidebar estiver aberta */
+.pagina-mensagens.sidebar-open {
+    margin-left: 190px;
+}
+.pagina-mensagens.sidebar-close,
+.pagina-mensagens.sidebar-mini {
+    margin-left: 80px;
+}
+
+/* Caixa principal */
+.mensagens-container {
+    background-color: #ffffff;
+    width: 95%;
+    max-width: 450px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-lista {
+    color: #001608;
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Lista de mensagens */
+.lista-mensagens {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid #eee;
+}
+
+.item-mensagem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.item-mensagem:hover {
+    background-color: #f7f7f7;
+}
+
+.avatar-e-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.info-mensagem {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: left;
+}
+
+.nome-contato {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ultima-mensagem {
+    margin: 2px 0 0 0;
+    font-size: 0.85em;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.status-mensagem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.hora-mensagem {
+    font-size: 0.75em;
+    color: #999;
+}
+
+.bola-nao-lida {
+    width: 20px;
+    height: 20px;
+    background-color: #dddddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    color: white;
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .mensagens-container {
+        max-width: 700px;
+    }
+
+    .titulo-lista {
+        font-size: 1.8em;
+    }
+
+    .nome-contato {
+        font-size: 1.1em;
+    }
+
+    .ultima-mensagem {
+        font-size: 0.9em;
+    }
+
+    .hora-mensagem {
+        font-size: 0.85em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mensagens-container {
+        max-width: 850px;
+    }
+}

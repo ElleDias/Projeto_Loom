@@ -1,0 +1,295 @@
+/* ======================= MENU LATERAL ======================= */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #070c0b;
+  color: white;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s ease, left 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
+  border-right: 1px solid #070c0b;
+}
+
+.menu-lateral.mini {
+  width: 80px;
+  padding: 20px 0;
+}
+
+.menu-lateral.aberta {
+  width: 250px;
+}
+
+
+/* ================= RESPONSIVIDADE ================= */
+@media (max-width: 750px) {
+
+  /* Menu aberto ocupa tela inteira */
+  .menu-lateral.aberta {
+    width: 100vw;
+    left: 0;
+    padding: 20px;
+  }
+
+  /* Menu mini escondido */
+  .menu-lateral.mini {
+    left: -100vw;
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Botão de abrir menu centralizado */
+  .botao-abrir-total,
+  .menu-lateral.aberta .botao-mini,
+  .menu-lateral.aberta .sair {
+    width: 40px;
+    /* mesma largura */
+    height: 40px;
+    /* mesma altura */
+    padding: 0;
+    /* remove padding extra */
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    border-radius: 50%;
+    /* borda circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+
+  .menu-lateral.aberta .sair span {
+    display: none;
+  }
+
+  .botao-abrir-total {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    z-index: 1001;
+  }
+
+  /* Topo ações centralizado */
+  .menu-lateral.aberta .topo-acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    right: 0;
+    top: 0;
+  }
+
+  /* Itens do menu compactos e centralizados */
+  .menu-lateral.aberta nav li {
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+  /* Botão sair e logo centralizados */
+  .menu-lateral.aberta .logo-sidebar {
+    width: 80px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .rodape {
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 751px) {
+  .menu-lateral {
+    transition: width 0.3s ease;
+  }
+
+  .menu-lateral.mini .topo-acoes {
+    right: -20px;
+    top: 12px;
+  }
+
+  .botao-mini {
+    position: static;
+  }
+}
+
+/* ==================== ELEMENTOS INTERNOS ==================== */
+.topo-acoes {
+  position: absolute;
+  top: 12px;
+  right: -20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  
+}
+
+.botao-mini {
+  background: rgb(255, 255, 255);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+}
+
+.icone-voltar {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: invert(1);
+  transition: transform 0.25s ease;
+}
+
+.icone-voltar {
+  transform: rotate(180deg);
+}
+
+.icone-voltar.rotacionado {
+  transform: rotate(360deg);
+}
+
+/* lista */
+.menu-lateral nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 56px;
+}
+
+.menu-lateral nav li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #ffffff1d;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+.menu-lateral nav li:hover {
+  background: #162a63;
+}
+
+.menu-lateral nav li.ativo {
+  border-color: #ffffff1d;
+  background: #ffffff;
+  color: #000;
+  font-weight: 700;
+}
+
+.icone-menu {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.rodape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sair {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 30px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #426e62;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+  background: #ffffff;
+  color: #000;
+  font-weight: 700;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sair:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.menu-lateral.mini .sair {
+  justify-content: center;
+  padding: 10px;
+  gap: 0;
+  background: white;
+  width: 60px;
+}
+
+.menu-lateral.mini .sair span {
+  display: none;
+}
+
+.logo-sidebar {
+  width: 100px;
+  height: auto;
+  opacity: 0.95;
+  transition: width 0.3s ease;
+}
+
+.menu-lateral.mini nav li {
+  justify-content: center;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.menu-lateral.mini .icone-menu {
+  margin: 0;
+}
+
+.menu-lateral.mini .logo-sidebar {
+  width: 50px;
+}
+
+.botao-abrir-total {
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 6px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-abrir-total:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.icone-abrir {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: invert(100%);
+}

@@ -1,0 +1,283 @@
+/* Fundo geral */
+.container_redefinir {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gantari", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canvas para partículas */
+.canvas-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000000 0%, #060b08 50%, #033528 100%);
+  z-index: -1;
+}
+
+/* Card central */
+.card_redefinir {
+  background: rgba(25, 25, 25, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 360px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.card_redefinir:hover {
+  transform: translateY(-5px);
+}
+
+.card_redefinir h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card_redefinir p {
+  font-size: 0.9rem;
+  color: #bdbdbd;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+label {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+.input_senha {
+  position: relative;
+}
+
+.input_senha input {
+  width: 100%;
+  padding: 10px 38px 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #0b0d0e;
+  background-color: #0b0d0e;
+  color: #fff;
+  outline: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.input_senha input:focus {
+  border-color: rgb(34, 34, 34);
+  box-shadow: 0 0 0 2px rgba(33, 33, 33, 0.2);
+}
+
+.icone_olho {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.icone_olho:hover {
+  color: rgb(74, 74, 74);
+}
+
+/* Requisitos */
+.requisitos {
+  text-align: left;
+  list-style: none;
+  margin: 10px 0 20px;
+  padding: 0;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.requisitos li {
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.requisitos .valido {
+  color: #7e7e7e;
+}
+
+/* Botão */
+.btn_salvar {
+  width: 100%;
+  background: linear-gradient(135deg, #000 0%, #333 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn_salvar:hover {
+  background: linear-gradient(135deg, #111 0%, #444 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn_salvar:active {
+  transform: translateY(0);
+}
+
+/* Efeito de brilho no botão */
+.btn_salvar::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.018);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.btn_salvar:hover::after {
+  opacity: 1;
+  transform: rotate(45deg) translate(10%, 10%);
+}
+
+/* Efeito de foco nos inputs */
+.input_senha input:focus + .icone_olho {
+  color: rgb(255, 255, 255);
+}
+
+/* Animação de entrada do card */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card_redefinir {
+  animation: fadeInUp 0.5s ease-out;
+}
+/* ===== RESPONSIVO REDEFINIR SENHA ===== */
+@media (max-width: 1024px) {
+  .card_redefinir {
+    width: 320px;
+    padding: 35px 40px;
+  }
+
+  .card_redefinir h2 {
+    font-size: 1.3rem;
+  }
+
+  .card_redefinir p {
+    font-size: 0.85rem;
+  }
+
+  .input_senha input {
+    font-size: 0.85rem;
+  }
+
+  .requisitos {
+    font-size: 0.75rem;
+  }
+
+  .btn_salvar {
+    font-size: 0.9rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container_redefinir {
+    padding: 20px;
+  }
+
+  .card_redefinir {
+    width: 90%;
+    padding: 30px 25px;
+  }
+
+  .card_redefinir h2 {
+    font-size: 1.2rem;
+  }
+
+  .card_redefinir p {
+    font-size: 0.8rem;
+  }
+
+  .input_senha input {
+    font-size: 0.8rem;
+    padding: 8px 35px 8px 10px;
+  }
+
+  .icone_olho {
+    font-size: 16px;
+  }
+
+  .requisitos {
+    font-size: 0.7rem;
+  }
+
+  .btn_salvar {
+    font-size: 0.85rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container_redefinir {
+    padding: 10px;
+  }
+
+  .card_redefinir {
+    width: 95%;
+    padding: 25px 20px;
+    border-radius: 10px;
+  }
+
+  .card_redefinir h2 {
+    font-size: 1.1rem;
+  }
+
+  .card_redefinir p {
+    font-size: 0.75rem;
+  }
+
+  .input_senha input {
+    font-size: 0.75rem;
+    padding: 8px 30px 8px 10px;
+  }
+
+  .icone_olho {
+    font-size: 14px;
+  }
+
+  .requisitos {
+    font-size: 0.65rem;
+  }
+
+  .btn_salvar {
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+}

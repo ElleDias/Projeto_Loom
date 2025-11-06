@@ -1,0 +1,258 @@
+.comparador-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+/* .comparador-container.sidebar-open {
+  margin-left: 170px;
+} */
+
+/* .comparador-container.sidebar-close,
+.comparador-container.sidebar-mini {
+  margin-left: 80px;
+} */
+
+.comparador-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 45px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.select-filtro,
+.input-filtro {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.tabela-container {
+  overflow-x: auto;
+}
+
+.tabela-funcionarios {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-funcionarios th,
+.tabela-funcionarios td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.tabela-funcionarios th {
+  background-color: #eaeaea;
+  font-weight: 600;
+}
+
+.barra-container {
+  position: relative;
+  background: #eee;
+  border-radius: 8px;
+  height: 18px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.barra-desempenho {
+  background-color: #326D6B; 
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+.porcentagem {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* .nenhum-resultado {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+} */
+
+
+
+.comparador-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.comparador-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 45px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap; /* permite quebrar em múltiplas linhas em telas pequenas */
+}
+
+.select-filtro,
+.input-filtro {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.tabela-container {
+  overflow-x: auto; /* permite scroll horizontal em telas pequenas */
+}
+
+.tabela-funcionarios {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-funcionarios th,
+.tabela-funcionarios td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.tabela-funcionarios th {
+  background-color: #eaeaea;
+  font-weight: 600;
+}
+
+.barra-container {
+  position: relative;
+  background: #eee;
+  border-radius: 8px;
+  height: 18px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.barra-desempenho {
+  background-color: #326D6B; 
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+.porcentagem {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .comparador-container {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .comparador-card {
+    padding: 35px;
+  }
+
+  .titulo {
+    font-size: 3.5rem;
+  }
+
+  .select-filtro,
+  .input-filtro {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .tabela-funcionarios th,
+  .tabela-funcionarios td {
+    padding: 10px;
+  }
+}
+
+/* Celulares (até 767px) */
+@media (max-width: 767px) {
+  .comparador-container {
+    margin: 20px auto;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .comparador-card {
+    padding: 25px;
+  }
+
+  .titulo {
+    font-size: 1.4rem;
+  }
+
+  .filtros {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .select-filtro,
+  .input-filtro {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+
+  .tabela-funcionarios th,
+  .tabela-funcionarios td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
+
+  .barra-container {
+    height: 14px;
+  }
+
+  .porcentagem {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+ 
+}
+
+/* ----- MODAL OVERLAY ----- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: margin-left 0s ease;
+}
+
+.tela-pendentes {
+  display: flex;
+  background: #f7f7f5;
+  min-height: 100vh;
+  transition: all 0.4s ease;
+  transition: margin-left 0.4s ease;
+}
+.tela-pendentes.sidebar-open {
+  margin-left: 180px;
+}
+
+.tela-pendentes.sidebar-close,
+.tela-pendentes.sidebar-mini {
+  margin-left: 80px;
+}
+
+/* ----- MODAL CONTENT ----- */
+.modal {
+  background-color: #fff;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 900px;
+  padding: 40px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* quando sidebar aberta */
+.modal-overlay.sidebar-open {
+  margin-left: 190px;
+}
+
+/* quando sidebar fechada (mini) */
+.modal-overlay.sidebar-close,
+.modal-overlay.sidebar-mini {
+  margin-left: 80px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ----- CONTEÚDO DO MODAL ----- */
+.title {
+  background-color: #071b15;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ----- FORMULÁRIO ----- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.form label {
+  font-weight: 600;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form input:focus {
+  border-color: #071b15;
+  box-shadow: 0 0 0 2px rgba(7, 27, 21, 0.3);
+}
+
+/* ----- TABELA ----- */
+.table {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.table-header {
+  background-color: #f5f5f5;
+  font-weight: 700;
+}
+
+.table-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.employee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.avatar {
+  font-size: 20px;
+}
+
+/* ----- STATUS COLORS ----- */
+.status {
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.status.concluida {
+  background-color: #228b22;
+}
+
+.status.andamento {
+  background-color: #c5a213;
+}
+
+.status.pendente {
+  background-color: #6b1c1c;
+}
+
+.date {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-block;
+}
+
+/* ----- SEM RESULTADOS ----- */
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 15px;
+}
+
+.nomeDoBotao{
+    color: #fff;
+}
