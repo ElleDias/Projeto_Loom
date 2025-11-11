@@ -124,12 +124,12 @@ if (role === "Gerente") {
           {/* ✅ Botão desabilitado enquanto a requisição está em andamento */}
           <Button nomeDoBotao={loading ? "Carregando..." : "Log-in"} type="submit" disabled={loading} />
 
-          {/* <p className="nao_tem_uma_conta">
+           <p className="nao_tem_uma_conta">
             Não tem uma conta?{" "}
             <a className="link_registre" href="/Cadastro">
               Registre-se aqui
             </a>
-          </p> */}
+          </p>
         </form>
       </section>
     </main>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./TelaGestor.css";
 import { MenuLateral } from "../../components/Sidebar/Sidebar";
 import api from "../../Services/services";
+import secureLocalStorage from "react-secure-storage";
 
 const TelaGestor = () => {
     const [modoSidebar, setModoSidebar] = useState("close");
@@ -16,24 +17,32 @@ const TelaGestor = () => {
         return `${horas} horas e ${mins} minutos`;
     };
 
-    // ✅ Buscar Monitoramentos da API
     const buscarMonitoramentos = async () => {
         try {
-            const resposta = await api.get("https://localhost:7283/api/Monitoramentos");
+            console.log("TOKEN ENVIADO:", localStorage.getItem("token"));
+            
+
+            const token = secureLocalStorage.getItem("tokenLogin");
+            console.log("TOKEN ENVIADO:", token);
+
+            const resposta = await api.get("https://localhost:7283/api/Monitoramento", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
 
             const dados = resposta.data;
 
-            // ✅ Tratamento dos dados vindos da API
-            const listaTratada = dados.map(item => {
-                return {
-                    nome: item.funcionario?.nome || "Desconhecido",
-                    tempoAtivo: formatarTempo(item.tempoEmUsoMinutos),
-                    tempoInativo:
-                        item.dataFim
-                            ? formatarTempo(Math.floor((new Date() - new Date(item.dataFim)) / 60000))
-                            : "Em atividade"
-                };
-            });
+            const listaTratada = dados.map(item => ({
+                nome: item.funcionario?.nome || "Desconhecido",
+                tempoAtivo: formatarTempo(item.tempoEmUsoMinutos),
+                tempoInativo:
+                    item.dataFim
+                        ? formatarTempo(
+                            Math.floor((new Date() - new Date(item.dataFim)) / 60000)
+                        )
+                        : "Em atividade"
+            }));
 
             setFuncionarios(listaTratada);
 
@@ -41,7 +50,6 @@ const TelaGestor = () => {
             console.error("Erro ao buscar monitoramentos:", erro);
         }
     };
-
     // ✅ Carregar ao montar a tela
     useEffect(() => {
         buscarMonitoramentos();

@@ -5,6 +5,7 @@ using Code1Line.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Projeto_Code1Line.Repositories;
 using System.Security.Claims;
 using System.Text;
 
@@ -35,7 +36,7 @@ builder.Services.AddScoped<IAtividadeRepository, AtividadeRepository>();
 // ================================
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-
+builder.Services.AddScoped<IMonitoramentoRepository, MonitoramentoRepository>();
 // ================================
 // ?? Autenticação JWT
 // ================================
