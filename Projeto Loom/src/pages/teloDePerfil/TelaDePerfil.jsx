@@ -98,12 +98,12 @@ const TeladePerfil = () => {
             {/* Seção de Botões/Ações */}
             {/* <div className="profile-actions">
               {/* Botão primário para edição */}
-              {/* <Botao nomeDoBotao="Editar Perfil" estilo="primary" onClick={() => console.log('Editar')} />  */}
-              {/* Novo botão para segurança */}
-              {/* <Botao nomeDoBotao="Mudar Senha" estilo="secondary" onClick={() => console.log('Mudar Senha')} />  */}
-              {/* Botão de sair padronizado ou com estilo diferente */}
-              {/* <Botao nomeDoBotao="Sair da Conta" estilo="danger" onClick={() => console.log('Sair')} />  */}
-            {/* </div> */} 
+            {/* <Botao nomeDoBotao="Editar Perfil" estilo="primary" onClick={() => console.log('Editar')} />  */}
+            {/* Novo botão para segurança */}
+            {/* <Botao nomeDoBotao="Mudar Senha" estilo="secondary" onClick={() => console.log('Mudar Senha')} />  */}
+            {/* Botão de sair padronizado ou com estilo diferente */}
+            {/* <Botao nomeDoBotao="Sair da Conta" estilo="danger" onClick={() => console.log('Sair')} />  */}
+            {/* </div> */}
           </div>
         </div>
       </div>

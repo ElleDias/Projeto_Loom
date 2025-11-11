@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj": {}
+    "C:\\Users\\52233446852\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj": {}
   },
   "projects": {
-    "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj": {
+    "C:\\Users\\52233446852\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj",
+        "projectUniqueName": "C:\\Users\\52233446852\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj",
         "projectName": "Projeto Code1Line",
-        "projectPath": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj",
-        "packagesPath": "C:\\Users\\56184436864\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\obj\\",
+        "projectPath": "C:\\Users\\52233446852\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj",
+        "packagesPath": "C:\\Users\\52233446852\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\52233446852\\Desktop\\Code1Line\\Projeto Code1Line\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\56184436864\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\52233446852\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -39,6 +39,7 @@
     flex: 1;
     padding: 2.5rem 2rem;
     text-align: center;
+    background-color: #F6F7F9;
     font-family: "Inter", sans-serif;
     color: var(--text-dark);
 }
@@ -81,7 +82,7 @@
 
 /* Cabeçalho */
 .tabela-header-dominio {
-    background-color: var(--primary-action); /* #173C4C */
+    background-color: #262626;
     color: var(--text-light);
     font-weight: 700;
     text-transform: uppercase;

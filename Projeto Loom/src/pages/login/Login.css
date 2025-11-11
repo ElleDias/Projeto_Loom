@@ -63,7 +63,6 @@ h1 {
     font-size: 3em;
     font-weight: bold;
     unicode-bidi: isolate;
-
 }
 
 /* Por favor, preencha os campos. */
@@ -235,6 +234,7 @@ a:hover {
 .icone_olho:hover {
     color: #001919;
 }
+
 /* ===== RESPONSIVO LOGIN ===== */
 @media (max-width: 1024px) {
     .main_login {
@@ -246,17 +246,17 @@ a:hover {
 
     /* 🔑 CORREÇÃO: Esconde o fundo da esquerda para dar espaço ao formulário */
     .fundo_loom {
-        display: none; 
+        display: none;
     }
-    
+
     .section_login {
         flex: none;
         width: 100%;
         /* 🔑 REFORÇO: Faz a seção de login ocupar a altura total da viewport */
-        min-height: 100vh; 
+        min-height: 100vh;
         padding: 40px 20px;
         /* Altera o alinhamento para o topo para formulários muito longos */
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
     }
 
@@ -295,7 +295,7 @@ a:hover {
 }
 
 @media (max-width: 767px) {
-    
+
     .section_login {
         /* Mantém as regras do 1024px para ocupar a tela e centralizar */
         min-height: 100vh;
@@ -304,7 +304,7 @@ a:hover {
     }
 
     .form_login {
-        width: 100%; 
+        width: 100%;
         max-width: 350px;
         margin: 0 auto;
     }

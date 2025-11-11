@@ -15,7 +15,9 @@ const TelaGestor = () => {
 
     return (
         <div className={`monitoramento-container sidebar-${modoSidebar}`}>
-
+            <div className="header">
+               
+            </div>
             <MenuLateral
                 perfil={{ ativo: true, path: "/perfil", nome: "Perfil" }}
                 geral={{ ativo: true, path: "/Acesso", nome: "Acessos" }}
@@ -26,13 +28,19 @@ const TelaGestor = () => {
                 setModo={setModoSidebar}
             />
 
+            <div className="tela_gestor_imagem
+            
+            "> </div>
 
             <p className="saudacao">Olá, Gestor!</p>
             <p className="texto_monitoramento">
                 Este é o seu hub para o acompanhamento diário. Veja instantaneamente quem está focado e quanto tempo está sendo dedicado a tarefas. Tenha a clareza necessária para orientar a equipe de desenvolvimento e impulsionar resultados.
             </p>
+
             <h1 className="titulo">Monitoramento da:</h1>
             <p className="subtitulo">Equipe de Desenvolvimento</p>
+
+
 
             <div className="tabela">
                 <div className="cabecalho">

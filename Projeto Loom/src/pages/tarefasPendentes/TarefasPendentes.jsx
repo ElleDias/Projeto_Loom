@@ -1,10 +1,10 @@
-import  { useState } from "react";
+import { useState } from "react";
 import "./TarefasPendentes.css";
 import { MenuLateral } from "../../components/Sidebar/Sidebar";
 
 function TarefasPendentes() {
   const [filtro, setFiltro] = useState("");
-  const [modoSidebar, setModoSidebar] = useState("close"); 
+  const [modoSidebar, setModoSidebar] = useState("close");
 
   const tarefas = [
     { nome: "Tarefa 1", funcionario: "Brenda", status: "Em andamento", data: "10/07/2026" },

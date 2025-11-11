@@ -2,8 +2,9 @@
   max-width: 900px;
   margin: 40px auto;
   padding: 20px;
-    transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s ease;
 }
+
 /* .comparador-container.sidebar-open {
   margin-left: 170px;
 } */
@@ -22,10 +23,9 @@
 
 .titulo {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 24px;
 }
 
 .filtros {
@@ -74,7 +74,7 @@
 }
 
 .barra-desempenho {
-  background-color: #326D6B; 
+  background-color: #326D6B;
   height: 100%;
   border-radius: 8px;
   transition: width 0.4s ease;
@@ -115,10 +115,11 @@
 
 .titulo {
   text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 24px;
+  font-size: 2em;
+  margin-top: 30px;
+  font-weight: 800;
+  color: #000000;
+
 }
 
 .filtros {
@@ -126,7 +127,8 @@
   justify-content: center;
   gap: 16px;
   margin-bottom: 24px;
-  flex-wrap: wrap; /* permite quebrar em múltiplas linhas em telas pequenas */
+  flex-wrap: wrap;
+  /* permite quebrar em múltiplas linhas em telas pequenas */
 }
 
 .select-filtro,
@@ -138,7 +140,8 @@
 }
 
 .tabela-container {
-  overflow-x: auto; /* permite scroll horizontal em telas pequenas */
+  overflow-x: auto;
+  /* permite scroll horizontal em telas pequenas */
 }
 
 .tabela-funcionarios {
@@ -168,7 +171,7 @@
 }
 
 .barra-desempenho {
-  background-color: #326D6B; 
+  background-color: #326D6B;
   height: 100%;
   border-radius: 8px;
   transition: width 0.4s ease;

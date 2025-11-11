@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  background: #070c0b;
+  background: #242424;
   color: white;
   box-sizing: border-box;
   padding: 20px;
@@ -177,7 +177,7 @@
   gap: 12px;
   padding: 10px 12px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 18px;
   cursor: pointer;
   border: 1px solid #ffffff1d;
   font-family: "Montserrat", sans-serif;
@@ -214,7 +214,7 @@
   gap: 12px;
   padding: 10px 30px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 18px;
   cursor: pointer;
   border: 1px solid #426e62;
   font-family: "Montserrat", sans-serif;

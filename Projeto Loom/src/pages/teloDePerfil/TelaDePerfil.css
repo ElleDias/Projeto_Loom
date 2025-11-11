@@ -49,6 +49,7 @@
 /* Container que centraliza o cartão */
 .container_perfil {
     flex: 1;
+    background-color: #e5e5e5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,19 +72,17 @@
 }
 
 .profile-card:hover {
-    transform: none; /* Removi o scale para evitar desfoque e movimentos desnecessários */
+    transform: none; 
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Banner superior */
 .banner {
     width: 100%;
     height: 150px;
-    background: linear-gradient(135deg, #173C4C 0%, #326D6B 100%); /* Cor mais profunda */
-    border-radius: 20px 20px 0 0; /* Apenas o topo arredondado */
+    background: linear-gradient(135deg, #ffffff 0%, rgb(18, 18, 18) 100%); 
+    border-radius: 20px 20px 0 0; 
 }
 
-/* Cabeçalho */
 .profile-header {
     text-align: center;
     position: relative;
@@ -98,21 +97,21 @@
     border: 5px solid #fff;
     object-fit: cover;
     position: absolute;
-    top: 70px; /* Ajuste para o banner */
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Sombra azul mais discreta */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .profile-name {
-    margin-top: 80px; /* Ajuste para centralizar abaixo da imagem */
+    margin-top: 80px;
     font-size: 2em;
     color: #222;
     font-weight: 700;
 }
 
 .profile-role {
-    color: #326D6B; /* Cargo em destaque */
+    color: #dadada; /* Cargo em destaque */
     font-size: 1.1em;
     font-weight: 500;
 }
@@ -184,7 +183,7 @@
 .stat-item h4 {
     margin: 0 0 5px 0;
     font-size: 2em;
-    color: #326D6B; /* Cor de destaque */
+    color: #000000; /* Cor de destaque */
     font-weight: 700;
 }
 

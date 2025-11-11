@@ -1,16 +1,18 @@
-* {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+.monitoramento-container .header {
+  width: 100%;
+  height: 230px;
+  background-image: url('../../assets/img/fundoCinza.svg');
 }
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
- 
+
 }
 
-/* ----- MODAL OVERLAY ----- */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -29,6 +31,7 @@ body, html, #root {
   transition: all 0.4s ease;
   transition: margin-left 0.4s ease;
 }
+
 .tela-pendentes.sidebar-open {
   margin-left: 180px;
 }
@@ -65,6 +68,7 @@ body, html, #root {
     transform: scale(0.9);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -180,6 +184,6 @@ body, html, #root {
   padding: 15px;
 }
 
-.nomeDoBotao{
-    color: #fff;
+.nomeDoBotao {
+  color: #fff;
 }

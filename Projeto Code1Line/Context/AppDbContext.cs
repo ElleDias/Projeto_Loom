@@ -32,7 +32,7 @@ public class AppDbContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=NOTE16-S28\\SQLEXPRESS; Database=Code1Line; User Id= sa; Password=Senai@134; TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=NOTE13-S28\\SQLEXPRESS; Database=Code1Line; User Id= sa; Password=Senai@134; TrustServerCertificate=true;");
 
         }
     }
