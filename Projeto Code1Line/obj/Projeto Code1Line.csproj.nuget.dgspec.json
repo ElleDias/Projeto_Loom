@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj": {}
+    "C:\\Users\\56184436864\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Projeto Code1Line.csproj": {}
   },
   "projects": {
-    "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj": {
+    "C:\\Users\\56184436864\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Projeto Code1Line.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj",
+        "projectUniqueName": "C:\\Users\\56184436864\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Projeto Code1Line.csproj",
         "projectName": "Projeto Code1Line",
-        "projectPath": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Projeto Code1Line.csproj",
+        "projectPath": "C:\\Users\\56184436864\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Projeto Code1Line.csproj",
         "packagesPath": "C:\\Users\\56184436864\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\obj\\",
+        "outputPath": "C:\\Users\\56184436864\\Desktop\\Projeto_Loom\\Projeto Code1Line\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

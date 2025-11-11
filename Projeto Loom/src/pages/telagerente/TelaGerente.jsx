@@ -50,7 +50,7 @@ const TelaGerente = () => {
       <MenuLateral
         perfil={{ ativo: true, path: "/perfil", nome: "Perfil" }}
         geral={{ ativo: true, path: "/gerente", nome: "Geral" }}
-        gestores={{ ativo: true, path: "/gestor", nome: "Gestores" }}
+        gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
         funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
         voltarATela={{ ativo: true, nome: "Retornar" }}
@@ -80,7 +80,7 @@ const TelaGerente = () => {
           <button className="botao_tarefa azul" onClick={() => navigate("/Tarefas")}  >
             Tarefas Pendentes
           </button>
-          <button className="botao_tarefa roxo" onClick={mostrarConcluidas}>
+          <button className="botao_tarefa roxo" onClick={() => navigate("/Tarefas")}>
             Tarefas Concluídas
           </button>
           <button

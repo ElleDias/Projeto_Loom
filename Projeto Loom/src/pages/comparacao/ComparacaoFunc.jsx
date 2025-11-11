@@ -25,7 +25,7 @@ export default function ComparadorDeFuncionarios() {
   return (
      <div className={`comparador-container sidebar-${modoSidebar}`}>
       <MenuLateral
-        perfil={true}
+      perfil={{ ativo: true, path: "/perfil", nome: "Perfil" }}
         geral={{ ativo: true, path: "/gerente", nome: "Acessos" }}
         gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
         funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}

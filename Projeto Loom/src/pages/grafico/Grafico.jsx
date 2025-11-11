@@ -36,7 +36,7 @@ const Graficos = () => {
     return (
         <div className={`monitoramento-container sidebar-${modoSidebar}`}>
             <MenuLateral
-                perfil={true}
+                perfil={{ ativo: true, path: "/perfil", nome: "Perfil" }}
                 geral="Geral"
                 gestores={true}
                 funcionarios={true}
