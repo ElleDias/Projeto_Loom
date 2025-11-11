@@ -77,12 +77,12 @@ const TelaGerente = () => {
 
         <div className="tarefas-container moderno">
           {/* onClick={irParaOutraPagina} */}
-          <button className="botao_tarefa azul" onClick={() => navigate("/Tarefas")}  >
+          {/* <button className="botao_tarefa azul" onClick={() => navigate("/Tarefas")}  >
             Tarefas Pendentes
           </button>
           <button className="botao_tarefa roxo" onClick={() => navigate("/Tarefas")}>
             Tarefas Concluídas
-          </button>
+          </button> */}
           <button
             className="botao_graficos dourado"
             onClick={() => navigate("/Graficos")}

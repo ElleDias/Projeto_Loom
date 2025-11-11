@@ -8,23 +8,27 @@ const TelaGestor = () => {
     const [modoSidebar, setModoSidebar] = useState("close");
     const [funcionarios, setFuncionarios] = useState([]);
 
-    // ✅ Função para converter minutos em formato bonito
+    // ✅ Converte minutos em formato legível
     const formatarTempo = (minutos) => {
+        if (!minutos && minutos !== 0) return "N/A";
         const horas = Math.floor(minutos / 60);
         const mins = minutos % 60;
-
         if (horas === 0) return `${mins} minutos`;
+        if (mins === 0) return `${horas} horas`;
         return `${horas} horas e ${mins} minutos`;
     };
 
     const buscarMonitoramentos = async () => {
         try {
-            console.log("TOKEN ENVIADO:", localStorage.getItem("token"));
-            
-
+            // ✅ Busca o token do secureLocalStorage
             const token = secureLocalStorage.getItem("tokenLogin");
+            if (!token) {
+                console.error("Token não encontrado!");
+                return;
+            }
             console.log("TOKEN ENVIADO:", token);
 
+            // ✅ Requisição à API
             const resposta = await api.get("https://localhost:7283/api/Monitoramento", {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -33,31 +37,29 @@ const TelaGestor = () => {
 
             const dados = resposta.data;
 
+            // ✅ Trata os dados para exibição
             const listaTratada = dados.map(item => ({
                 nome: item.funcionario?.nome || "Desconhecido",
                 tempoAtivo: formatarTempo(item.tempoEmUsoMinutos),
-                tempoInativo:
-                    item.dataFim
-                        ? formatarTempo(
-                            Math.floor((new Date() - new Date(item.dataFim)) / 60000)
-                        )
-                        : "Em atividade"
+                tempoInativo: item.dataFim
+                    ? formatarTempo(Math.floor((new Date() - new Date(item.dataFim)) / 60000))
+                    : "Em atividade"
             }));
 
             setFuncionarios(listaTratada);
 
         } catch (erro) {
-            console.error("Erro ao buscar monitoramentos:", erro);
+            console.error("Erro ao buscar monitoramentos:", erro.response?.data || erro.message);
         }
     };
-    // ✅ Carregar ao montar a tela
+
+    // ✅ Carrega os dados ao montar o componente
     useEffect(() => {
         buscarMonitoramentos();
     }, []);
 
     return (
         <div className={`monitoramento-container sidebar-${modoSidebar}`}>
-
             <MenuLateral
                 perfil={{ ativo: true, path: "/perfil", nome: "Perfil" }}
                 geral={{ ativo: true, path: "/Acesso", nome: "Acessos" }}
