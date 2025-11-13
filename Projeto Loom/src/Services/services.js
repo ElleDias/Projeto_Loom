@@ -4,10 +4,10 @@ import axios from "axios";
 const apiPorta = "7283"
 
 //apiLocal ela recebe o endereco da api
-const apilocal = `http://localhost:${apiPorta}/api/`;
+const apiLocal = `http://localhost:${apiPorta}/api/`;;
 
 const api = axios.create({
-  baseURL: apilocal  
+  baseURL: apiLocal  
 });
 
 export default api;

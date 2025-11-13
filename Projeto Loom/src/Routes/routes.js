@@ -41,7 +41,7 @@ const Rotas = () => {
                 {/* http://localhost:3000/ => TarefasPendentes */}
                 <Route path="/Tarefas" element={<TarefasPendentes />} exact />
                 {/* http://localhost:3000/ => CadastroDeTarefas */}
-                {/* <Route path="/CadastroDeTarefas" element={<CadastroDeTarefas />} exact /> */}
+                <Route path="/CadastroDeTarefas" element={<CadastroDeTarefas />} exact />
                 {/* http://localhost:3000/ => Mensagens */}
                 <Route path="/Mensagem" element={<Mensagem />} />
                 {/* http://localhost:3000/ => MensagensGestor */}

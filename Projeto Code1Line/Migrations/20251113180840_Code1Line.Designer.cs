@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Projeto_Code1Line.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251028165615_Code1Line")]
+    [Migration("20251113180840_Code1Line")]
     partial class Code1Line
     {
         /// <inheritdoc />
@@ -189,6 +189,31 @@ namespace Projeto_Code1Line.Migrations
                     b.ToTable("Usuario");
                 });
 
+            modelBuilder.Entity("Projeto_Code1Line.Domain.Tarefas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FuncionarioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NomeTarefa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FuncionarioId");
+
+                    b.ToTable("Tarefas");
+                });
+
             modelBuilder.Entity("Code1Line.Domain.Atividade", b =>
                 {
                     b.HasOne("Code1Line.Domain.Funcionario", "Funcionario")
@@ -212,6 +237,17 @@ namespace Projeto_Code1Line.Migrations
                 });
 
             modelBuilder.Entity("Code1Line.Domain.Monitoramento", b =>
+                {
+                    b.HasOne("Code1Line.Domain.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Funcionario");
+                });
+
+            modelBuilder.Entity("Projeto_Code1Line.Domain.Tarefas", b =>
                 {
                     b.HasOne("Code1Line.Domain.Funcionario", "Funcionario")
                         .WithMany()

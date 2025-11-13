@@ -1,22 +1,73 @@
-import React, { useState } from "react";
-import './Mensagem.css';
-import { FaUserCircle } from 'react-icons/fa';
-import { BsChatText } from 'react-icons/bs';
+import React, { useState, useEffect } from "react";
+import "./Mensagem.css";
+import { FaUserCircle } from "react-icons/fa";
+import { BsChatText } from "react-icons/bs";
 import { MenuLateral } from "../../components/Sidebar/Sidebar";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import secureLocalStorage from "react-secure-storage";
+import { jwtDecode } from "jwt-decode";
 
 function Mensagens() {
   const navigate = useNavigate();
-
-  // Lista de mensagens simulada
-  const listaMensagens = [
-    { id: 1, nome: 'Fulano da Silva', ultimaMsg: 'Oi, tudo bem? Já estou online.', time: '14:30', unread: true },
-    { id: 2, nome: 'Gestor Carlos', ultimaMsg: 'A reunião foi cancelada.', time: 'Ontem', unread: false },
-    { id: 3, nome: 'Equipe de TI', ultimaMsg: 'Reinicie seu computador.', time: '15/10', unread: true },
-    { id: 4, nome: 'Gerente RH', ultimaMsg: 'Confirmado para amanhã.', time: '09:00', unread: false },
-  ];
-
   const [modoSidebar, setModoSidebar] = useState("close");
+  const [mensagens, setMensagens] = useState([]);
+
+  // ✅ Recupera token e tenta decodificar ID do usuário logado
+const token = secureLocalStorage.getItem("token");
+  let userAId = null;
+
+  if (token) {
+    try {
+      const decodedToken = jwtDecode(token);
+      console.log("🔍 Token decodificado:", decodedToken);
+      
+      // ✅ 2. Corrigir a extração do ID para pegar o valor numérico (int)
+      const rawId =
+        decodedToken?.IdUsuarioInteiro ||
+        decodedToken?.nameid ||
+        decodedToken?.id;
+
+      if (rawId) {
+        // Garantir que é um número inteiro (resolvendo o erro 400 anterior)
+        userAId = parseInt(rawId, 10);
+      }
+      
+    } catch (error) {
+      console.error("❌ Erro ao decodificar token:", error);
+    }
+  } else {
+    console.warn("⚠️ Nenhum token encontrado no secureLocalStorage!");
+  }
+
+  const userBId = 2; 
+  // API_URL AGORA USA userAId e userBId (que devem ser números)
+  const API_URL = `https://localhost:7283/api/Mensagem/conversation/${userAId}/${userBId}`;
+
+  useEffect(() => {
+    const fetchMensagens = async () => {
+      if (!userAId || !token) {
+        console.warn("Usuário não autenticado ou token ausente!");
+        return;
+      }
+
+      try {
+        const response = await axios.get(API_URL, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        console.log("Mensagens recebidas:", response.data);
+        setMensagens(response.data);
+      } catch (error) {
+        console.error(
+          "Erro ao buscar mensagens:",
+          error.response?.data || error.message
+        );
+      }
+    };
+
+    fetchMensagens();
+  }, [userAId, userBId]);
 
   const handleOpenChat = (id) => {
     navigate(`/chat/${id}`);
@@ -36,30 +87,36 @@ function Mensagens() {
         <h1 className="titulo-lista">Mensagens</h1>
 
         <div className="lista-mensagens">
-          {listaMensagens.map((mensagem) => (
-            <div
-              key={mensagem.id}
-              className="item-mensagem"
-              onClick={() => handleOpenChat(mensagem.id)}
-            >
-              <div className="avatar-e-info">
-                <FaUserCircle size={40} color="#001608" />
-                <div className="info-mensagem">
-                  <p className="nome-contato">{mensagem.nome}</p>
-                  <p className="ultima-mensagem">{mensagem.ultimaMsg}</p>
+          {mensagens.length > 0 ? (
+            mensagens.map((msg) => (
+              <div
+                key={msg.id}
+                className="item-mensagem"
+                onClick={() => handleOpenChat(msg.id)}
+              >
+                <div className="avatar-e-info">
+                  <FaUserCircle size={40} color="#001608" />
+                  <div className="info-mensagem">
+                    <p className="nome-contato">
+                      {msg.remetente?.nome || "Usuário"}
+                    </p>
+                    <p className="ultima-mensagem">{msg.conteudo}</p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="status-mensagem">
-                <span className="hora-mensagem">{mensagem.time}</span>
-                {mensagem.unread && (
+                <div className="status-mensagem">
+                  <span className="hora-mensagem">
+                    {new Date(msg.dataEnvio).toLocaleString()}
+                  </span>
                   <div className="bola-nao-lida">
                     <BsChatText size={18} color="#001608" />
                   </div>
-                )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="nenhuma-mensagem">Nenhuma mensagem encontrada.</p>
+          )}
         </div>
       </div>
     </div>

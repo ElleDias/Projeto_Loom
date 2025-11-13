@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./CadastroDeTarefas.css";
 import { MenuLateral } from "../../components/Sidebar/Sidebar";
+import { getTarefas, criarTarefa } from "../../Services/tarefasService";
 
 export default function App() {
   const [modoSidebar, setModoSidebar] = useState("close");
@@ -9,25 +10,47 @@ export default function App() {
   const [employee, setEmployee] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const handleSubmit = (e) => {
+  // 🔹 Buscar tarefas no carregamento
+  useEffect(() => {
+    carregarTarefas();
+  }, []);
+
+  const carregarTarefas = async () => {
+    try {
+      const dados = await getTarefas();
+      setTasks(dados);
+    } catch (error) {
+      console.error("Erro ao buscar tarefas:", error);
+    }
+  };
+
+  // 🔹 Cadastrar tarefa (API)
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!taskName.trim()) return alert("Informe o nome da tarefa!");
 
-    const newTask = {
-      id: Date.now(),
-      name: taskName,
-      description,
-      employee: employee || "Sem responsável",
+    const novaTarefa = {
+      nomeTarefa: taskName,
+      descricao: description,
+      funcionarioId: employee || null, // se seu backend espera um id numérico
     };
 
-    setTasks([...tasks, newTask]);
-    setTaskName("");
-    setDescription("");
-    setEmployee("");
+    try {
+      await criarTarefa(novaTarefa);
+      alert("Tarefa cadastrada com sucesso!");
+      setTaskName("");
+      setDescription("");
+      setEmployee("");
+      carregarTarefas(); // Atualiza lista
+    } catch (error) {
+      console.error("Erro ao cadastrar tarefa:", error);
+      alert("Erro ao cadastrar tarefa.");
+    }
   };
 
   return (
-    <div className={` app-container sidebar-${modoSidebar}`}>
+    <div className={`app-container sidebar-${modoSidebar}`}>
       <MenuLateral
         perfil={true}
         geral={{ ativo: true, path: "/gerente", nome: "Acessos" }}
@@ -38,6 +61,7 @@ export default function App() {
         modo={modoSidebar}
         setModo={setModoSidebar}
       />
+
       <div className="form-card">
         <h2>Cadastro de Tarefas</h2>
         <form onSubmit={handleSubmit} className="task-form">
@@ -62,12 +86,12 @@ export default function App() {
             onChange={(e) => setEmployee(e.target.value)}
           >
             <option value="">Nenhum</option>
-            <option value="Brenda">Brenda</option>
-            <option value="Caio">Caio</option>
-            <option value="Yasmim">Yasmin</option>
-            <option value="Danielle">Danielle</option>
-            <option value="Laura">Laura</option>
-            <option value="Lucas">Lucas</option>
+            <option value="1">Brenda</option>
+            <option value="2">Caio</option>
+            <option value="3">Yasmim</option>
+            <option value="4">Danielle</option>
+            <option value="5">Laura</option>
+            <option value="6">Lucas</option>
           </select>
 
           <button type="submit" className="save-btn">
@@ -84,9 +108,9 @@ export default function App() {
           <ul>
             {tasks.map((task) => (
               <li key={task.id}>
-                <strong>{task.name}</strong> — {task.employee}
-                {task.description && (
-                  <p className="task-desc">{task.description}</p>
+                <strong>{task.nomeTarefa}</strong> — {task.funcionarioId || "Sem responsável"}
+                {task.descricao && (
+                  <p className="task-desc">{task.descricao}</p>
                 )}
               </li>
             ))}

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Code1Line.Domain;
+using Projeto_Code1Line.Domain;
 
 namespace Code1Line.Data;
 
@@ -7,6 +8,7 @@ public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
+    public DbSet<Tarefas> Tarefas { get; set; }
     public DbSet<Usuario> Usuario { get; set; } = null!;
     public DbSet<Funcionario> Funcionarios { get; set; } = null!;
     public DbSet<Departamento> Departamentos { get; set; } = null!;

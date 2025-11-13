@@ -122,6 +122,27 @@ namespace Projeto_Code1Line.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Tarefas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NomeTarefa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FuncionarioId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tarefas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tarefas_Funcionarios_FuncionarioId",
+                        column: x => x.FuncionarioId,
+                        principalTable: "Funcionarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Atividades_FuncionarioId",
                 table: "Atividades",
@@ -135,6 +156,11 @@ namespace Projeto_Code1Line.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Monitoramentos_FuncionarioId",
                 table: "Monitoramentos",
+                column: "FuncionarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tarefas_FuncionarioId",
+                table: "Tarefas",
                 column: "FuncionarioId");
 
             migrationBuilder.CreateIndex(
@@ -155,6 +181,9 @@ namespace Projeto_Code1Line.Migrations
 
             migrationBuilder.DropTable(
                 name: "Monitoramentos");
+
+            migrationBuilder.DropTable(
+                name: "Tarefas");
 
             migrationBuilder.DropTable(
                 name: "Usuario");
