@@ -20,36 +20,34 @@ const TelaGestor = () => {
 
     const buscarMonitoramentos = async () => {
         try {
-            // ✅ Busca o token do secureLocalStorage
-            const token = secureLocalStorage.getItem("tokenLogin");
+            // ✅ Busca o token do secureLocalStorage (corrigido)
+            const token = secureLocalStorage.getItem("token");
             if (!token) {
-                console.error("Token não encontrado!");
+                console.error("⚠️ Token não encontrado!");
                 return;
             }
-            console.log("TOKEN ENVIADO:", token);
 
             // ✅ Requisição à API
             const resposta = await api.get("https://localhost:7283/api/Monitoramento", {
                 headers: {
-                    Authorization: `Bearer ${token}`
-                }
+                    Authorization: `Bearer ${token}`,
+                },
             });
 
             const dados = resposta.data;
 
             // ✅ Trata os dados para exibição
-            const listaTratada = dados.map(item => ({
+            const listaTratada = dados.map((item) => ({
                 nome: item.funcionario?.nome || "Desconhecido",
                 tempoAtivo: formatarTempo(item.tempoEmUsoMinutos),
                 tempoInativo: item.dataFim
                     ? formatarTempo(Math.floor((new Date() - new Date(item.dataFim)) / 60000))
-                    : "Em atividade"
+                    : "Em atividade",
             }));
 
             setFuncionarios(listaTratada);
-
         } catch (erro) {
-            console.error("Erro ao buscar monitoramentos:", erro.response?.data || erro.message);
+            console.error("❌ Erro ao buscar monitoramentos:", erro.response?.data || erro.message);
         }
     };
 

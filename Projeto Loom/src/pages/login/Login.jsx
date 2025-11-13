@@ -11,7 +11,7 @@ import Button from "../../components/Botao/Botao";
 
 const Login = () => {
   const [mostrarSenha, setMostrarSenha] = useState(false);
-  const { setUsuario } = useAuth();
+const { setUsuario, login } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false); 
@@ -43,15 +43,12 @@ if (!token) {
   return;
 }
 
+// salva o decodificado só no contexto, se quiser
 const tokenDecodificado = userDecodeToken(token);
 console.log("Token decodificado:", tokenDecodificado);
 
-// salva o token PURO para usar no Authorization
-
-
-// salva o decodificado só no contexto, se quiser
-setUsuario(tokenDecodificado);
-secureLocalStorage.setItem("tokenLogin", token); // salva o token JWT puro
+// salva o token e o usuário usando o contexto (isso já salva no secureLocalStorage)
+login(token, tokenDecodificado);
 
 const role = tokenDecodificado["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
