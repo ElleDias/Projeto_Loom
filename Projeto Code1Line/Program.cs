@@ -31,16 +31,20 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
-builder.Services.AddScoped<IAtividadeRepository, AtividadeRepository>();
 
 // ================================
 // ?? Injeção de Dependência
 // ================================
-builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAtividadeRepository, AtividadeRepository>();
+builder.Services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IMonitoramentoRepository, MonitoramentoRepository>();
 builder.Services.AddScoped<ITarefasRepository, TarefasRepository>();
 builder.Services.AddScoped<IMensagemRepository, MensagemRepository>();
+builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+
 // ================================
 // ?? Autenticação JWT
 // ================================
@@ -85,7 +89,12 @@ builder.Services.AddCors(options =>
 // ================================
 // ?? Controllers e Swagger
 // ================================
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true; // (opcional, apenas para formatar bonito)
+    });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>

@@ -1,12 +1,22 @@
 using Code1Line.Domain;
 
-namespace Code1Line.Interfaces;
-
-public interface IFuncionarioRepository
+namespace Code1Line.Interfaces
 {
-    Task<IEnumerable<Funcionario>> GetAllAsync();
-    Task<Funcionario?> GetByIdAsync(int id);
-    Task AddAsync(Funcionario funcionario);
-    Task UpdateAsync(Funcionario funcionario);
-    Task DeleteAsync(int id);
+    public interface IFuncionarioRepository
+    {
+        // Cadastrar um novo funcionário
+        Task CadastrarAsync(Funcionario funcionario);
+
+        // Listar todos os funcionários
+        Task<List<Funcionario>> ListarAsync();
+
+        // Buscar funcionário pelo ID
+        Task<Funcionario?> BuscarPorIdAsync(int id);
+
+        // Atualizar funcionário
+        Task AtualizarAsync(Funcionario funcionario);
+
+        // Deletar funcionário
+        Task DeletarAsync(int id);
+    }
 }
