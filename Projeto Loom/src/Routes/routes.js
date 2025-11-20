@@ -15,7 +15,7 @@ import Comparacao from "../pages/comparacao/ComparacaoFunc"
 import MensagemGestor from "../pages/mensagemGestor/MensagemGestor"
 import TeladePerfil from "../pages/teloDePerfil/TelaDePerfil";
 import RedefinirSenha from "../pages/redefinirsenha/Redefinirsenha"
-import  Chat from "../pages/chat/Chat";
+import Chat from "../pages/chat/Chat";
 
 
 const Rotas = () => {
@@ -51,12 +51,11 @@ const Rotas = () => {
                 {/* http://localhost:3000/ => Perfil */}
                 <Route path="/Perfil" element={<TeladePerfil />} />
                 {/* http://localhost:3000/ => Redefinir Senha */}
-                <Route path="/Senha" element={<RedefinirSenha />} />
-                <Route path="/Chat/:id" element={<Chat />} /> 
+                <Route path="/Senha" element={<RedefinirSenha />} />      
+                <Route path="/chat/:contatoId" element={<Chat />} />
+            </Routes>
+        </BrowserRouter>
 
-                </Routes>
-            </BrowserRouter>
-            
     );
 }
 export default Rotas;

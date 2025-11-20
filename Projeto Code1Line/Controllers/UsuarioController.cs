@@ -22,7 +22,7 @@ public class UsuarioController : ControllerBase
 
     [HttpGet("{id}")]
     [Authorize(Roles = "Gerente,Gestor")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         var u = await _repo.GetByIdAsync(id);
         if (u == null) return NotFound();
@@ -48,7 +48,7 @@ public class UsuarioController : ControllerBase
 
     [HttpDelete("{id}")]
     [Authorize(Roles = "Gerente")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         await _repo.DeleteAsync(id);
         return NoContent();

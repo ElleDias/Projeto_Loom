@@ -111,6 +111,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Code1Line.Controllers.ChatController",
+    "Method": "GetConversation",
+    "RelativePath": "api/Chat/conversation/{userAId}/{userBId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userBId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.ChatController",
+    "Method": "GetOrCreate",
+    "RelativePath": "api/Chat/get-or-create/{userAId}/{userBId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userBId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.ChatController",
+    "Method": "EnviarMensagem",
+    "RelativePath": "api/Chat/mensagem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mensagem",
+        "Type": "Mensagem",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.ChatController",
+    "Method": "GetUserChats",
+    "RelativePath": "api/Chat/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Code1Line.Controllers.DashboardController",
     "Method": "GetResumo",
     "RelativePath": "api/Dashboard/resumo",
@@ -280,22 +354,6 @@
   },
   {
     "ContainingType": "Code1Line.Controllers.MensagemController",
-    "Method": "Send",
-    "RelativePath": "api/Mensagem",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "mensagem",
-        "Type": "Code1Line.Domain.Mensagem",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Code1Line.Controllers.MensagemController",
     "Method": "Delete",
     "RelativePath": "api/Mensagem/{id}",
     "HttpMethod": "DELETE",
@@ -304,7 +362,23 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.MensagemController",
+    "Method": "GetChatMessages",
+    "RelativePath": "api/Mensagem/chat/{chatId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chatId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -320,12 +394,44 @@
     "Parameters": [
       {
         "Name": "userAId",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
         "IsRequired": true
       },
       {
         "Name": "userBId",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.MensagemController",
+    "Method": "GetMessagesByUser",
+    "RelativePath": "api/Mensagem/list/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.MensagemController",
+    "Method": "Send",
+    "RelativePath": "api/Mensagem/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mensagem",
+        "Type": "Mensagem",
         "IsRequired": true
       }
     ],
@@ -540,7 +646,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -577,7 +683,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

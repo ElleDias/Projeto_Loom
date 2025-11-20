@@ -1,86 +1,100 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import axios from "axios";
 import "./Chat.css";
 import { FaChevronLeft, FaInfoCircle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/authContext";
 import { jwtDecode } from "jwt-decode";
 
-function Chat({ contatoId }) {
+const API_URL = "https://localhost:7283/api/Chat";
+
+function Chat() {
     const navigate = useNavigate();
     const { token } = useAuth();
+    const { contatoId } = useParams();
+    const location = useLocation();
+    const [userAId, setUserAId] = useState(null);
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
-    const [isLoading, setIsLoading] = useState(true);
+    const chatBodyRef = useRef(null);
+    const [contatoNome] = useState(location.state?.contatoNome || "Contato");
 
-    const API_URL = "https://localhost:7283/api/Mensagem";
-
-    let decodedToken;
-    let userAId = null;
-
-    if (token) {
-        try {
-            decodedToken = jwtDecode(token);
-            userAId = decodedToken?.id;
-        } catch (error) {
-            console.error("Erro ao decodificar token:", error);
-        }
-    }
-
-    const userBId = contatoId;
-
-    // 📩 Buscar mensagens da conversa
+    // 1️⃣ Decodifica token
     useEffect(() => {
-        const fetchMessages = async () => {
-            if (!token || !userAId || !userBId) {
-                setIsLoading(false);
-                return;
-            }
+        if (!token) return;
 
-            try {
-                const response = await axios.get(
-                    `${API_URL}/conversation/${userAId}/${userBId}`,
-                    {
-                        headers: { Authorization: `Bearer ${token}` },
-                    }
-                );
-                setMessages(response.data);
-            } catch (error) {
-                console.error("Erro ao carregar mensagens:", error.response?.data || error.message);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+        try {
+            const decoded = jwtDecode(token);
+            const userIdGuid = decoded?.id || decoded?.nameid || decoded?.sub;
+            if (userIdGuid) setUserAId(userIdGuid.toString());
+        } catch (err) {
+            console.error("Erro ao decodificar token:", err);
+        }
+    }, [token]);
 
+    // 2️⃣ Função para buscar mensagens
+    const fetchMessages = useCallback(async () => {
+        if (!token || !userAId || !contatoId) return;
+
+        try {
+            const response = await axios.get(
+                `${API_URL}/conversation/${userAId}/${contatoId}`,
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+
+            // Aqui definimos o nome do remetente para mostrar no chat
+            const msgs = response.data.map((msg) => ({
+                ...msg,
+                RemetenteNome:
+                    msg.remetenteId.toLowerCase() === userAId.toLowerCase()
+                        ? "Você"
+                        : contatoNome, // <--- aqui usamos o nome do contato
+            }));
+
+            setMessages(msgs);
+            scrollToBottom();
+        } catch (error) {
+            console.error("Erro ao carregar mensagens:", error.response?.data || error.message);
+        }
+    }, [token, userAId, contatoId, contatoNome]);
+
+    useEffect(() => {
         fetchMessages();
-    }, [token, userAId, userBId]);
+        const interval = setInterval(fetchMessages, 3000);
+        return () => clearInterval(interval);
+    }, [fetchMessages]);
 
-    // ✉️ Enviar mensagem
+    // 3️⃣ Enviar mensagem
     const handleSend = async () => {
-        if (!token || !userAId || !userBId || newMessage.trim() === "") return;
+        if (!newMessage.trim() || !userAId || !contatoId) return;
 
-        const messagePayload = {
-            remetenteId: userAId,
-            destinatarioId: userBId,
-            conteudo: newMessage,
+        const payload = {
+            RemetenteId: userAId,
+            DestinatarioId: contatoId,
+            Conteudo: newMessage,
         };
 
         try {
-            const response = await axios.post(API_URL, messagePayload, {
+            const response = await axios.post(`${API_URL}/mensagem`, payload, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
-            setMessages((prev) => [...prev, response.data]);
+            setMessages((prev) => [
+                ...prev,
+                { ...response.data, RemetenteNome: "Você" },
+            ]);
             setNewMessage("");
+            scrollToBottom();
         } catch (error) {
             console.error("Erro ao enviar mensagem:", error.response?.data || error.message);
         }
     };
 
-    // 🔄 Estado de carregamento
-    if (isLoading) {
-        return <p>Carregando chat...</p>;
-    }
+    const scrollToBottom = () => {
+        if (chatBodyRef.current) {
+            chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+        }
+    };
 
     return (
         <div className="chat-page">
@@ -88,18 +102,17 @@ function Chat({ contatoId }) {
                 <header className="chat-header">
                     <FaChevronLeft
                         size={20}
-                        color="#000000ff"
                         onClick={() => navigate(-1)}
                         style={{ cursor: "pointer" }}
                     />
                     <div className="user-info">
-                        <p className="imessage-label">LOOM</p>
-                        <h3 className="user-name">Fulano da Silva</h3>
+                        <p className="imessage-label">CHAT</p>
+                        <h3 className="user-name">{contatoNome}</h3>
                     </div>
-                    <FaInfoCircle size={20} color="#000000ff" style={{ cursor: "pointer" }} />
+                    <FaInfoCircle size={20} />
                 </header>
 
-                <div className="chat-body">
+                <div className="chat-body" ref={chatBodyRef}>
                     {messages.length === 0 ? (
                         <p className="no-messages">Nenhuma mensagem ainda.</p>
                     ) : (
@@ -107,15 +120,21 @@ function Chat({ contatoId }) {
                             <div
                                 key={msg.id}
                                 className={`chat-message ${
-                                    msg.remetenteId === userAId ? "sent" : "received"
+                                    msg.remetenteId.toLowerCase() === userAId.toLowerCase()
+                                        ? "sent"
+                                        : "received"
                                 }`}
                             >
-                                <p className="message-text">{msg.conteudo}</p>
+                                <p className="message-text">
+                                    <strong>{msg.RemetenteNome}</strong>: {msg.conteudo}
+                                </p>
                                 <span className="message-time">
-                                    {new Date(msg.enviadaEm).toLocaleTimeString([], {
-                                        hour: "2-digit",
-                                        minute: "2-digit",
-                                    })}
+                                    {msg.enviadaEm
+                                        ? new Date(msg.enviadaEm).toLocaleTimeString([], {
+                                              hour: "2-digit",
+                                              minute: "2-digit",
+                                          })
+                                        : ""}
                                 </span>
                             </div>
                         ))
@@ -129,8 +148,9 @@ function Chat({ contatoId }) {
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                        disabled={!userAId || !contatoId}
                     />
-                    <button onClick={handleSend} style={{ backgroundColor: "#000000ff" }}>
+                    <button onClick={handleSend} disabled={!userAId || !contatoId}>
                         Enviar
                     </button>
                 </div>

@@ -25,22 +25,6 @@ namespace Projeto_Code1Line.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Mensagens",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RemetenteId = table.Column<int>(type: "int", nullable: false),
-                    DestinatarioId = table.Column<int>(type: "int", nullable: false),
-                    Conteudo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EnviadaEm = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Mensagens", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
                 {
@@ -143,15 +127,62 @@ namespace Projeto_Code1Line.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Chats",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Usuario1Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Usuario2Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AtualizadoEm = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UltimaMensagemId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chats", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Mensagens",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ChatId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RemetenteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DestinatarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Conteudo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EnviadaEm = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mensagens", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Mensagens_Chats_ChatId",
+                        column: x => x.ChatId,
+                        principalTable: "Chats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Atividades_FuncionarioId",
                 table: "Atividades",
                 column: "FuncionarioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Chats_UltimaMensagemId",
+                table: "Chats",
+                column: "UltimaMensagemId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Funcionarios_DepartamentoId",
                 table: "Funcionarios",
                 column: "DepartamentoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mensagens_ChatId",
+                table: "Mensagens",
+                column: "ChatId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Monitoramentos_FuncionarioId",
@@ -168,16 +199,25 @@ namespace Projeto_Code1Line.Migrations
                 table: "Usuario",
                 column: "Email",
                 unique: true);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Chats_Mensagens_UltimaMensagemId",
+                table: "Chats",
+                column: "UltimaMensagemId",
+                principalTable: "Mensagens",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Atividades");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Chats_Mensagens_UltimaMensagemId",
+                table: "Chats");
 
             migrationBuilder.DropTable(
-                name: "Mensagens");
+                name: "Atividades");
 
             migrationBuilder.DropTable(
                 name: "Monitoramentos");
@@ -193,6 +233,12 @@ namespace Projeto_Code1Line.Migrations
 
             migrationBuilder.DropTable(
                 name: "Departamentos");
+
+            migrationBuilder.DropTable(
+                name: "Mensagens");
+
+            migrationBuilder.DropTable(
+                name: "Chats");
         }
     }
 }

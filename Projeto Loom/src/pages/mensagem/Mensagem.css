@@ -15,6 +15,12 @@
     transition: margin-left 0.3s ease;
 }
 
+.nenhuma-mensagem {
+  text-align: center;
+  color: #555;
+  margin: 30px 0;
+  font-size: 1em;
+}
 /* Ajuste para Sidebar */
 .pagina-mensagens.sidebar-open {
     margin-left: 190px;

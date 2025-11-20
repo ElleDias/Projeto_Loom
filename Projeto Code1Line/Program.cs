@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Projeto_Code1Line.Domain.Interfaces;
 using Projeto_Code1Line.Infrastructure.Repositories;
+using Projeto_Code1Line.Interfaces;
 using Projeto_Code1Line.Repositories;
 using System.Security.Claims;
 using System.Text;
@@ -42,6 +43,7 @@ builder.Services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IMonitoramentoRepository, MonitoramentoRepository>();
 builder.Services.AddScoped<ITarefasRepository, TarefasRepository>();
+builder.Services.AddScoped<IChatRepository, ChatRepository>();
 builder.Services.AddScoped<IMensagemRepository, MensagemRepository>();
 builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
 
@@ -93,7 +95,7 @@ builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-        options.JsonSerializerOptions.WriteIndented = true; // (opcional, apenas para formatar bonito)
+        options.JsonSerializerOptions.WriteIndented = true; 
     });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -135,6 +137,7 @@ var app = builder.Build();
 // ================================
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }

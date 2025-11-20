@@ -1,12 +1,12 @@
 ﻿namespace Projeto_Code1Line.DTOs
 {
+
     public class MensagemDTO
     {
-        public int? Id { get; set; }
-        public int DestinatarioId { get; set; }
+        public Guid Id { get; set; }
+        public Guid RemetenteId { get; set; }
+        public Guid DestinatarioId { get; set; }
         public string Conteudo { get; set; } = string.Empty;
-        public string? NomeRemetente { get; set; }
-        public DateTime? DataEnvio { get; set; }
+        public DateTime EnviadaEm { get; set; }
     }
-
 }

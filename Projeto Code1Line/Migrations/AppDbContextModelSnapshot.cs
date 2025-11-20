@@ -22,6 +22,31 @@ namespace Projeto_Code1Line.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Chat", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("AtualizadoEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UltimaMensagemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("Usuario1Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("Usuario2Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UltimaMensagemId");
+
+                    b.ToTable("Chats");
+                });
+
             modelBuilder.Entity("Code1Line.Domain.Atividade", b =>
                 {
                     b.Property<int>("Id")
@@ -97,32 +122,6 @@ namespace Projeto_Code1Line.Migrations
                     b.ToTable("Funcionarios");
                 });
 
-            modelBuilder.Entity("Code1Line.Domain.Mensagem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Conteudo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DestinatarioId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EnviadaEm")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RemetenteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Mensagens");
-                });
-
             modelBuilder.Entity("Code1Line.Domain.Monitoramento", b =>
                 {
                     b.Property<int>("Id")
@@ -186,6 +185,35 @@ namespace Projeto_Code1Line.Migrations
                     b.ToTable("Usuario");
                 });
 
+            modelBuilder.Entity("Mensagem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ChatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Conteudo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("DestinatarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("EnviadaEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("RemetenteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("Mensagens");
+                });
+
             modelBuilder.Entity("Projeto_Code1Line.Domain.Tarefas", b =>
                 {
                     b.Property<int>("Id")
@@ -209,6 +237,16 @@ namespace Projeto_Code1Line.Migrations
                     b.HasIndex("FuncionarioId");
 
                     b.ToTable("Tarefas");
+                });
+
+            modelBuilder.Entity("Chat", b =>
+                {
+                    b.HasOne("Mensagem", "UltimaMensagem")
+                        .WithMany()
+                        .HasForeignKey("UltimaMensagemId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("UltimaMensagem");
                 });
 
             modelBuilder.Entity("Code1Line.Domain.Atividade", b =>
@@ -244,6 +282,17 @@ namespace Projeto_Code1Line.Migrations
                     b.Navigation("Funcionario");
                 });
 
+            modelBuilder.Entity("Mensagem", b =>
+                {
+                    b.HasOne("Chat", "Chat")
+                        .WithMany("Mensagens")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+                });
+
             modelBuilder.Entity("Projeto_Code1Line.Domain.Tarefas", b =>
                 {
                     b.HasOne("Code1Line.Domain.Funcionario", "Funcionario")
@@ -253,6 +302,11 @@ namespace Projeto_Code1Line.Migrations
                         .IsRequired();
 
                     b.Navigation("Funcionario");
+                });
+
+            modelBuilder.Entity("Chat", b =>
+                {
+                    b.Navigation("Mensagens");
                 });
 
             modelBuilder.Entity("Code1Line.Domain.Departamento", b =>
