@@ -627,29 +627,6 @@
         }
       }
     },
-    "/api/Mensagem/chat/{chatId}": {
-      "get": {
-        "tags": [
-          "Mensagem"
-        ],
-        "parameters": [
-          {
-            "name": "chatId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Mensagem/send": {
       "post": {
         "tags": [

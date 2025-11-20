@@ -370,22 +370,6 @@
   },
   {
     "ContainingType": "Code1Line.Controllers.MensagemController",
-    "Method": "GetChatMessages",
-    "RelativePath": "api/Mensagem/chat/{chatId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "chatId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Code1Line.Controllers.MensagemController",
     "Method": "GetConversation",
     "RelativePath": "api/Mensagem/conversation/{userAId}/{userBId}",
     "HttpMethod": "GET",

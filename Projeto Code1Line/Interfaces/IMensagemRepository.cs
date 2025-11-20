@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Code1Line.Domain;
 
 namespace Code1Line.Interfaces
@@ -6,7 +9,7 @@ namespace Code1Line.Interfaces
     {
         Task<List<Mensagem>> GetChatMessagesAsync(Guid chatId);
         Task<Mensagem> AddAsync(Mensagem msg);
-        Task<IEnumerable<Mensagem>> GetConversationAsync(Guid userAId, Guid userBId);
+        Task<List<Mensagem>> GetConversationAsync(Guid userAId, Guid userBId);
         Task<Mensagem?> GetByIdAsync(Guid id);
         Task DeleteAsync(Guid id);
         Task<List<Mensagem>> GetMessagesByUserAsync(Guid userId);
@@ -14,6 +17,6 @@ namespace Code1Line.Interfaces
         Task<Chat?> GetChatByUsersAsync(Guid userAId, Guid userBId);
         Task<Chat> CreateChatAsync(Guid userAId, Guid userBId);
         Task UpdateChatAsync(Chat chat);
-        Task<IEnumerable<object>> GetMessagesByChatIdAsync(Guid id);
+        Task<List<Mensagem>> GetMessagesByChatIdAsync(Guid id); 
     }
 }
