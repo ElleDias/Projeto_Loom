@@ -3,6 +3,50 @@
   "WorkspaceRootPath": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\controllers\\acessocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\controllers\\acessocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\controllers\\dominiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\controllers\\dominiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\repositories\\dominiorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\repositories\\dominiorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\repositories\\acessorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\repositories\\acessorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\domain\\acesso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\domain\\acesso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\domain\\dominio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\domain\\dominio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\interfaces\\acessorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\interfaces\\acessorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\interfaces\\dominiorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\interfaces\\dominiorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\repositories\\mensagemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\repositories\\mensagemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\repositories\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\repositories\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\interfaces\\imensagemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,10 +123,6 @@
       "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\domain\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\repositories\\departamentorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\repositories\\departamentorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -147,10 +183,6 @@
       "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|c:\\users\\danielle\\desktop\\projeto_loom\\projeto code1line\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D39FD68C-E1D6-4EE6-90C2-DA90163493CD}|Projeto Code1Line\\Projeto Code1Line.csproj|solutionrelative:projeto code1line\\services\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Migrations\\20251028165552_Code1Line.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -165,37 +197,141 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ChatController.cs",
-              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\ChatController.cs",
-              "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\ChatController.cs",
-              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\ChatController.cs",
-              "RelativeToolTip": "Projeto Code1Line\\Controllers\\ChatController.cs",
-              "ViewState": "AgIAAGEAAACAqO9s1Hf+v2kAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AcessoController.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\AcessoController.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\AcessoController.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\AcessoController.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Controllers\\AcessoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T15:09:01.24Z",
+              "WhenOpened": "2025-11-23T14:05:13.169Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ChatRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\ChatRepository.cs",
-              "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\ChatRepository.cs",
-              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\ChatRepository.cs",
-              "RelativeToolTip": "Projeto Code1Line\\Repositories\\ChatRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAvAAAAAAAAAA==",
+              "Title": "DominioController.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\DominioController.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\DominioController.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\DominioController.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Controllers\\DominioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T15:05:13.981Z",
+              "WhenOpened": "2025-11-23T14:05:03.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DominioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\DominioRepository.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\DominioRepository.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\DominioRepository.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Repositories\\DominioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:04:47.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AcessoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\AcessoRepository.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\AcessoRepository.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\AcessoRepository.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Repositories\\AcessoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:04:35.106Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Acesso.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Acesso.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Acesso.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Acesso.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Domain\\Acesso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:04:12.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dominio.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Dominio.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Dominio.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Dominio.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Domain\\Dominio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:03:56.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Context\\AppDbContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:47:21.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Program.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Program.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Program.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T12:23:26.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AcessoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\AcessoRepository.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\AcessoRepository.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\AcessoRepository.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Interfaces\\AcessoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:03:43.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DominioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\DominioRepository.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\DominioRepository.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\DominioRepository.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Interfaces\\DominioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T14:03:17.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "MensagemDTO.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\DTOs\\MensagemDTO.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\DTOs\\MensagemDTO.cs",
@@ -203,25 +339,23 @@
               "RelativeToolTip": "Projeto Code1Line\\DTOs\\MensagemDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:53:24.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T18:53:24.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "MensagemRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\MensagemRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\MensagemRepository.cs",
               "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\MensagemRepository.cs",
               "RelativeToolTip": "Projeto Code1Line\\Repositories\\MensagemRepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAwwEAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T13:50:16.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T13:50:16.197Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "IMensagemRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\IMensagemRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\IMensagemRepository.cs",
@@ -229,25 +363,11 @@
               "RelativeToolTip": "Projeto Code1Line\\Interfaces\\IMensagemRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T13:50:09.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T13:50:09.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Program.cs",
-              "RelativeDocumentMoniker": "Projeto Code1Line\\Program.cs",
-              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Program.cs",
-              "RelativeToolTip": "Projeto Code1Line\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T12:23:26.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "Mensagem.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Mensagem.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Mensagem.cs",
@@ -255,12 +375,11 @@
               "RelativeToolTip": "Projeto Code1Line\\Domain\\Mensagem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:47:08.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T16:47:08.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "Chat.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Chat.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Chat.cs",
@@ -268,12 +387,11 @@
               "RelativeToolTip": "Projeto Code1Line\\Domain\\Chat.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T15:01:22.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T15:01:22.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 18,
               "Title": "IChatRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\IChatRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\IChatRepository.cs",
@@ -286,6 +404,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Services\\DashboardService.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Services\\DashboardService.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Services\\DashboardService.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Services\\DashboardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T14:19:27.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ChatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\ChatRepository.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\ChatRepository.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\ChatRepository.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Repositories\\ChatRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T15:05:13.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "MensagemController.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\MensagemController.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\MensagemController.cs",
@@ -297,7 +440,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 17,
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\ChatController.cs",
+              "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\ChatController.cs",
+              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\ChatController.cs",
+              "RelativeToolTip": "Projeto Code1Line\\Controllers\\ChatController.cs",
+              "ViewState": "AgIAAGEAAACAqO9s1Hf+v2kAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T15:09:01.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
               "Title": "20251120194213_Code1Line.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Migrations\\20251120194213_Code1Line.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Migrations\\20251120194213_Code1Line.cs",
@@ -309,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 19,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\AuthController.cs",
@@ -321,7 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\UsuarioRepository.cs",
@@ -333,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "ChatDTO.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\DTOs\\ChatDTO.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\DTOs\\ChatDTO.cs",
@@ -345,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "IMonitoramentoRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\IMonitoramentoRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\IMonitoramentoRepository.cs",
@@ -357,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "IUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\IUsuarioRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\IUsuarioRepository.cs",
@@ -369,7 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\UsuarioController.cs",
@@ -381,7 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "MonitoramentoRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\MonitoramentoRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\MonitoramentoRepository.cs",
@@ -393,7 +548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 34,
               "Title": "FuncionarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\FuncionarioRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\FuncionarioRepository.cs",
@@ -405,7 +560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Usuario.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Usuario.cs",
@@ -417,7 +572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "Atividade.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Atividade.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Atividade.cs",
@@ -429,7 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 35,
               "Title": "Tarefas.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Tarefas.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Tarefas.cs",
@@ -441,7 +596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 36,
               "Title": "Funcionario.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Funcionario.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Funcionario.cs",
@@ -453,7 +608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 37,
               "Title": "Departamento.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Domain\\Departamento.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Domain\\Departamento.cs",
@@ -465,19 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Context\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Projeto Code1Line\\Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Context\\AppDbContext.cs",
-              "RelativeToolTip": "Projeto Code1Line\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAIwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:47:21.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 38,
               "Title": "20251120151940_Code1Line.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Migrations\\20251120151940_Code1Line.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Migrations\\20251120151940_Code1Line.cs",
@@ -489,7 +632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 39,
               "Title": "FuncionarioController.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\FuncionarioController.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\FuncionarioController.cs",
@@ -501,7 +644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 43,
               "Title": "IFuncionarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\IFuncionarioRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\IFuncionarioRepository.cs",
@@ -513,7 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 40,
               "Title": "20251120142724_Code1Line.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Migrations\\20251120142724_Code1Line.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Migrations\\20251120142724_Code1Line.cs",
@@ -525,7 +668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 42,
               "Title": "ITarefasRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Interfaces\\ITarefasRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Interfaces\\ITarefasRepository.cs",
@@ -537,7 +680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 41,
               "Title": "20251120142323_Code1Line.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Migrations\\20251120142323_Code1Line.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Migrations\\20251120142323_Code1Line.cs",
@@ -549,7 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 30,
               "Title": "DepartamentoRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\DepartamentoRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\DepartamentoRepository.cs",
@@ -561,7 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\appsettings.json",
               "RelativeDocumentMoniker": "Projeto Code1Line\\appsettings.json",
@@ -573,7 +716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "TarefasRepository.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Repositories\\TarefasRepository.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Repositories\\TarefasRepository.cs",
@@ -585,7 +728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "TarefasController.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\TarefasController.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\TarefasController.cs",
@@ -597,19 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "DashboardService.cs",
-              "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Services\\DashboardService.cs",
-              "RelativeDocumentMoniker": "Projeto Code1Line\\Services\\DashboardService.cs",
-              "ToolTip": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Services\\DashboardService.cs",
-              "RelativeToolTip": "Projeto Code1Line\\Services\\DashboardService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T14:19:27.306Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 44,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Services\\AuthService.cs",
@@ -621,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 45,
               "Title": "20251028165552_Code1Line.cs",
               "DocumentMoniker": "C:\\Users\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Migrations\\20251028165552_Code1Line.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\56184436864\\Desktop\\Code1Line\\Projeto Code1Line\\Migrations\\20251028165552_Code1Line.cs",
@@ -633,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "MonitoramentoController.cs",
               "DocumentMoniker": "C:\\Users\\Danielle\\Desktop\\Projeto_Loom\\Projeto Code1Line\\Controllers\\MonitoramentoController.cs",
               "RelativeDocumentMoniker": "Projeto Code1Line\\Controllers\\MonitoramentoController.cs",

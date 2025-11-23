@@ -17,6 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<Mensagem> Mensagens { get; set; }
     public DbSet<Chat> Chats { get; set; }
 
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

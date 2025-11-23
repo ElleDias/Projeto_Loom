@@ -47,6 +47,7 @@ builder.Services.AddScoped<IChatRepository, ChatRepository>();
 builder.Services.AddScoped<IMensagemRepository, MensagemRepository>();
 builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
 
+
 // ================================
 // ?? Autenticação JWT
 // ================================
