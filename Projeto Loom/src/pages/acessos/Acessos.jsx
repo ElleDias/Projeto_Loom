@@ -30,6 +30,7 @@ const Acesso = () => {
         dominios={{ ativo: true, path: "/Dominio", nome: "Domínios" }}
         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
         voltarATela={{ ativo: true, nome: "Retornar" }}
+          compara={{ path: "/comparacao", ativo: true }}
         modo={modoSidebar}
         setModo={setModoSidebar}
       />

@@ -316,6 +316,115 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Projeto_Code1Line.Controllers.DominioController",
+    "Method": "Get",
+    "RelativePath": "api/Dominio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Projeto_Code1Line.Domain.Dominio, Projeto Code1Line, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Projeto_Code1Line.Controllers.DominioController",
+    "Method": "Post",
+    "RelativePath": "api/Dominio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dominio",
+        "Type": "Projeto_Code1Line.Domain.Dominio",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Projeto_Code1Line.Domain.Dominio",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Projeto_Code1Line.Controllers.DominioController",
+    "Method": "Get",
+    "RelativePath": "api/Dominio/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Projeto_Code1Line.Domain.Dominio",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Projeto_Code1Line.Controllers.DominioController",
+    "Method": "Put",
+    "RelativePath": "api/Dominio/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dominioAtualizado",
+        "Type": "Projeto_Code1Line.Domain.Dominio",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Projeto_Code1Line.Controllers.DominioController",
+    "Method": "Delete",
+    "RelativePath": "api/Dominio/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Code1Line.Controllers.FuncionarioController",
     "Method": "GetAll",
     "RelativePath": "api/Funcionario",

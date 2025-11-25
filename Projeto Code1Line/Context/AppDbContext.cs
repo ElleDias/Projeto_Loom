@@ -7,6 +7,7 @@ namespace Code1Line.Data;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public DbSet<Dominio> Dominios { get; set; }
     public DbSet<Acesso> Acessos { get; set; }
     public DbSet<Tarefas> Tarefas { get; set; }
     public DbSet<Usuario> Usuario { get; set; }

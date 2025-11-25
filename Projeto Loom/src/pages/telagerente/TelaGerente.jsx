@@ -52,7 +52,7 @@ const TelaGerente = () => {
         geral={{ ativo: true, path: "/gerente", nome: "Geral" }}
         gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
         funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
-        mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
+         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
         voltarATela={{ ativo: true, nome: "Retornar" }}
         modo={modoSidebar}
         setModo={setModoSidebar}

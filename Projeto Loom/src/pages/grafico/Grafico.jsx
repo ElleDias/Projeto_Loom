@@ -40,7 +40,7 @@ const Graficos = () => {
                 geral="Geral"
                 gestores={true}
                 funcionarios={true}
-                mensagens={true}
+                  mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
                 modo={modoSidebar}
                 setModo={setModoSidebar}
             />

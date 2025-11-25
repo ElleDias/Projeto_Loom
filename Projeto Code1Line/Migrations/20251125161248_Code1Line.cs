@@ -40,6 +40,22 @@ namespace Projeto_Code1Line.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Dominios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Produtivos = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Improdutivos = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Analise = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dominios", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
                 {
@@ -236,6 +252,9 @@ namespace Projeto_Code1Line.Migrations
 
             migrationBuilder.DropTable(
                 name: "Atividades");
+
+            migrationBuilder.DropTable(
+                name: "Dominios");
 
             migrationBuilder.DropTable(
                 name: "Monitoramentos");

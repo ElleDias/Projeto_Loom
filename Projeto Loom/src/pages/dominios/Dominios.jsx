@@ -1,92 +1,63 @@
+
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./Dominios.css";
 import { MenuLateral } from "../../components/Sidebar/Sidebar";
+import { useAuth } from "../../Context/authContext";
 
 export default function Dominios() {
+  const navigate = useNavigate();
+  const { token } = useAuth();
+
   const [filtro, setFiltro] = useState("Todos");
   const [modoSidebar, setModoSidebar] = useState("close");
-  const [dadosAgrupados, setDadosAgrupados] = useState([]);
+  const [aplicativosParaClassificar, setAplicativosParaClassificar] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  //  useCallback evita recriar a função a cada renderização
-  const buscarMonitoramento = useCallback(async () => {
-    setLoading(true);
+  const buscarAplicativosParaClassificar = useCallback(
+    async (tokenRecebido) => {
+      setLoading(true);
 
-    try {
-      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get("https://localhost:7283/api/Dominio", {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${tokenRecebido}`,
+          },
+        });
 
-      if (!token) {
-        console.error("Token JWT não encontrado no localStorage!");
+        console.log("Domínios recebidos da API:", response.data);
+        if (response.data?.length > 0) {
+          console.log("Exemplo do primeiro item:", response.data[0]); 
+        }
+
+        setAplicativosParaClassificar(response.data || []);
+      } catch (error) {
+        console.error("Erro ao buscar domínios:", error);
+
+        if (error.response?.status === 401) {
+          navigate("/login");
+        }
+      } finally {
         setLoading(false);
-        return;
       }
+    },
+    [navigate]
+  );
 
-      //  Endpoint atualizado conforme seu backend
-      const response = await axios.get("http://localhost:3000/dominio", {
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log(" Dados da API:", response.data);
-
-      // 🔹 Agrupando por categoria
-      const agrupado = {};
-
-      response.data.forEach((item) => {
-        const categoria = item.categoria || "Em Análise";
-        const dominio = item.dominio || "Desconhecido";
-
-        if (!agrupado[categoria]) {
-          agrupado[categoria] = new Set();
-        }
-
-        agrupado[categoria].add(dominio);
-      });
-
-      // 🔹 Converte para array de objetos
-      const resultado = Object.entries(agrupado).map(([categoria, dominios]) => ({
-        categoria,
-        dominios: Array.from(dominios),
-        quantidade: dominios.size,
-      }));
-
-      setDadosAgrupados(resultado);
-    } catch (error) {
-      if (error.response) {
-        const { status, data } = error.response;
-        if (status === 401) {
-          console.error(" Erro 401: Token inválido ou expirado.");
-        } else if (status === 404) {
-          console.error(" Erro 404: Endpoint não encontrado.");
-        } else {
-          console.error(` Erro ${status}:`, data);
-        }
-      } else {
-        console.error(" Erro ao conectar à API:", error.message);
-      }
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  // useEffect bem estruturado
   useEffect(() => {
-    buscarMonitoramento();
+    if (token) {
+      buscarAplicativosParaClassificar(token);
+      const interval = setInterval(() => buscarAplicativosParaClassificar(token), 60000);
+      return () => clearInterval(interval);
+    }
+  }, [token, buscarAplicativosParaClassificar]);
 
-    // ⏱ Opcional: atualizar a cada 60s
-    const interval = setInterval(buscarMonitoramento, 60000);
-    return () => clearInterval(interval);
-  }, [buscarMonitoramento]);
-
-  // 🔹 Aplicar filtro
   const dominiosFiltrados =
     filtro === "Todos"
-      ? dadosAgrupados
-      : dadosAgrupados.filter((item) => item.categoria === filtro);
-
+      ? aplicativosParaClassificar
+      : aplicativosParaClassificar.filter((item) => item.categoria === filtro);
 
   return (
     <div className={`dominios-page sidebar-${modoSidebar}`}>
@@ -99,17 +70,19 @@ export default function Dominios() {
         acessos={{ ativo: true, path: "/Acesso", nome: "Acessos" }}
         dominios={{ ativo: false, path: "/Dominio", nome: "Domínios" }}
         voltarATela={{ ativo: true, nome: "Retornar" }}
+         compara={{ path: "/comparacao", ativo: true }}
         modo={modoSidebar}
         setModo={setModoSidebar}
       />
 
       <div className="dominios-container">
-        <h1 className="titulo-dominio">Domínios</h1>
-        <p className="subtitulo-dominio">Equipe de desenvolvimento</p>
+        <h1 className="titulo-dominio">Domínios de Aplicativos</h1>
+        <p className="subtitulo-dominio">
+          Aplicativos detectados que precisam de classificação Produtivo / Não Produtivo
+        </p>
 
-        {/* 🔹 Filtros */}
-        <div className="filtro-dominio">
-          {["Todos", "Produtivo", "Não Produtivo", "Em Análise"].map((tipo) => (
+        {/* <div className="filtro-dominio">
+          {["Todos", "Produtivo", "Improdutivo", "Em Analise"].map((tipo) => (
             <button
               key={tipo}
               className={filtro === tipo ? "ativo" : ""}
@@ -118,33 +91,32 @@ export default function Dominios() {
               {tipo}
             </button>
           ))}
-        </div>
+        </div> */}
 
-        {/* 🔹 Tabela */}
         <div className="tabela-dominio">
           <div className="tabela-header-dominio">
-            <span>Categoria</span>
-            <span>Domínios/Sistemas</span>
-            <span>Quantidade</span>
+            <span>Site Em análise</span>
+            <span>Site Em Produtivos</span>
+            <span>Site Em Improdutivos</span>
+            
           </div>
 
           {loading ? (
             <p>Carregando dados...</p>
           ) : dominiosFiltrados.length > 0 ? (
-            dominiosFiltrados.map((item, index) => (
-              <div className="linha-dominio" key={index}>
+            dominiosFiltrados.map((item) => (
+              <div className="linha-dominio" key={item.id}>
                 <span
-                  className={`categoria-dominio ${item.categoria === "Produtivo"
-                    ? "produtivo-dominio"
-                    : item.categoria === "Não Produtivo"
-                      ? "nao-produtivo-dominio"
-                      : "analise-dominio"
-                    }`}
+                  className={`categoria-dominio ${
+                    item.categoria === "Em Analise" ? "analise-dominio" : ""
+                  }`}
                 >
                   {item.categoria}
                 </span>
-                <span>{item.dominios.join(", ")}</span>
-                <span>{item.quantidade}</span>
+
+                <span>{item.produtivos}</span>
+                <span>{item.improdutivos}</span>
+                <span>{item.analise}</span>
               </div>
             ))
           ) : (

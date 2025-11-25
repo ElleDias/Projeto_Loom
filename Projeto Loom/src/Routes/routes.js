@@ -12,7 +12,6 @@ import TarefasPendentes from "../pages/tarefasPendentes/TarefasPendentes";
 import CadastroDeTarefas from "../pages/cadastroDeTarefas/CadastroDeTarefas";
 import Mensagem from "../pages/mensagem/Mensagem"
 import Comparacao from "../pages/comparacao/ComparacaoFunc"
-import MensagemGestor from "../pages/mensagemGestor/MensagemGestor"
 import TeladePerfil from "../pages/teloDePerfil/TelaDePerfil";
 import RedefinirSenha from "../pages/redefinirsenha/Redefinirsenha"
 import Chat from "../pages/chat/Chat";
@@ -43,9 +42,7 @@ const Rotas = () => {
                 {/* http://localhost:3000/ => CadastroDeTarefas */}
                 <Route path="/CadastroDeTarefas" element={<CadastroDeTarefas />} exact />
                 {/* http://localhost:3000/ => Mensagens */}
-                <Route path="/Mensagem" element={<Mensagem />} />
-                {/* http://localhost:3000/ => MensagensGestor */}
-                <Route path="/MensagemGestor" element={<MensagemGestor />} />
+                <Route path="/Mensagem" element={<Mensagem />} />               
                 {/* http://localhost:3000/ => Comparacao */}
                 <Route path="/Comparacao" element={<Comparacao />} />
                 {/* http://localhost:3000/ => Perfil */}

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Projeto_Code1Line.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251125122902_Code1Line")]
+    [Migration("20251125161248_Code1Line")]
     partial class Code1Line
     {
         /// <inheritdoc />
@@ -241,6 +241,35 @@ namespace Projeto_Code1Line.Migrations
                     b.HasIndex("ChatId");
 
                     b.ToTable("Mensagens");
+                });
+
+            modelBuilder.Entity("Projeto_Code1Line.Domain.Dominio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Analise")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Improdutivos")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Produtivos")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Dominios");
                 });
 
             modelBuilder.Entity("Projeto_Code1Line.Domain.Tarefas", b =>

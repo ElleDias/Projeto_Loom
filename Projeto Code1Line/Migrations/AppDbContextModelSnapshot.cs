@@ -240,6 +240,35 @@ namespace Projeto_Code1Line.Migrations
                     b.ToTable("Mensagens");
                 });
 
+            modelBuilder.Entity("Projeto_Code1Line.Domain.Dominio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Analise")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Improdutivos")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Produtivos")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Dominios");
+                });
+
             modelBuilder.Entity("Projeto_Code1Line.Domain.Tarefas", b =>
                 {
                     b.Property<int>("Id")

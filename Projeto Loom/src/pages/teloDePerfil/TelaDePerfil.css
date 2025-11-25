@@ -1,223 +1,60 @@
-/* Estilos para o componente Botao (Ajuste a cor primária se necessário) */
-/* Se você tiver acesso, idealmente esses estilos ficariam no componente Botao */
-.Botao[estilo="primary"] { 
-    background-color: #007bff; /* Cor primária */
-    color: white;
+/* =========================== */
+/*     BOTÕES MODERNOS 2025   */
+/* =========================== */
+
+.Botao {
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    max-width: 180px;
+    height: 46px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
     border: none;
-    transition: 0.3s;
+    transition: 0.25s ease;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.Botao[estilo="primary"] {
+    background: linear-gradient(135deg, #1f6feb, #3ea6ff);
+    color: white;
+    box-shadow: 0 4px 14px rgba(31, 110, 235, 0.3);
 }
 
 .Botao[estilo="primary"]:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(31, 110, 235, 0.38);
 }
 
-.Botao[estilo="secondary"] { 
-    background-color: #6c757d; /* Cor secundária (cinza) */
+.Botao[estilo="danger"] {
+    background: linear-gradient(135deg, #d7373f, #f06161);
     color: white;
-    border: none;
-    transition: 0.3s;
+    box-shadow: 0 4px 14px rgba(215, 55, 63, 0.3);
 }
 
-.Botao[estilo="secondary"]:hover {
-    background-color: #5a6268;
+.Botao[estilo="danger"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(215, 55, 63, 0.38);
 }
 
-.Botao[estilo="danger"],
-.btn_sair { /* O antigo btn_sair agora é o Botao danger */
-    background-color: #b22222; /* Cor de perigo (vermelho) */
-    color: white;
-    border: none;
-    transition: 0.3s;
-}
 
-.Botao[estilo="danger"]:hover,
-.btn_sair:hover {
-    background-color: #8b0000;
-}
+/* =========================== */
+/*       LAYOUT MODERNO       */
+/* =========================== */
 
-/* Base e Layout */
 .body_perfil {
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    background: #f4f7f6; /* Fundo mais suave */
-    min-height: 100vh; /* Use min-height para garantir que o corpo cubra toda a tela, mesmo com conteúdo variável */
+    background: #e8eef1;
+    min-height: 100vh;
     display: flex;
-    transition: margin-left 0.3s ease; /* Transição para abertura da Sidebar */
+    transition: 0.3s ease;
 }
 
-/* Container que centraliza o cartão */
-.container_perfil {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* Reduzi o padding para melhor visualização em telas pequenas */
-    overflow-y: auto; /* Permite scroll se o cartão for muito grande */
-}
-
-/* Cartão grande do perfil */
-.profile-card {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-    width: 90%;
-    max-width: 900px; /* Max-width menor para centralizar melhor */
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-    transition: all 0.3s ease;
-    overflow: hidden; /* Garante que o banner não estoure */
-}
-
-.profile-card:hover {
-    transform: none; /* Removi o scale para evitar desfoque e movimentos desnecessários */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* Banner superior */
-.banner {
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(135deg, #173C4C 0%, #326D6B 100%); /* Cor mais profunda */
-    border-radius: 20px 20px 0 0; /* Apenas o topo arredondado */
-}
-
-/* Cabeçalho */
-.profile-header {
-    text-align: center;
-    position: relative;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
-}
-
-.profile-img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    object-fit: cover;
-    position: absolute;
-    top: 70px; /* Ajuste para o banner */
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Sombra azul mais discreta */
-}
-
-.profile-name {
-    margin-top: 80px; /* Ajuste para centralizar abaixo da imagem */
-    font-size: 2em;
-    color: #222;
-    font-weight: 700;
-}
-
-.profile-role {
-    color: #326D6B; /* Cargo em destaque */
-    font-size: 1.1em;
-    font-weight: 500;
-}
-
-/* Conteúdo Principal do Perfil */
-.profile-content {
-    padding: 30px 50px;
-}
-
-.profile-section {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed #ddd; /* Separador sutil */
-}
-
-.profile-section:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.profile-section h3 {
-    color: #173C4C; /* Cor mais escura para títulos */
-    margin-bottom: 15px;
-    font-size: 1.3em;
-    font-weight: 600;
-}
-
-/* Estilo para a Biografia */
-.biography {
-    font-style: italic;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Estilo para as Informações Detalhadas (Grid) */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 ou mais colunas dependendo do espaço */
-    gap: 15px 30px;
-}
-
-.info-grid p {
-    margin: 0;
-    color: #444;
-}
-
-.info-grid strong {
-    color: #222;
-    font-weight: 600;
-}
-
-/* Estilo para as Estatísticas (Grid) */
-.stats-grid {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    gap: 20px;
-}
-
-.stat-item {
-    flex: 1;
-    padding: 15px 10px;
-    border-radius: 10px;
-    background: #f8f9fa; /* Fundo cinza claro */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.stat-item h4 {
-    margin: 0 0 5px 0;
-    font-size: 2em;
-    color: #326D6B; /* Cor de destaque */
-    font-weight: 700;
-}
-
-.stat-item p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* Botões de Ação */
-.profile-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding-top: 20px;
-    /* Ajuste aqui para o seu componente Botao */
-    /* Assumo que seu Botao tem uma classe base 'Botao' e um estilo 'danger' */
-}
-
-.Botao { /* Estilo base para todos os botões, se não tiver no componente */
-    width: 100%;
-    max-width: 200px;
-    height: 45px;
-    border-radius: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-/* Sidebar e Margem do Corpo */
 .body_perfil.sidebar-open {
-    margin-left: 170px;
+    margin-left: 180px;
 }
 
 .body_perfil.sidebar-close,
@@ -225,85 +62,194 @@
     margin-left: 80px;
 }
 
-/* Responsividade */
+.container_perfil {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+}
+
+
+/* =========================== */
+/*      CARTÃO DO PERFIL      */
+/* =========================== */
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    width: 95%;
+    max-width: 950px;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================== */
+/*           BANNER           */
+/* =========================== */
+
+.banner {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(120deg, #173C4C, #3e8d89);
+}
+
+
+/* =========================== */
+/*         CABEÇALHO          */
+/* =========================== */
+
+.profile-header {
+    text-align: center;
+    position: relative;
+    padding-bottom: 35px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    object-fit: cover;
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 
+        0 0 25px rgba(62, 141, 137, 0.5),
+        0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.profile-name {
+    margin-top: 100px;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #1d2d35;
+}
+
+.profile-role {
+    color: #3e8d89;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+
+/* =========================== */
+/*        CONTEÚDO            */
+/* =========================== */
+
+.profile-content {
+    padding: 40px 55px;
+}
+
+.profile-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.profile-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #173C4C;
+    margin-bottom: 15px;
+}
+
+
+/* =========================== */
+/*         GRID INFOS         */
+/* =========================== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.info-grid p {
+    margin: 0;
+    color: #444;
+    font-size: 1rem;
+}
+
+.info-grid strong {
+    color: #111;
+}
+
+
+/* =========================== */
+/*         ESTATÍSTICAS       */
+/* =========================== */
+
+.stats-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+}
+
+.stat-item {
+    flex: 1;
+    padding: 22px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8fbfc, #eef4f6);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.stat-item h4 {
+    font-size: 2.2rem;
+    margin: 0 0 8px;
+    color: #3e8d89;
+}
+
+
+/* =========================== */
+/*         BOTÕES             */
+/* =========================== */
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+
+/* =========================== */
+/*       RESPONSIVIDADE       */
+/* =========================== */
+
 @media (max-width: 768px) {
-    .body_perfil.sidebar-open {
-        margin-left: 0; /* Oculta ou sobrepõe a sidebar em mobile */
-    }
-
-    .body_perfil.sidebar-close,
-    .body_perfil.sidebar-mini {
-        margin-left: 0;
-    }
-
-    .profile-card {
-        width: 100%;
-        margin: 10px 0;
-        border-radius: 10px;
-    }
-
     .profile-content {
-        padding: 20px;
-    }
-
-    .profile-header {
-        padding-bottom: 20px;
-    }
-
-    .profile-name {
-        font-size: 1.6em;
-        margin-top: 70px;
-    }
-
-    .profile-role {
-        font-size: 1em;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        padding: 25px;
     }
 
     .stats-grid {
-        flex-direction: column; /* Estatísticas empilhadas */
-        gap: 10px;
-    }
-
-    .profile-actions {
         flex-direction: column;
-        gap: 10px;
     }
 
-    .Botao {
-        max-width: 100%;
+    .profile-name {
+        font-size: 1.7rem;
     }
-}
-/* Ajuste para imagem do perfil em mobile */
-.profile-img {
-    width: 130px;
-    height: 130px;
 }
 
 @media (max-width: 480px) {
     .profile-img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-name {
-        font-size: 1.4em;
-        margin-top: 60px;
-    }
-
-    .profile-role {
-        font-size: 0.9em;
-    }
-
-    .profile-content {
-        padding: 15px;
-    }
-
-    .profile-card {
-        border-radius: 8px;
-        margin: 5px 0;
+        width: 110px;
+        height: 110px;
     }
 }

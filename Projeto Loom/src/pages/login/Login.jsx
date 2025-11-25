@@ -11,10 +11,10 @@ import Button from "../../components/Botao/Botao";
 
 const Login = () => {
   const [mostrarSenha, setMostrarSenha] = useState(false);
-const { setUsuario, login } = useAuth();
+  const { setUsuario, login } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const realizarAutenticacao = async (e) => {
@@ -27,7 +27,7 @@ const { setUsuario, login } = useAuth();
       return;
     }
 
-    setLoading(true); 
+    setLoading(true);
     try {
       const resposta = await api.post("https://localhost:7283/api/Auth/login", {
         email,
@@ -37,34 +37,54 @@ const { setUsuario, login } = useAuth();
       console.log("Resposta da API:", resposta.data);
 
       const token = resposta.data.token;
-if (!token) {
-  alert("Email ou senha inválidos!");
-  setLoading(false);
-  return;
-}
 
-// salva o decodificado só no contexto, se quiser
-const tokenDecodificado = userDecodeToken(token);
-console.log("Token decodificado:", tokenDecodificado);
+      if (!token) {
+        alert("Email ou senha inválidos!");
+        setLoading(false);
+        return;
+      }
 
-// salva o token e o usuário usando o contexto (isso já salva no secureLocalStorage)
-login(token, tokenDecodificado);
+      const tokenDecodificado = userDecodeToken(token);
+      console.log("Token decodificado:", tokenDecodificado);
 
-const role = tokenDecodificado["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+      // 🔥 SALVAR TOKEN (já faz parte do seu contexto)
+      login(token, tokenDecodificado);
 
-if (role === "Gerente") {
-  navigate("/TelaDoGerente");
-} else if (role === "Gestor") {
-  navigate("/TelaDoGestor");
-} else {
-  navigate("/");
-}
+      // 🔥🔥🔥 SALVANDO O ID DO USUÁRIO AQUI 🔥🔥🔥
+      const userId =
+        tokenDecodificado.id ||
+        tokenDecodificado.Id ||
+        tokenDecodificado.nameid ||
+        tokenDecodificado.sub;
 
+      console.log("ID encontrado no token:", userId);
+
+      if (userId) {
+        secureLocalStorage.setItem("userId", userId);
+      } else {
+        console.error("ERRO: Nenhum ID encontrado no token!");
+      }
+
+      // 🔥 Role do usuário
+      const role =
+        tokenDecodificado[
+          "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+        ];
+
+      if (role === "Gerente") {
+        navigate("/TelaDoGerente");
+      } else if (role === "Gestor") {
+        navigate("/TelaDoGestor");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       console.error("Erro na autenticação:", error);
-      alert("Email ou senha inválidos! Para dúvidas entre em contato com o suporte.");
+      alert(
+        "Email ou senha inválidos! Para dúvidas entre em contato com o suporte."
+      );
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -107,21 +127,15 @@ if (role === "Gerente") {
                 </span>
               </div>
             </div>
-
-            {/* <div className="options">
-              <label>
-                <input type="checkbox" /> Lembre-se de mim
-              </label>
-              <a className="link_esqueceuasenha" href="/Senha">
-                Esqueceu a senha?
-              </a>
-            </div> */}
           </div>
 
-          {/* ✅ Botão desabilitado enquanto a requisição está em andamento */}
-          <Button nomeDoBotao={loading ? "Carregando..." : "Log-in"} type="submit" disabled={loading} />
+          <Button
+            nomeDoBotao={loading ? "Carregando..." : "Log-in"}
+            type="submit"
+            disabled={loading}
+          />
 
-           <p className="nao_tem_uma_conta">
+          <p className="nao_tem_uma_conta">
             Não tem uma conta?{" "}
             <a className="link_registre" href="/Cadastro">
               Registre-se aqui

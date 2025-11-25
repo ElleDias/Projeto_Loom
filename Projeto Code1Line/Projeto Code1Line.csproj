@@ -15,6 +15,7 @@
     <Compile Remove="DTOs\UsuarioDTO.cs" />
     <Compile Remove="Interfaces\AcessoRepository.cs" />
     <Compile Remove="Interfaces\DashBoardService.cs" />
+    <Compile Remove="Interfaces\DominioRepository.cs" />
     <Compile Remove="Interfaces\Interface.cs" />
   </ItemGroup>
 

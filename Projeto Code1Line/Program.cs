@@ -37,6 +37,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // ================================
 // ?? Injeção de Dependência
 // ================================
+builder.Services.AddScoped<IDominioRepository, DominioRepository>();
 builder.Services.AddScoped<IAcessoRepository, AcessoRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAtividadeRepository, AtividadeRepository>();
