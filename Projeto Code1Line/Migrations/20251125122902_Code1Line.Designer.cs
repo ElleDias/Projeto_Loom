@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Projeto_Code1Line.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251120194213_Code1Line")]
+    [Migration("20251125122902_Code1Line")]
     partial class Code1Line
     {
         /// <inheritdoc />
@@ -48,6 +48,32 @@ namespace Projeto_Code1Line.Migrations
                     b.HasIndex("UltimaMensagemId");
 
                     b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("Code1Line.Domain.Acesso", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AcessoAtual")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Funcionario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegistradoEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TempoAtivo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Acessos");
                 });
 
             modelBuilder.Entity("Code1Line.Domain.Atividade", b =>

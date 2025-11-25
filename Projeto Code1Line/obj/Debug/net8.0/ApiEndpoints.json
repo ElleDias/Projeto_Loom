@@ -1,5 +1,47 @@
 [
   {
+    "ContainingType": "Code1Line.Controllers.AcessoController",
+    "Method": "GetAcessos",
+    "RelativePath": "api/Acesso",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.AcessoController",
+    "Method": "CriarAcesso",
+    "RelativePath": "api/Acesso",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "Code1Line.Domain.Acesso",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.AcessoController",
+    "Method": "DeletarAcesso",
+    "RelativePath": "api/Acesso/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Code1Line.Controllers.AtividadeController",
     "Method": "GetAll",
     "RelativePath": "api/Atividade",

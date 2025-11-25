@@ -12,6 +12,21 @@ namespace Projeto_Code1Line.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Acessos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Funcionario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AcessoAtual = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TempoAtivo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RegistradoEm = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Acessos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Departamentos",
                 columns: table => new
                 {
@@ -215,6 +230,9 @@ namespace Projeto_Code1Line.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Chats_Mensagens_UltimaMensagemId",
                 table: "Chats");
+
+            migrationBuilder.DropTable(
+                name: "Acessos");
 
             migrationBuilder.DropTable(
                 name: "Atividades");

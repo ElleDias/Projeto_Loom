@@ -47,6 +47,32 @@ namespace Projeto_Code1Line.Migrations
                     b.ToTable("Chats");
                 });
 
+            modelBuilder.Entity("Code1Line.Domain.Acesso", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AcessoAtual")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Funcionario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegistradoEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TempoAtivo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Acessos");
+                });
+
             modelBuilder.Entity("Code1Line.Domain.Atividade", b =>
                 {
                     b.Property<int>("Id")

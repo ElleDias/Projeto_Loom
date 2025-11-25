@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Code1Line.Interfaces
 {
-    public interface IAcessoRepository
+    public interface Interface
     {
     }
 }

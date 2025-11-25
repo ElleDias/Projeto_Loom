@@ -5,6 +5,70 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Acesso": {
+      "get": {
+        "tags": [
+          "Acesso"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Acesso"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Acesso"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Acesso"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Acesso"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Acesso/{id}": {
+      "delete": {
+        "tags": [
+          "Acesso"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Atividade": {
       "get": {
         "tags": [
@@ -1087,6 +1151,32 @@
   },
   "components": {
     "schemas": {
+      "Acesso": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "funcionario": {
+            "type": "string",
+            "nullable": true
+          },
+          "acessoAtual": {
+            "type": "string",
+            "nullable": true
+          },
+          "tempoAtivo": {
+            "type": "string",
+            "nullable": true
+          },
+          "registradoEm": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "Atividade": {
         "type": "object",
         "properties": {

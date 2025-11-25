@@ -1,6 +1,7 @@
 using Code1Line.Data;
 using Code1Line.Interfaces;
 using Code1Line.Repositories;
+using Code1Line.Repository;
 using Code1Line.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +37,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // ================================
 // ?? Injeção de Dependência
 // ================================
-
+builder.Services.AddScoped<IAcessoRepository, AcessoRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAtividadeRepository, AtividadeRepository>();
 builder.Services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();

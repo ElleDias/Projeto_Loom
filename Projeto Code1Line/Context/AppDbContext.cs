@@ -7,7 +7,7 @@ namespace Code1Line.Data;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
+    public DbSet<Acesso> Acessos { get; set; }
     public DbSet<Tarefas> Tarefas { get; set; }
     public DbSet<Usuario> Usuario { get; set; }
     public DbSet<Funcionario> Funcionarios { get; set; }
@@ -62,7 +62,7 @@ public class AppDbContext : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer(
-                "Server=DESKTOP-DIMB9O9\\MSSQLSERVER01; Database=Code1Line; Trusted_Connection=True; TrustServerCertificate=True;");
+                "Server=NOTE16-S28\\\\SQLEXPRESS; Database=Code1Line; User Id= sa; Password=Senai@134; TrustServerCertificate=true;");
         }
     }
 }
