@@ -48,10 +48,11 @@ const TelaDePerfil = () => {
     navigate("/perfil");
   };
 
-  const handleEditar = () => {
-    console.log("Clicou em editar!");
-    setOpenModal(true);
-  };
+ const handleEditar = () => {
+    console.log("Clicou em editar!"); // ESTE LOG DEVE APARECER
+    setOpenModal(true); // ESTE É O COMANDO CHAVE
+    console.log("Estado openModal definido para: true"); // NOVO LOG PARA CONFERÊNCIA
+};
 
   console.log("MODAL aberto?", openModal); // <-- AGORA ESTÁ NO LUGAR CERTO
 
@@ -80,7 +81,7 @@ const TelaDePerfil = () => {
         geral={{ ativo: false, path: "/gerente", nome: "Acessos" }}
         gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
         funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
-        mensagens={{ ativo: false, path: "/mensagem", nome: "Mensagens" }}
+         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
         voltarATela={{ ativo: true, nome: "Retornar" }}
         modo={modoSidebar}
         setModo={setModoSidebar}
@@ -144,11 +145,11 @@ const TelaDePerfil = () => {
       </div>
 
       <Modal
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-        userData={userData || { telefone: "", cpf: "", endereco: "" }}
-        onSave={salvarAlteracoes}
-      />
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        userData={userData || { telefone: "", cpf: "", endereco: "" }}
+        onSave={salvarAlteracoes}
+      />
     </>
   );
 };

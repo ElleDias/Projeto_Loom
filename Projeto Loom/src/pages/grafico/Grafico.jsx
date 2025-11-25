@@ -1,37 +1,85 @@
 import "./Grafico.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { MenuLateral } from "../../components/Sidebar/Sidebar";
 import { useNavigate } from "react-router-dom";
+import secureLocalStorage from "react-secure-storage";
 
 const Graficos = () => {
     const [modoSidebar, setModoSidebar] = useState("close");
-    const [departamento, setDepartamento] = useState("todos"); // 🔹 Filtro
+    const [departamento, setDepartamento] = useState("todos");
+    const [funcionarios, setFuncionarios] = useState([]);
+    const [departamentos, setDepartamentos] = useState([]);
 
     const navigate = useNavigate();
 
-    const dataPie = [
-        { name: "Concluídas", value: 50 },
-        { name: "Pendentes", value: 20 },
-        { name: "Em andamento", value: 30 },
-    ];
-
     const COLORS = ["#0A423D", "#2E6962", "#58A69A"];
 
-    // 🔹 Exemplo com departamentos
-    const dataBar = [
-        { name: "Brenda", concluidas: 5, pendentes: 2, andamento: 2, departamento: "Dev" },
-        { name: "Caio", concluidas: 6, pendentes: 2, andamento: 1, departamento: "Multimídia" },
-        { name: "Lucas", concluidas: 5, pendentes: 3, andamento: 1, departamento: "Jogos" },
-        { name: "Laura", concluidas: 7, pendentes: 1, andamento: 1, departamento: "Dev" },
-        { name: "Yasmin", concluidas: 4, pendentes: 3, andamento: 2, departamento: "Multimídia" },
-        { name: "Danielle", concluidas: 5, pendentes: 2, andamento: 2, departamento: "Jogos" },
-    ];
+    // ===============================
+    // 🔥 CARREGAR DADOS DA API
+    // ===============================
+    useEffect(() => {
+        carregarFuncionarios();
+        carregarDepartamentos();
+    }, []);
 
-    // 🔹 Filtro por departamento
+    const carregarFuncionarios = async () => {
+        try {
+            const token = secureLocalStorage.getItem("token");
+
+            const response = await axios.get("https://localhost:7283/api/Funcionario", {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            // 🔥 MOCK de tarefas (já que não existe na API)
+            const funcionariosComTarefas = response.data.map(f => ({
+                name: f.nome,
+                concluidas: Math.floor(Math.random() * 6) + 2,
+                pendentes: Math.floor(Math.random() * 3),
+                andamento: Math.floor(Math.random() * 2),
+                departamento: f.departamentoId
+            }));
+
+            setFuncionarios(funcionariosComTarefas);
+        } catch (error) {
+            console.error("❌ Erro ao carregar funcionários", error);
+        }
+    };
+
+    const carregarDepartamentos = async () => {
+        try {
+            const token = secureLocalStorage.getItem("token");
+
+            const response = await axios.get("https://localhost:7283/api/Departamento", {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            setDepartamentos(response.data);
+        } catch (error) {
+            console.error("❌ Erro ao carregar departamentos", error);
+        }
+    };
+
+    // ===============================
+    // 🔍 FILTRO POR DEPARTAMENTO
+    // ===============================
     const dataFiltrada = departamento === "todos"
-        ? dataBar
-        : dataBar.filter(item => item.departamento === departamento);
+        ? funcionarios
+        : funcionarios.filter(f => f.departamento == departamento);
+
+    // ===============================
+    // 🔵 DADOS DO GRÁFICO DE PIZZA
+    // ===============================
+    const totalConcluidas = funcionarios.reduce((acc, f) => acc + f.concluidas, 0);
+    const totalPendentes = funcionarios.reduce((acc, f) => acc + f.pendentes, 0);
+    const totalAndamento = funcionarios.reduce((acc, f) => acc + f.andamento, 0);
+
+    const dataPie = [
+        { name: "Concluídas", value: totalConcluidas },
+        { name: "Pendentes", value: totalPendentes },
+        { name: "Em andamento", value: totalAndamento },
+    ];
 
     return (
         <div className={`monitoramento-container sidebar-${modoSidebar}`}>
@@ -40,7 +88,7 @@ const Graficos = () => {
                 geral="Geral"
                 gestores={true}
                 funcionarios={true}
-                  mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
+                mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
                 modo={modoSidebar}
                 setModo={setModoSidebar}
             />
@@ -68,6 +116,7 @@ const Graficos = () => {
                                         const radius = innerRadius + (outerRadius - innerRadius) / 2;
                                         const x = cx + radius * Math.cos(-midAngle * RADIAN);
                                         const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
                                         return (
                                             <text
                                                 x={x}
@@ -90,7 +139,6 @@ const Graficos = () => {
                             </PieChart>
                         </div>
 
-                        {/* LEGENDA */}
                         <div className="legenda">
                             <div className="item-legenda">
                                 <span className="quadrado cor-concluidas"></span> Concluídas
@@ -117,9 +165,11 @@ const Graficos = () => {
                                 onChange={(e) => setDepartamento(e.target.value)}
                             >
                                 <option value="todos">Todos</option>
-                                <option value="Dev">Dev</option>
-                                <option value="Multimídia">Multimídia</option>
-                                <option value="Jogos">Jogos</option>
+                                {departamentos.map(dep => (
+                                    <option key={dep.id} value={dep.id}>
+                                        {dep.nome}
+                                    </option>
+                                ))}
                             </select>
                         </div>
 
@@ -129,21 +179,8 @@ const Graficos = () => {
                                 data={dataFiltrada}
                                 margin={{ top: 0, right: 30, left: 30, bottom: 0 }}
                             >
-                                <XAxis
-                                    type="number"
-                                    tick={{ fill: "#000", fontSize: 12 }}
-                                    axisLine={false}
-                                    tickLine={false}
-                                    domain={[0, 9]}
-                                />
-                                <YAxis
-                                    dataKey="name"
-                                    type="category"
-                                    tick={{ fill: "#000", fontWeight: "bold", fontSize: 14 }}
-                                    axisLine={false}
-                                    tickLine={false}
-                                    width={80}
-                                />
+                                <XAxis type="number" />
+                                <YAxis dataKey="name" type="category" width={80} />
                                 <Tooltip />
                                 <Bar dataKey="concluidas" stackId="a" fill={COLORS[0]} />
                                 <Bar dataKey="pendentes" stackId="a" fill={COLORS[2]} />
