@@ -68,7 +68,7 @@ const Login = () => {
       // 🔥 Role do usuário
       const role =
         tokenDecodificado[
-          "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
         ];
 
       if (role === "Gerente") {
@@ -131,10 +131,9 @@ const Login = () => {
 
           <Button
             nomeDoBotao={loading ? "Carregando..." : "Log-in"}
-            type="submit"
+            tipo="submit"
             disabled={loading}
           />
-
           <p className="nao_tem_uma_conta">
             Não tem uma conta?{" "}
             <a className="link_registre" href="/Cadastro">

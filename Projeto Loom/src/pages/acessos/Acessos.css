@@ -2,7 +2,7 @@
 /* ESTILOS GERAIS / CONTAINER */
 /* ==================================== */
 .monitoramento-container {
-    background-color: #000000;
+    background-color: #171717;
     min-height: 100vh;
     color: #ffffff; 
     display: flex;
@@ -39,7 +39,7 @@
 .subtitulo {
     font-size: 3rem;
     color: #ffffff;
-    margin-bottom: 86px;
+    
     text-align: center;
     max-width: 900px;
 }

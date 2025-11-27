@@ -1,10 +1,11 @@
+
 /* ======================= MENU LATERAL ======================= */
 .menu-lateral {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  background: #070c0b;
+  background: #000000;
   color: white;
   box-sizing: border-box;
   padding: 20px;

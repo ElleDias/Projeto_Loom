@@ -1,9 +1,11 @@
-import "./Botao.css"
+import "./Botao.css";
 
-const Botao = (props) => {
-    return(
-        <button className="botao" type="submit">{props.nomeDoBotao}</button>
-    )
-}
+const Botao = ({ nomeDoBotao, onClick, tipo = "button" }) => {
+  return (
+    <button className="botao" type={tipo} onClick={onClick}>
+      {nomeDoBotao}
+    </button>
+  );
+};
 
 export default Botao;

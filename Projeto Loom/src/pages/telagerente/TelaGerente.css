@@ -1,421 +1,195 @@
+/* ============================= */
+/*    ESTILO STARLINK FUTURISTA  */
+/* ============================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-  --color-background: #f7f7f5;
-  --color-sidebar-bg: #1c1c1c;
-  --color-card-bg: #ffffff;
-  --color-accent: #1a3d1d;
-  --color-heading: #2d2d2d;
-  --color-text: #505050;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --cor-fundo: #f5f5f7;
+    --cor-card: rgba(255, 255, 255, 0.6);
+    --cor-texto: #1b1b1d;
+    --cor-texto-secundario: #6c6c6f;
+    --cor-accent: #00a2ff; /* azul Starlink */
+    --cor-botao: #eaeaea;
+
+    --borda-glass: rgba(255, 255, 255, 0.5);
+    --sombra-glass: rgba(0, 0, 0, 0.08);
+
+    --fonte: 'Inter', sans-serif;
 }
 
 .tela-gerente {
-  display: flex;
-  background: var(--color-background);
-  min-height: 100vh;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  font-family: var(--font-sans);
+    display: flex;
+    background: var(--cor-fundo);
+    min-height: 100vh;
+    font-family: var(--fonte);
+    transition: 0.3s ease;
+    overflow-x: hidden;
 }
 
 .visao_gerente-container {
-  color: var(--color-text);
-  padding: 60px 40px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  transition: margin-left 0s ease;
+    width: 100%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    transition: margin-left 0.3s ease;
 }
 
+/* Ajuste sidebar */
 .visao_gerente-container.sidebar-open {
-  margin-left: 203px;
+    margin-left: 203px;
 }
 
 .visao_gerente-container.sidebar-mini {
-  margin-left: 80px;
+    margin-left: 80px;
 }
 
 .painel.moderno {
-  position: relative;
-  background: var(--color-card-bg);
-  border-radius: 50px;
-  padding: 60px 80px;
-  max-width: 900px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-.decor-stars {
-  display: none;
-}
-
-.geral-header h2 {
-  font-size: 5rem;
-  font-weight: 700;
-  color: var(--color-heading);
-  letter-spacing: -1px;
-  margin-bottom: 5px;
-}
-
-.geral-header .sub-header-elegante {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--color-text);
-  font-style: italic;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.geral-header .sub-header-contexto {
-    font-size: 1.2rem;
-    color: var(--color-text);
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-.geral-retangulo p {
-  margin-top: 30px;
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: var(--color-text);
-  font-weight: 400;
-}
-
-.geral-retangulo a {
-  color: var(--color-accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.geral-retangulo strong {
-  color: var(--color-heading);
-  font-weight: 600;
-}
-
-.tarefas-container.moderno {
-  display: flex;
-  gap: 20px;
-  max-width: 900px;
-  width: 100%;
-  justify-content: center;
-}
-
-.botao_tarefa,
-.botao_graficos {
-  flex: 1;
-  border: none;
-  border-radius: 8px;
-  padding: 15px 0;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: none;
-  transition: background-color 0.3s, transform 0.2s;
-  color: white;
-  text-transform: uppercase;
-}
-
-.botao_tarefa.azul,
-.botao_tarefa.roxo,
-.botao_graficos.dourado {
-  background: var(--color-accent);
-  color: #ffffff;
-}
-
-.botao_tarefa:hover,
-.botao_graficos:hover {
-  transform: translateY(-3px);
-  background-color: #000000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.grafico-desempenho-container {
-    background-color: var(--color-card-bg);
-    padding: 30px;
-    border-radius: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
     max-width: 900px;
-    margin-top: 20px;
-}
-.grafico-desempenho-container h3 {
-    font-family: var(--font-serif);
-    color: var(--color-heading);
-    font-size: 2em;
-    font-weight: 600;
+    padding: 60px 80px;
     text-align: center;
-    margin-bottom: 20px;
-}
 
-@media (max-width: 992px) {
-  .painel.moderno {
-    padding: 40px 50px;
-  }
-  .geral-header h2 {
-    font-size: 4rem;
-  }
-}
+    border-radius: 40px;
+    background: var(--cor-card);
+    box-shadow: 0 8px 30px var(--sombra-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--borda-glass);
 
-@media (max-width: 768px) {
-  .geral-header h2 {
-    font-size: 3rem;
-  }
-
-  .geral-header .sub-header-elegante {
-    font-size: 1.2rem;
-  }
-
-  .tarefas-container.moderno {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-:root {
-  --color-background: #f7f7f5;
-  --color-sidebar-bg: #1c1c1c;
-  --color-card-bg: #ffffff;
-  --color-accent: #1a3d1d;
-  --color-heading: #2d2d2d;
-  --color-text: #505050;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-}
-
-.tela-gerente {
-  display: flex;
-  background: var(--color-background);
-  min-height: 100vh;
-  overflow-x: hidden;
-  transition: all 0.4s ease;
-  font-family: var(--font-sans);
-}
-
-.visao_gerente-container {
-  color: var(--color-text);
-  padding: 60px 40px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  transition: margin-left 0.3s ease;
-}
-
-.visao_gerente-container.sidebar-open {
-  margin-left: 203px;
-}
-
-.visao_gerente-container.sidebar-mini {
-  margin-left: 80px;
-}
-
-.painel.moderno {
-  position: relative;
-  background: var(--color-card-bg);
-  border-radius: 50px;
-  padding: 60px 80px;
-  max-width: 900px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-.decor-stars {
-  display: none;
+    animation: fadeIn 0.4s ease;
 }
 
 .geral-header h2 {
-  font-size: 5rem;
-  font-weight: 700;
-  color: var(--color-heading);
-  letter-spacing: -1px;
-  margin-bottom: 5px;
-  text-align: center;
+    font-size: 4rem;
+    letter-spacing: -1px;
+    font-weight: 600;
+    color: var(--cor-texto);
 }
 
-.geral-header .sub-header-elegante {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--color-text);
-  font-style: italic;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
+.sub-header-elegante {
+    color: var(--cor-texto-secundario);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 10px;
+    font-style: italic;
 }
 
-.geral-header .sub-header-contexto {
-  font-size: 1.2rem;
-  color: var(--color-text);
-  margin-top: 5px;
-  margin-bottom: 15px;
-  text-align: center;
+.sub-header-contexto {
+    color: var(--cor-texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 .geral-retangulo p {
-  margin-top: 30px;
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: var(--color-text);
-  font-weight: 400;
+    color: var(--cor-texto-secundario);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 25px;
 }
 
+/* Links */
 .geral-retangulo a {
-  color: var(--color-accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.geral-retangulo strong {
-  color: var(--color-heading);
-  font-weight: 600;
-}
-
-.tarefas-container.moderno {
-  display: flex;
-  gap: 20px;
-  max-width: 900px;
-  width: 100%;
-  justify-content: center;
+    color: var(--cor-accent);
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .botao_tarefa,
 .botao_graficos {
-  flex: 1;
-  border: none;
-  border-radius: 8px;
-  padding: 15px 0;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: none;
-  transition: background-color 0.3s, transform 0.2s;
-  color: white;
-  text-transform: uppercase;
-}
+    flex: 1;
+    padding: 15px 0;
 
-.botao_tarefa.azul,
-.botao_tarefa.roxo,
-.botao_graficos.dourado {
-  background: var(--color-accent);
-  color: #ffffff;
+    border: none;
+    border-radius: 14px;
+
+    background: var(--cor-botao);
+    color: var(--cor-texto);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .botao_tarefa:hover,
 .botao_graficos:hover {
-  transform: translateY(-3px);
-  background-color: #000000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: var(--cor-accent);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 162, 255, 0.35);
+}
+
+.tarefas-container.moderno {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
 .grafico-desempenho-container {
-  background-color: var(--color-card-bg);
-  padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  width: 100%;
-  max-width: 900px;
-  margin-top: 20px;
+    width: 100%;
+    max-width: 900px;
+
+    background: var(--cor-card);
+    border-radius: 30px;
+
+    padding: 35px;
+    box-shadow: 0 8px 28px var(--sombra-glass);
+    border: 1px solid var(--borda-glass);
+    backdrop-filter: blur(12px);
+
+    animation: fadeIn 0.5s ease;
 }
 
 .grafico-desempenho-container h3 {
-  font-family: var(--font-serif);
-  color: var(--color-heading);
-  font-size: 2em;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 20px;
+    color: var(--cor-texto);
+    font-size: 1.9rem;
+    font-weight: 600;
 }
 
-/* ==================== MEDIA QUERIES ==================== */
-
-/* Tablets e telas médias */
-@media (max-width: 992px) {
-  .painel.moderno {
-    padding: 40px 50px;
-  }
-
-  .geral-header h2 {
-    font-size: 4rem;
-  }
-
-  .geral-header .sub-header-elegante {
-    font-size: 1.4rem;
-  }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Celulares e telas pequenas */
 @media (max-width: 768px) {
-  .visao_gerente-container {
-    padding: 30px 20px;
-    margin-left: 0 !important;
-  }
+    .visao_gerente-container {
+        padding: 30px 20px;
+        margin-left: 0 !important;
+    }
 
-  .painel.moderno {
-    padding: 30px 20px;
-    border-radius: 30px;
-  }
+    .painel.moderno {
+        padding: 35px 25px;
+        border-radius: 25px;
+    }
 
-  .geral-header h2 {
-    font-size: 3rem;
-  }
+    .geral-header h2 {
+        font-size: 2.6rem;
+    }
 
-  .geral-header .sub-header-elegante {
-    font-size: 1.2rem;
-  }
+    .tarefas-container.moderno {
+        flex-direction: column;
+        gap: 15px;
+    }
 
-  .geral-header .sub-header-contexto {
-    font-size: 1rem;
-  }
-
-  .tarefas-container.moderno {
-    flex-direction: column;
-    gap: 15px;
-    align-items: stretch;
-  }
-
-  .botao_tarefa,
-  .botao_graficos {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 0.9rem;
-  }
-
-  .grafico-desempenho-container {
-    padding: 20px;
-    border-radius: 20px;
-  }
-
-  .grafico-desempenho-container h3 {
-    font-size: 1.5rem;
-  }
+    .botao_tarefa,
+    .botao_graficos {
+        width: 100%;
+    }
 }
 
-/* Telas muito pequenas */
 @media (max-width: 480px) {
-  .geral-header h2 {
-    font-size: 2.2rem;
-  }
+    .geral-header h2 {
+        font-size: 2.2rem;
+    }
 
-  .geral-header .sub-header-elegante {
-    font-size: 1rem;
-  }
-
-  .geral-header .sub-header-contexto {
-    font-size: 0.9rem;
-  }
-
-  .painel.moderno {
-    padding: 20px 15px;
-  }
-
-  .tarefas-container.moderno {
-    gap: 10px;
-  }
+    .painel.moderno {
+        padding: 25px 18px;
+    }
 }
+

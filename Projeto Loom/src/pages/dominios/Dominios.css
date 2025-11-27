@@ -1,31 +1,30 @@
-/* ==================================== */
-/* VARIÁVEIS DE COR (Mantidas as originais) */
-/* ==================================== */
 :root {
-    --bg-page: #e2e2e2;
-    --bg-tabela: #ffffff;
-    --header-row-bg: #e2e2e2;
-    --text-dark: #000000;
-    --text-light: white;
-    
-    /* Cores dos Botões e Categorias */
-    --primary-action: #173C4C; /* Azul Escuro */
-    --secondary-action: #326D6B; /* Verde Petróleo */
-    --analise-color: #568F7C; /* Verde Mais Claro */
+    --bg-page: #0D1F23;
+    --bg-card: #132E35;
+    --bg-card-hover: #2D4A53;
+    --border-soft: #69818D33;
+    --text-light: #AFB3B7;
+    --text-title: #FFFFFF;
+    --pill-dark: #5A636A;
+    --pill-white: #AFB3B7;
 }
 
-/* ==================================== */
-/* CONTAINER GERAL */
-/* ==================================== */
 .dominios-page {
     display: flex;
-    background-color: var(--bg-page); /* #e2e2e2 */
-    color: var(--text-dark);
+    justify-content: center;
+    /* >>> Centraliza conteúdo */
+    align-items: flex-start;
+    /* Começa mais próximo do topo */
+    padding-top: 60px;
+    /* Espaço para respirar */
+    background: radial-gradient(circle at top, #132E35 0%, #0D1F23 70%);
     min-height: 100vh;
+    color: var(--text-light);
     transition: margin-left 0.3s ease;
+    font-family: "Gantari", sans-serif;
+    box-sizing: border-box;
 }
 
-/* Ajustes da Sidebar */
 .dominios-page.sidebar-open {
     margin-left: 203px;
 }
@@ -35,145 +34,132 @@
     margin-left: 80px;
 }
 
+/* CONTAINER CENTRAL */
 .dominios-container {
-    flex: 1;
-    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 1100px;
+    /* >>> Limita e centraliza melhor */
+    padding: 2rem;
     text-align: center;
-    font-family: "Inter", sans-serif;
-    color: var(--text-dark);
-}
-
-/* ==================================== */
-/* TÍTULOS */
-/* ==================================== */
-.subtitulo-dominio {
-    font-size: 2rem;
-    color: var(--text-dark); /* #000000 */
-    margin-bottom: 2.5rem;
-    font-weight: 700; /* Mais destaque */
-}
-
-/* ==================================== */
-/* TABELA PRINCIPAL */
-/* ==================================== */
-.tabela-dominio {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Reduzido de 1.8rem para um visual mais coeso */
-    background-color: var(--bg-tabela); /* #ffffff */
-    border-radius: 16px; /* Reduzido de 80px para um visual moderno */
-    padding: 30px;
-    width: 100%;
-    max-width: 1000px; /* Maior largura */
-    margin: 0 auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra mais elegante */
+    align-items: center;
+    /* >>> Garante centralização */
+    gap: 30px;
 }
 
-.tabela-header-dominio,
-.linha-dominio {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    padding: 12px 15px; /* Ajuste no padding */
-    border-radius: 8px;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
-}
-
-/* Cabeçalho */
-.tabela-header-dominio {
-    background-color: var(--primary-action); /* #173C4C */
-    color: var(--text-light);
+.subtitulo-dominio {
+    font-size: 1.4rem;
     font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
+    color: var(--text-title);
+    margin-bottom: 1rem;
+    /* >>> Reduz distância */
+    letter-spacing: 1px;
 }
 
-/* Linhas */
-.linha-dominio {
-    background-color: var(--bg-tabela); /* Linhas brancas, mais clean */
-    border: 1px solid var(--header-row-bg); /* Borda sutil para separar */
-    color: var(--text-dark);
-}
-
-.linha-dominio:hover {
-    background-color: #f0f0f0; /* Um tom um pouco mais claro do fundo original */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* ==================================== */
-/* CATEGORIAS (Cores Originais mantidas) */
-/* ==================================== */
-.categoria-dominio {
-    padding: 5px 12px;
-    border-radius: 20px; /* Pílula */
-    font-weight: 600;
-    font-size: 0.85rem;
-    display: inline-block;
-    width: fit-content;
-    justify-self: center;
-}
-
-.produtivo-dominio {
-    background-color: var(--primary-action); /* #173C4C */
-    color: var(--text-light);
-}
-
-.nao-produtivo-dominio {
-    background-color: var(--secondary-action); /* #326D6B */
-    color: var(--text-light);
-}
-
-.analise-dominio {
-    background-color: var(--analise-color); /* #568F7C */
-    color: var(--text-light);
-}
-
-/* ==================================== */
-/* BOTÕES DE FILTRO (Cores Originais mantidas) */
-/* ==================================== */
 .filtro-dominio {
-    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
+    margin-bottom: 10px;
+    /* >>> Aproxima do conteúdo */
+    width: 100%;
 }
 
 .filtro-dominio button {
-    background-color: var(--bg-tabela); /* White */
-    color: var(--primary-action); /* #173C4C */
-    border: 2px solid var(--primary-action);
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-family: inherit;
+    background: rgba(19, 46, 53, 0.4);
+    color: var(--pill-white);
+    border: 1px solid var(--border-soft);
+    padding: 10px 26px;
+    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.25s ease;
+    backdrop-filter: blur(6px);
 }
 
 .filtro-dominio button:hover {
-    background-color: var(--primary-action);
-    color: var(--text-light);
-    transform: translateY(-1px);
+    background: rgba(45, 74, 83, 0.9);
+    transform: translateY(-2px);
 }
 
 .filtro-dominio button.ativo {
-    background-color: var(--secondary-action); /* #326D6B */
-    color: var(--text-light);
-    border-color: var(--secondary-action);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    transform: none;
+    background: #69818D;
+    color: #ffffff;
+    border-color: #69818D;
+    box-shadow: 0 3px 8px rgba(105, 129, 141, 0.4);
 }
 
-/* ==================================== */
-/* MEDIA QUERIES (Responsividade) */
-/* ==================================== */
+.tabela-dominio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(19, 46, 53, 0.55);
+    border-radius: 20px;
+    padding: 32px;
+    width: 100%;
+    max-width: 900px;
+    /* >>> Mais estreito e central */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-soft);
+}
 
-/* Tablets (max-width: 1024px) */
+.tabela-header-dominio {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 15px;
+    background: rgba(45, 74, 83, 0.6);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: var(--text-title);
+    font-size: 0.9rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+}
+
+.linha-dominio {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 14px 16px;
+    background: rgba(19, 46, 53, 0.38);
+    border-radius: 12px;
+    border: 1px solid var(--border-soft);
+    transition: 0.25s ease;
+    color: var(--text-light);
+}
+
+.linha-dominio:hover {
+    background: rgba(45, 74, 83, 0.6);
+    transform: translateY(-3px);
+    border-color: #69818D55;
+    box-shadow: 0 6px 18px #00000044;
+}
+
+.categoria-dominio {
+    padding: 6px 14px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    width: fit-content;
+    justify-self: center;
+    color: white;
+}
+
+.produtivo-dominio {
+    background: #132E35;
+}
+
+.nao-produtivo-dominio {
+    background: #2D4A53;
+}
+
+.analise-dominio {
+    background: #5A636A;
+}
+
 @media (max-width: 1024px) {
-    /* Ajusta a margem da sidebar em telas menores */
+
     .dominios-page.sidebar-open,
     .dominios-page.sidebar-close,
     .dominios-page.sidebar-mini {
@@ -182,88 +168,51 @@
 
     .tabela-dominio {
         padding: 20px;
+        max-width: 100%;
     }
 }
 
-/* Celulares (max-width: 767px) - Card View */
 @media (max-width: 767px) {
-    .dominios-page {
-        flex-direction: column;
-    }
-
-    .subtitulo-dominio {
-        font-size: 1.6rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .tabela-dominio {
-        padding: 15px;
-        gap: 15px;
-        border-radius: 12px;
-    }
-
-    /* Oculta o cabeçalho no modo cartão */
     .tabela-header-dominio {
         display: none;
     }
 
-    /* Linhas como cards */
     .linha-dominio {
         display: flex;
         flex-direction: column;
+        gap: 8px;
         text-align: left;
-        background-color: var(--bg-tabela);
-        border: 1px solid var(--header-row-bg);
-        border-radius: 8px;
-        padding: 1rem;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-        transition: none;
-    }
-    
-    .linha-dominio:hover {
-        background-color: var(--bg-tabela);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 18px;
     }
 
-    /* Adiciona labels e formatação de texto no modo card */
     .linha-dominio span {
-        padding: 5px 0;
-        border-bottom: 1px dotted var(--header-row-bg);
+        padding-bottom: 6px;
+        border-bottom: 1px dotted var(--border-soft);
     }
-    
+
     .linha-dominio span:last-child {
         border-bottom: none;
-        padding-bottom: 0;
-    }
-    
-    /* Estilo da Label */
-    .linha-dominio span::before {
-        content: attr(data-label) ": "; /* Requer o atributo data-label no seu JSX */
-        font-weight: 700;
-        color: var(--primary-action); /* #173C4C */
-        margin-right: 5px;
-        display: inline-block;
-        min-width: 90px;
-    }
-    
-    /* Ajuste da Categoria para alinhamento dentro do Card */
-    .linha-dominio .categoria-dominio {
-        justify-self: start; 
-        margin-top: 5px;
-        /* Ajuste esta margem para alinhar o conteúdo da categoria após a label */
-        margin-left: 95px; 
     }
 
-    /* Filtros (mantidos empilhados, mas com padding ajustado) */
+    .linha-dominio span::before {
+        content: attr(data-label) ": ";
+        color: #69818D;
+        font-weight: 700;
+        margin-right: 6px;
+    }
+
+    .categoria-dominio {
+        margin-left: 100px;
+        margin-top: 5px;
+    }
+
     .filtro-dominio {
+        width: 100%;
+        padding: 0 20px;
         flex-direction: column;
-        gap: 8px;
-        align-items: stretch;
     }
 
     .filtro-dominio button {
         width: 100%;
-        padding: 10px 12px;
-        font-size: 0.9rem;
     }
 }

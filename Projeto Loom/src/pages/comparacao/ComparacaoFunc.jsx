@@ -1,108 +1,110 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ComparacaoFunc.css";
-import { MenuLateral } from "../../components/Sidebar/Sidebar";
-import api from "../../Services/services";
+import axios from "axios";
+import secureLocalStorage from "react-secure-storage";
 
-export default function ComparadorDeFuncionarios() {
-  const [modoSidebar, setModoSidebar] = useState("close");
+export default function ComparacaoFuncionarios() {
   const [funcionarios, setFuncionarios] = useState([]);
-  const [tarefasConcluidas, setTarefasConcluidas] = useState([]);
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const carregarDados = async () => {
+    const fetchData = async () => {
       try {
-        setCarregando(true);
-        setErro(null);
+        const token = secureLocalStorage.getItem("token");
 
-        // ✅ Busca funcionários
-        const resFuncionarios = await api.get("/Funcionario/minha-equipe");
-        setFuncionarios(resFuncionarios.data);
+        if (!token) {
+          setError("Token não encontrado. Faça login novamente.");
+          setIsLoading(false);
+          return;
+        }
 
-        // ✅ Busca tarefas concluídas
-        const resTarefas = await api.get("/Atividade/concluidas/por-funcionario");
-        setTarefasConcluidas(resTarefas.data);
+        const respFunc = await axios.get("https://localhost:7283/api/Funcionario", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        const funcionariosAPI = respFunc.data;
+
+        // 🔥 gerar tarefas mock igual ao gráfico
+        const funcionariosComDados = funcionariosAPI.map(f => {
+          const concluidas = Math.floor(Math.random() * 6) + 2;
+          const pendentes = Math.floor(Math.random() * 3);
+          const andamento = Math.floor(Math.random() * 2);
+
+          const total = concluidas + pendentes + andamento;
+          const desempenho = Math.round((concluidas / total) * 100);
+
+          return {
+            ...f,
+            concluidas,
+            pendentes,
+            andamento,
+            desempenho
+          };
+        });
+
+        // 🔥 ORDENAR DO QUE CONCLUIU MAIS PARA O QUE MENOS CONCLUIU
+        const ordenado = funcionariosComDados.sort((a, b) => b.concluidas - a.concluidas);
+
+        setFuncionarios(ordenado);
+
       } catch (err) {
-        console.error("❌ Erro ao carregar dados:", err);
-        setErro("Não foi possível carregar os dados. Verifique se a API está rodando em http://localhost:7283");
+        setError("Erro ao carregar dados: " + err.message);
       } finally {
-        setCarregando(false);
+        setIsLoading(false);
       }
     };
 
-    carregarDados();
+    fetchData();
   }, []);
 
   return (
-    <div className={`comparador-container sidebar-${modoSidebar}`}>
-      <MenuLateral
-         perfil={{ ativo: true, path: "/Perfil", nome: "Perfil" }}
-        geral={{ ativo: true, path: "/TelaDoGestor", nome: "Geral" }}
-        gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
-        funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
-        mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
-        acessos={{ ativo: true, path: "/Acesso", nome: "Acessos" }}
-        dominios={{ ativo: true, path: "/Dominio", nome: "Domínios" }}
-        voltarATela={{ ativo: true, nome: "Retornar" }}
-         compara={{ path: "/comparacao", ativo: true }}
-        modo={modoSidebar}
-        setModo={setModoSidebar}
-      />
-
+    <div className="comparador-container">
       <div className="comparador-card">
-        <h2 className="titulo">📊 Comparador de Funcionários</h2>
+        <h1 className="titulo">Ranking de Desempenho</h1>
 
-        {carregando ? (
-          <p className="carregando">Carregando dados...</p>
-        ) : erro ? (
-          <p className="erro">{erro}</p>
-        ) : (
-          <div className="tabela-container">
-            {funcionarios.length > 0 ? (
-              <table className="tabela-funcionarios">
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>Departamento</th>
-                    <th>Desempenho</th>
-                    <th>Projetos</th>
-                    <th>Faltas</th>
-                    <th>Tarefas Concluídas</th>
+        <p className="descricao-gestor">
+          Funcionários ordenados automaticamente por número de tarefas concluídas.
+        </p>
+
+        {isLoading && <p>Carregando...</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
+
+        {!isLoading && !error && (
+          <>
+            <table className="tabela-funcionarios">
+              <thead>
+                <tr>
+                  <th>Posição</th>
+                  <th>Funcionário</th>
+                  <th>Concluídas</th>
+                  <th>Desempenho</th>
+                  <th>Barra</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {funcionarios.map((f, index) => (
+                  <tr key={f.id}>
+                    <td><strong>{index + 1}º</strong></td>
+                    <td>{f.nome}</td>
+                    <td>{f.concluidas}</td>
+                    <td>{f.desempenho}%</td>
+
+                    <td>
+                      <div className="barra-container">
+                        <div
+                          className="barra-desempenho"
+                          style={{ width: `${f.desempenho}%` }}
+                        ></div>
+                        <span className="porcentagem">{f.desempenho}%</span>
+                      </div>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {funcionarios.map((f) => (
-                    <tr key={f.id}>
-                      <td>{f.nome}</td>
-                      <td>{f.departamento || "—"}</td>
-                      <td>
-                        <div className="barra-container">
-                          <div
-                            className="barra-desempenho"
-                            style={{ width: `${f.desempenho || 0}%` }}
-                          ></div>
-                          <span className="porcentagem">
-                            {f.desempenho ?? 0}%
-                          </span>
-                        </div>
-                      </td>
-                      <td>{f.projetos ?? 0}</td>
-                      <td>{f.faltas ?? 0}</td>
-                      <td>
-                        {
-                          tarefasConcluidas.find(t => t.funcionarioId === f.id)
-                            ?.tarefasConcluidas ?? 0
-                        }
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <p className="nenhum-resultado">Nenhum funcionário encontrado.</p>
-            )}
-          </div>
+                ))}
+              </tbody>
+            </table>
+          </>
         )}
       </div>
     </div>

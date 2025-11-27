@@ -1,27 +1,20 @@
-/* src/pages/mensagem/Mensagem.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap');
 
-/* Fundo geral mais claro e limpo */
+/* Fundo geral */
 .pagina-mensagens {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     min-height: 100vh;
-    padding-top: 20px;
-    background-color: #f0f0f000; /* Fundo cinza suave */
+    background-color: #f0f0f0;
     font-family: 'Roboto', sans-serif;
     transition: margin-left 0.3s ease;
+    position: relative;
+    text-align: center;
 }
 
-.nenhuma-mensagem {
-  text-align: center;
-  color: #555;
-  margin: 30px 0;
-  font-size: 1em;
-}
-/* Ajuste para Sidebar */
+/* Ajuste de deslocamento quando a sidebar estiver aberta */
 .pagina-mensagens.sidebar-open {
     margin-left: 190px;
 }
@@ -30,29 +23,31 @@
     margin-left: 80px;
 }
 
-/* Container principal (Caixa que contém a lista) - ESTILO MOBILE (PADRÃO) */
+/* Caixa principal */
 .mensagens-container {
     background-color: #ffffff;
     width: 95%;
-    max-width: 450px; /* Largura para mobile/telas pequenas */
-    padding: 15px 0; /* Padding vertical, zero horizontal */
+    max-width: 450px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .titulo-lista {
-    color: #333;
-    font-size: 1.5em;
+    color: #001608;
+    font-size: 1.6em;
     font-weight: 600;
-    text-align: center;
-    margin: 0 0 15px 0;
+    margin-bottom: 15px;
 }
 
-/* Lista de Mensagens (e seus filhos) - Mantidos inalterados */
+/* Lista de mensagens */
 .lista-mensagens {
     display: flex;
     flex-direction: column;
+    width: 100%;
     border-top: 1px solid #eee;
 }
 
@@ -82,6 +77,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    text-align: left;
 }
 
 .nome-contato {
@@ -97,7 +93,7 @@
 .ultima-mensagem {
     margin: 2px 0 0 0;
     font-size: 0.85em;
-    color: #888;
+    color: #666;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -112,7 +108,7 @@
 
 .hora-mensagem {
     font-size: 0.75em;
-    color: #888;
+    color: #999;
 }
 
 .bola-nao-lida {
@@ -128,19 +124,12 @@
     font-weight: 600;
 }
 
-/* -------------------------------------------------------------------------- */
-/* ADICIONANDO RESPONSIVIDADE (MEDIA QUERY)                  */
-/* -------------------------------------------------------------------------- */
-
-/* Estilos aplicados APENAS em telas com largura mínima de 768px (Desktop/Tablet) */
+/* Responsividade */
 @media (min-width: 768px) {
-    /* Aumenta a largura máxima do container em telas maiores */
     .mensagens-container {
-        max-width: 700px; /* Altere este valor para o tamanho que desejar no desktop */
-        padding: 20px 0; /* Opcional: aumenta o padding vertical */
+        max-width: 700px;
     }
-    
-    /* Opcional: Aumentar um pouco o tamanho do texto no desktop para melhor legibilidade */
+
     .titulo-lista {
         font-size: 1.8em;
     }
@@ -158,9 +147,8 @@
     }
 }
 
-/* Opcional: Estilos para telas muito grandes (ex: 1200px ou mais) */
 @media (min-width: 1200px) {
     .mensagens-container {
-        max-width: 850px; /* Mais largo em monitores grandes */
+        max-width: 850px;
     }
 }

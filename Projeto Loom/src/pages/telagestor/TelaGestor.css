@@ -1,15 +1,14 @@
 .monitoramento-container {
-    background-color: #000000;
+    background: radial-gradient(circle at top, #132E35 0%, #0D1F23 60%, #050505 90%);
     min-height: 100vh;
-    color: #e0e0e0;
+    color: #AFB3B7;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 80px;
-    font-family: "Gantari", sans-serif;
-    transition: margin-left 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
-    padding-bottom: 40px;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    font-family: "Gantari", "Inter", sans-serif;
+    transition: 0.3s ease;
     box-sizing: border-box;
 }
 
@@ -23,55 +22,119 @@
 }
 
 .saudacao {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 800;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    margin-top: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
 }
 
 .texto_monitoramento {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    color: #b0b0b0;
+    font-size: 1.25rem;
+    color: #69818D;
+    max-width: 720px;
     text-align: center;
-    max-width: 700px;
-    margin-bottom: 40px;
-    padding: 0 20px;
+    margin-bottom: 50px;
 }
 
+/* Títulos de seção */
 .titulo {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: #ffffff;
+    color: #AFB3B7;
     text-align: center;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
 }
 
 .subtitulo {
-    font-size: 1.4rem;
-    color: #b0b0b0;
-    margin-bottom: 40px;
+    font-size: 1.25rem;
     text-align: center;
     max-width: 700px;
+    margin-bottom: 0px;
+    color: #5A636A;
+}
+
+.resumo-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.card-resumo {
+    background: rgba(19, 46, 53, 0.35); /* #132E35 */
+    border: 1px solid rgba(105, 129, 141, 0.3); /* #69818D */
+    padding: 32px;
+    border-radius: 20px;
+    width: 280px;
+    transition: 0.3s;
+    backdrop-filter: blur(14px);
+}
+
+.card-resumo:hover {
+    background: rgba(45, 74, 83, 0.55); /* #2D4A53 */
+    transform: translateY(-6px);
+    border-color: #69818D;
+    box-shadow: 0 0 20px rgba(105, 129, 141, 0.4);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-icone {
+    font-size: 1.8rem;
+    margin-right: 12px;
+    color: #69818D;
+}
+
+.card-titulo {
+    color: #AFB3B7;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-valor {
+    margin-top: 10px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+
+/* Cores neon reequilibradas com paleta */
+.card-azul .card-icone {
+    color: #69818D;
+    text-shadow: 0 0 10px rgba(105, 129, 141, 0.55);
+}
+
+.card-verde .card-icone {
+    color: #2D4A53;
+    text-shadow: 0 0 10px rgba(45, 74, 83, 0.55);
+}
+
+.card-vermelho .card-icone {
+    color: #AFB3B7;
+    text-shadow: 0 0 10px rgba(175, 179, 183, 0.55);
 }
 
 .tabela {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 40px;
+    background: rgba(19, 46, 53, 0.4); /* #132E35 */
+    border: 1px solid rgba(105, 129, 141, 0.25);
+    backdrop-filter: blur(16px);
     padding: 40px;
+    border-radius: 28px;
+    max-width: 1000px;
     width: 100%;
-    max-width: 900px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-    box-sizing: border-box;
+    margin-top: 60px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 }
 
 .cabecalho,
@@ -80,121 +143,42 @@
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     gap: 12px;
-    align-items: center;
 }
 
 .cabecalho {
+    color: #AFB3B7;
     font-weight: 700;
-    color: #ffffff;
 }
 
 .linha .coluna {
-    background: rgba(255, 255, 255, 0.05);
-    color: #e0e0e0;
-    padding: 12px 8px;
+    background: rgba(90, 99, 106, 0.15); /* #5A636A */
+    padding: 14px 10px;
     border-radius: 10px;
-    font-weight: 500;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(105, 129, 141, 0.2);
+    transition: 0.2s ease;
+    color: #d5d5d5;
 }
 
 .linha .coluna:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+    background: rgba(105, 129, 141, 0.25); /* #69818D */
+    transform: translateY(-2px);
 }
 
-@media (max-width: 1024px) {
-    .monitoramento-container {
-        margin-left: 0 !important;
-        padding: 30px 20px;
-    }
-
-    .titulo {
-        font-size: 2.4rem;
-    }
-    
-    .saudacao {
-        font-size: 3.5rem;
-    }
-
-    .subtitulo {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-    }
-    
-    .texto_monitoramento {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-    }
-
-    .tabela {
-        padding: 30px 20px;
-        border-radius: 30px;
+@media (max-width: 900px) {
+    .card-resumo {
+        width: 100%;
+        max-width: 320px;
     }
 }
 
 @media (max-width: 700px) {
-    .monitoramento-container {
-        margin-left: 0 !important;
-        padding: 20px 10px;
-    }
-
-    .titulo {
-        font-size: 2rem;
-    }
-    
-    .saudacao {
-        font-size: 2.8rem;
-    }
-
-    .subtitulo {
-        font-size: 1.1rem;
-        margin-bottom: 25px;
-    }
-    
-    .texto_monitoramento {
-        font-size: 1rem;
-        margin-bottom: 25px;
-    }
-
     .tabela {
-        padding: 20px 15px;
-        border-radius: 20px;
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        padding: 22px;
     }
 
     .cabecalho,
     .linha {
         grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
-    .linha .coluna {
-        padding: 10px;
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .titulo {
-        font-size: 1.6rem;
-    }
-
-    .saudacao {
-        font-size: 2.2rem;
-    }
-    
-    .subtitulo {
-        font-size: 1rem;
-    }
-
-    .texto_monitoramento {
-        font-size: 0.9rem;
-        padding: 0 10px;
-    }
-
-    .tabela {
-        padding: 15px 10px;
     }
 }
