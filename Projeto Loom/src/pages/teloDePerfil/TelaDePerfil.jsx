@@ -120,25 +120,7 @@ const salvarAlteracoes = (form) => {
                       <p><strong>CPF:</strong> {userData.cpf || "Não informado"}</p>
                       <p><strong>Endereço:</strong> {userData.endereco || "Não informado"}</p>
                     </div>
-                  </div>
-
-                  <div className="profile-section">
-                    <h3>Estatísticas</h3>
-                    <div className="stats-grid">
-                      <div className="stat-item">
-                        <h4>12</h4>
-                        <p>Chamados Resolvidos</p>
-                      </div>
-                      <div className="stat-item">
-                        <h4>3</h4>
-                        <p>Projetos Ativos</p>
-                      </div>
-                      <div className="stat-item">
-                        <h4>98%</h4>
-                        <p>Satisfação</p>
-                      </div>
-                    </div>
-                  </div>
+                  </div>                                                      
                 </>
               )}
 

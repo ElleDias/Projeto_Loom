@@ -1,259 +1,326 @@
-.comparador-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  transition: margin-left 0.3s ease;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6f8;
 }
 
-/* .comparador-container.sidebar-open {
-  margin-left: 170px;
-} */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  min-height: 100vh;
+  transition: margin-left 0s ease;
+}
 
-/* .comparador-container.sidebar-close,
-.comparador-container.sidebar-mini {
+.app-container.sidebar-open {
+    margin-left: 203px;
+}
+
+.app-container.sidebar-close,
+.app-container.sidebar-mini {
   margin-left: 80px;
-} */
-
-.comparador-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 45px;
 }
 
-.titulo {
+.form-card {
+  background: #ffffff;
+  padding: 30px;
+  width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.form-card h2 {
   text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
+  margin-bottom: 20px;
   color: #333;
 }
 
-.filtros {
+.task-form {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.select-filtro,
-.input-filtro {
-  padding: 8px 12px;
+.task-form label {
+  font-weight: 600;
+  color: #555;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.tabela-container {
-  overflow-x: auto;
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #173C4C;
 }
 
-.tabela-funcionarios {
-  width: 100%;
-  border-collapse: collapse;
+.task-form textarea {
+  resize: none;
+  min-height: 80px;
 }
 
-.tabela-funcionarios th,
-.tabela-funcionarios td {
-  border-bottom: 1px solid #ddd;
+.save-btn {
+  background: #173C4C;
+  color: white;
+  border: none;
   padding: 12px;
-  text-align: center;
-}
-
-.tabela-funcionarios th {
-  background-color: #eaeaea;
-  font-weight: 600;
-}
-
-.barra-container {
-  position: relative;
-  background: #eee;
   border-radius: 8px;
-  height: 18px;
-  width: 100%;
-  overflow: hidden;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
 }
 
-.barra-desempenho {
-  background-color: #326D6B;
-  height: 100%;
-  border-radius: 8px;
-  transition: width 0.4s ease;
+.save-btn:hover {
+  background: #326D6B;
 }
 
-.porcentagem {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.8rem;
-  color: #fff;
-  font-weight: 500;
-}
-
-/* .nenhum-resultado {
-  text-align: center;
-  color: #888;
-  font-style: italic;
-  margin-top: 20px;
-} */
-
-
-
-.comparador-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  transition: margin-left 0.3s ease;
-}
-
-.comparador-card {
+.task-list {
+  width: 420px;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 45px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-.titulo {
+.task-list h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
   text-align: center;
-  font-size: 1.9rem;
-  font-weight: 600;
-  color: #f3f3f3;
 }
 
-.filtros {
+.task-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list li {
+  background: #f9fafb;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+}
+
+.task-list strong {
+  color: #222;
+}
+
+.task-desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.empty-text {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6f8;
+}
+
+.app-container {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  /* permite quebrar em múltiplas linhas em telas pequenas */
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  min-height: 100vh;
+  transition: margin-left 0s ease;
 }
 
-.select-filtro,
-.input-filtro {
-  padding: 8px 12px;
+.app-container.sidebar-open {
+  margin-left: 203px;
+}
+
+.app-container.sidebar-close,
+.app-container.sidebar-mini {
+  margin-left: 80px;
+}
+
+.form-card,
+.task-list {
+  width: 420px;
+}
+
+.form-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-form label {
+  font-weight: 600;
+  color: #555;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.tabela-container {
-  overflow-x: auto;
-  /* permite scroll horizontal em telas pequenas */
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #173C4C;
 }
 
-.tabela-funcionarios {
-  width: 100%;
-  border-collapse: collapse;
+.task-form textarea {
+  resize: none;
+  min-height: 80px;
 }
 
-.tabela-funcionarios th,
-.tabela-funcionarios td {
-  border-bottom: 1px solid #ddd;
+.save-btn {
+  background: #173C4C;
+  color: white;
+  border: none;
   padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.save-btn:hover {
+  background: #326D6B;
+}
+
+.task-list {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.task-list h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
   text-align: center;
 }
 
-.tabela-funcionarios th {
-  background-color: #eaeaea;
-  font-weight: 600;
+.task-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.barra-container {
-  position: relative;
-  background: #eee;
-  border-radius: 8px;
-  height: 18px;
-  width: 100%;
-  overflow: hidden;
+.task-list li {
+  background: #f9fafb;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
 }
 
-.barra-desempenho {
-  background-color: #326D6B;
-  height: 100%;
-  border-radius: 8px;
-  transition: width 0.4s ease;
+.task-list strong {
+  color: #222;
 }
 
-.porcentagem {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.8rem;
-  color: #fff;
-  font-weight: 500;
+.task-desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.empty-text {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
 }
 
 /* ===== MEDIA QUERIES ===== */
 
 /* Tablets (até 1024px) */
 @media (max-width: 1024px) {
-  .comparador-container {
-    padding: 15px;
-    max-width: 95%;
+  .app-container.sidebar-open {
+    margin-left: 120px;
   }
 
-  .comparador-card {
-    padding: 35px;
+  .app-container.sidebar-close,
+  .app-container.sidebar-mini {
+    margin-left: 60px;
   }
 
-  .titulo {
-    font-size: 3.5rem;
-  }
-
-  .select-filtro,
-  .input-filtro {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
-
-  .tabela-funcionarios th,
-  .tabela-funcionarios td {
-    padding: 10px;
+  .form-card,
+  .task-list {
+    width: 90%;
   }
 }
 
 /* Celulares (até 767px) */
 @media (max-width: 767px) {
-  .comparador-container {
-    margin: 20px auto;
+  .app-container {
+    padding: 20px;
+    margin-left: 0 !important; /* sidebar some em telas pequenas */
+  }
+
+  .form-card,
+  .task-list {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .task-form input,
+  .task-form textarea,
+  .task-form select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .save-btn {
+    font-size: 15px;
     padding: 10px;
-    width: 100%;
   }
 
-  .comparador-card {
-    padding: 25px;
+  .task-list li {
+    padding: 10px 12px;
   }
 
-  .titulo {
-    font-size: 1.4rem;
+  .task-list h3 {
+    font-size: 18px;
   }
 
-  .filtros {
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-  }
-
-  .select-filtro,
-  .input-filtro {
-    width: 100%;
-    font-size: 0.85rem;
-    padding: 6px 8px;
-  }
-
-  .tabela-funcionarios th,
-  .tabela-funcionarios td {
-    padding: 8px 6px;
-    font-size: 0.85rem;
-  }
-
-  .barra-container {
-    height: 14px;
-  }
-
-  .porcentagem {
-    font-size: 0.7rem;
+  .form-card h2 {
+    font-size: 20px;
   }
 }

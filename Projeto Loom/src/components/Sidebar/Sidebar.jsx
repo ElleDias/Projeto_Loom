@@ -4,7 +4,7 @@ import Logo from "../../assets/img/Logo.svg";
 import User from "../../assets/img/User.svg";
 import Gestor from "../../assets/img/Management.svg";
 import Geral from "../../assets/img/Clipboard.svg";
-import Func from "../../assets/img/Management.svg";
+import Func from "../../assets/img/Notepad.svg";
 import Chat from "../../assets/img/SMS.svg";
 import Voltar from "../../assets/img/Voltar.svg";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ export const MenuLateral = ({
   perfil = false,
   geral = "",
   gestores = false,
-  funcionarios = false,
+  tarefas = false,
   mensagens = false,
   voltarATela = true,
   acessos = false,
@@ -114,10 +114,10 @@ export const MenuLateral = ({
             </li>
           )}
 
-          {funcionarios.ativo && (
-            <li onClick={() => { navigate(funcionarios.path); if (isMobile) fecharTotal(); }}>
-              <img src={Func} className="icone-menu" alt="Funcionários" />
-              {isOpen && <span>Funcionários</span>}
+          {tarefas.ativo && (
+            <li onClick={() => { navigate(tarefas.path); if (isMobile) fecharTotal(); }}>
+              <img src={Geral} className="icone-menu" alt="Tarefas" />
+              {isOpen && <span>Tarefas</span>}
             </li>
           )}
 

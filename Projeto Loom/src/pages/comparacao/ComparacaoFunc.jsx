@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./ComparacaoFunc.css";
 import axios from "axios";
 import secureLocalStorage from "react-secure-storage";
+import { MenuLateral } from "../../components/Sidebar/Sidebar";
 
 export default function ComparacaoFuncionarios() {
-  const [funcionarios, setFuncionarios] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [modoSidebar, setModoSidebar] = useState("close");
+  const [funcionarios, setFuncionarios] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,6 +61,20 @@ export default function ComparacaoFuncionarios() {
 
   return (
     <div className="comparador-container">
+      <MenuLateral
+        modo={modoSidebar}
+        setModo={setModoSidebar}
+
+        perfil={{ path: "/perfil", ativo: false }}
+        geral={{ path: "/Acesso", nome: "Acessos", ativo: true }}
+        gestores={{ path: "/gestores", ativo: false }}
+        funcionarios={{ path: "/funcionarios", ativo: false }}
+        mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
+        dominios={{ path: "/Dominio", ativo: true }}
+        compara={{ path: "/comparacao", ativo: false }}
+
+        voltarATela={{ ativo: true, nome: "Retornar" }}
+      />
       <div className="comparador-card">
         <h1 className="titulo">Ranking de Desempenho</h1>
 

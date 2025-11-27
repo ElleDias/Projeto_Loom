@@ -15,7 +15,7 @@ import Comparacao from "../pages/comparacao/ComparacaoFunc"
 import TeladePerfil from "../pages/teloDePerfil/TelaDePerfil";
 import RedefinirSenha from "../pages/redefinirsenha/Redefinirsenha"
 import Chat from "../pages/chat/Chat";
-
+import Funcionario from "../pages/Funcionario/funcionario"
 
 const Rotas = () => {
     return (
@@ -50,6 +50,7 @@ const Rotas = () => {
                 {/* http://localhost:3000/ => Redefinir Senha */}
                 <Route path="/Senha" element={<RedefinirSenha />} />      
                 <Route path="/chat/:contatoId" element={<Chat />} />
+                <Route path="/funcionario" element={<Funcionario />} />
             </Routes>
         </BrowserRouter>
 

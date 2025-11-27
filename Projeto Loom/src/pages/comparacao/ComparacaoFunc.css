@@ -115,10 +115,15 @@ body {
   text-align: center !important;
 }
 
-.tabela-funcionarios th,
+.tabela-funcionarios th{
+  padding: 14px 12px;
+  color: black;
+  vertical-align: middle;
+  text-align: center !important;
+}
 .tabela-funcionarios td {
   padding: 14px 12px;
-  color: #fff;
+  color: white;
   vertical-align: middle;
   text-align: center !important;
 }

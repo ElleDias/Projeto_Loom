@@ -125,6 +125,43 @@
     text-shadow: 0 0 10px rgba(175, 179, 183, 0.55);
 }
 
+/* Filtros centralizados e lado a lado */
+.filtros {
+    display: flex;             /* Coloca input e select na mesma linha */
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Alinha verticalmente */
+    gap: 15px;                 /* Espaço entre os filtros */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;           /* Para mobile, eles podem quebrar linha se necessário */
+    width: 100%;               /* Garante que ocupe toda a largura disponível */
+}
+
+.filtros input,
+.filtros select {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(105, 129, 141, 0.3);
+    background: rgba(19, 46, 53, 0.25);
+    color: #AFB3B7;
+    font-size: 1rem;
+    min-width: 220px;          /* Garante que tenham largura suficiente */
+    max-width: 300px;          /* Evita que fiquem gigantes em telas grandes */
+    transition: 0.3s;
+}
+
+.filtros input::placeholder {
+    color: #69818D;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+    outline: none;
+    border-color: #AFB3B7;
+    box-shadow: 0 0 8px rgba(175, 179, 183, 0.4);
+}
+
+
 .tabela {
     background: rgba(19, 46, 53, 0.4); /* #132E35 */
     border: 1px solid rgba(105, 129, 141, 0.25);

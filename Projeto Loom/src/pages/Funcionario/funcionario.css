@@ -1,0 +1,155 @@
+/* Dashboard.css */
+
+/* --- Container Principal --- */
+.dashboard-container {
+    padding: 20px;
+    background-color: #f4f4f7; /* Fundo claro */
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+/* --- Cards de Cabeçalho (Pendências e Faltas) --- */
+.header-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    min-width: 150px;
+    text-align: left;
+}
+
+.card-value {
+    font-size: 3em;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1;
+}
+
+.card-label {
+    font-size: 1em;
+    color: #666;
+    margin: 0;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* --- Conteúdo Principal (Resumo e Lista de Tarefas) --- */
+.main-content {
+    display: flex;
+    gap: 30px;
+}
+
+/* --- Seção Esquerda (Resumo de Tarefas Concluídas) --- */
+.resumo-card {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+}
+
+.resumo-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.resumo-hours,
+.resumo-details {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.icon {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+.normal-text {
+    margin: 5px 0;
+    color: #333;
+}
+
+.alert-text {
+    margin: 5px 0;
+    color: #e53935; /* Cor de alerta */
+    font-weight: 700;
+}
+
+.alert-icon {
+    font-size: 1.1em;
+}
+
+/* --- Barra de Progresso --- */
+.progress-text {
+    font-size: 0.8em;
+    color: #666;
+    margin: 15px 0 5px 0;
+}
+
+.progress-bar-container {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #4caf50; /* Cor verde para progresso */
+    transition: width 0.5s ease-in-out;
+}
+
+/* --- Seção Direita (Lista de Tarefas) --- */
+.tasks-list-card {
+    flex: 2;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item:hover {
+    background-color: #f9f9f9;
+}
+
+.task-name {
+    font-size: 1em;
+    color: #333;
+}
+
+.task-action {
+    color: #1e88e5; /* Cor para o ícone de ação (concluir) */
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.no-tasks {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}

@@ -1,27 +1,44 @@
 import axios from "axios";
+import secureLocalStorage from "react-secure-storage";
 
-const API_URL = "https://localhost:7283/api/Tarefas"; // 🔁 ajuste para o seu endpoint real
+const API_URL = "https://localhost:7283/api/Tarefas";
+const API_FUNC_URL = "https://localhost:7283/api/Funcionario";
 
-// Buscar todas as tarefas
+// Buscar tarefas
 export const getTarefas = async () => {
-  const response = await axios.get(API_URL);
+  const token = secureLocalStorage.getItem("token");
+
+  const response = await axios.get(API_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
   return response.data;
 };
 
-// Cadastrar uma nova tarefa
+// Criar tarefa
 export const criarTarefa = async (novaTarefa) => {
-  const response = await axios.post(API_URL, novaTarefa);
+  const token = secureLocalStorage.getItem("token");
+
+  const response = await axios.post(API_URL, novaTarefa, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
   return response.data;
 };
 
-// (Opcional) Excluir tarefa
-export const deletarTarefa = async (id) => {
-  await axios.delete(`${API_URL}/${id}`);
-};
+// Buscar funcionários (AGORA FUNCIONA)
+export const getFuncionarios = async () => {
+  const token = secureLocalStorage.getItem("token");
 
-// (Opcional) Atualizar tarefa
-export const atualizarTarefa = async (id, tarefaAtualizada) => {
-  const response = await axios.put(`${API_URL}/${id}`, tarefaAtualizada);
+  const response = await axios.get(API_FUNC_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
   return response.data;
 };
-

@@ -26,7 +26,7 @@ const Acesso = () => {
         perfil={{ ativo: true, path: "/Perfil", nome: "Perfil" }}
         geral={{ ativo: true, path: "/TelaDoGestor", nome: "Geral" }}
         gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
-        funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
+        tarefas={{ path: "/CadastroDeTarefas", ativo: true }}
         dominios={{ ativo: true, path: "/Dominio", nome: "Domínios" }}
         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
         voltarATela={{ ativo: true, nome: "Retornar" }}

@@ -65,7 +65,7 @@ export default function Dominios() {
         perfil={{ ativo: true, path: "/Perfil", nome: "Perfil" }}
         geral={{ ativo: true, path: "/TelaDoGestor", nome: "Geral" }}
         gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
-        funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
+       tarefas={{ path: "/CadastroDeTarefas", ativo: true }}
         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}
         acessos={{ ativo: true, path: "/Acesso", nome: "Acessos" }}
         dominios={{ ativo: false, path: "/Dominio", nome: "Domínios" }}
