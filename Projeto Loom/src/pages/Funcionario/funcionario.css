@@ -1,155 +1,134 @@
-/* Dashboard.css */
+/* ============================= */
+/* ESTILO DARK MODERN - PALETA VERDE-AZULADA */
+/* ============================= */
 
-/* --- Container Principal --- */
-.dashboard-container {
-    padding: 20px;
-    background-color: #f4f4f7; /* Fundo claro */
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif;
+/* Fundo: Baseado na paleta de cores da imagem (tom mais escuro e gradiente) */
+body {
+  /* Cor mais escura da paleta para o fundo principal */
+  background: #0D1F23; /* Verde-azulado escuro */
+  font-family: "Inter", sans-serif;
+  
+  /* Centralização total na tela - JÁ ESTÁ CORRETO */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  min-height: 100vh;       
+  margin: 0;               
+  padding: 0;              
+  
+  /* Gradiente para simular o efeito da paleta */
+  background-image: linear-gradient(to bottom, #132E35 0%, #0D1F23 100%);
 }
 
-/* --- Cards de Cabeçalho (Pendências e Faltas) --- */
-.header-cards {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
+/* Card principal - Maior, usando um dos tons da paleta */
+.container {
+  width: 90%; 
+  max-width: 600px; 
+  margin-top: 100px;
+  
+  /* Cor base para o container, um tom médio-escuro da paleta */
+  background: #2D4A53; /* Verde-azulado médio */
+  backdrop-filter: blur(0px); 
+  
+  padding: 35px 40px; 
+  border-radius: 20px; 
+  
+  /* Sombra mais suave para combinar com o tema */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+  animation: fadeIn 0.4s ease;
+  
+  /* Borda sutil usando um tom mais claro/acinzentado da paleta */
+  border: 1px solid rgba(175, 183, 187, 0.4); /* Baseado em #AFB3B7 */
 }
 
-.card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    min-width: 150px;
-    text-align: left;
+/* Título - Mantido branco, com gradiente sutil */
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+  font-size: 2.2rem; 
+  font-weight: 700;
+  
+  color: #ffffff; 
+  margin-bottom: 30px; 
+  
+  /* Gradiente de texto com tons claros da paleta */
+  background-image: linear-gradient(90deg, #E0E4E7, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.card-value {
-    font-size: 3em;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1;
+.titulo i {
+  /* Ícone de check - Usando um tom mais claro/verde da paleta para destaque */
+  color: #AFB3B7; /* Tom acinzentado claro da paleta */
+  font-size: 2.4rem; 
 }
 
-.card-label {
-    font-size: 1em;
-    color: #666;
-    margin: 0;
-    margin-top: 5px;
-    text-transform: uppercase;
+/* Lista */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
 }
 
-/* --- Conteúdo Principal (Resumo e Lista de Tarefas) --- */
-.main-content {
-    display: flex;
-    gap: 30px;
+/* Cada atividade - Usando tons da paleta para os cards */
+.atividade {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  padding: 18px 22px; 
+  
+  /* Fundo do card, um tom ligeiramente mais claro que o container */
+  background: #3A5C68; 
+  
+  /* Borda do card, um tom mais neutro/acinzentado */
+  border: 1px solid #5A636A; /* Similar ao #5A636A da paleta */
+  border-radius: 14px; 
+  cursor: pointer;
+  transition: 0.25s ease;
+  
+  /* Cor do texto para os itens da lista, um tom claro da paleta */
+  color: #AFB3B7; 
+  font-size: 1.15rem; 
+  line-height: 1.4;
 }
 
-/* --- Seção Esquerda (Resumo de Tarefas Concluídas) --- */
-.resumo-card {
-    flex: 1;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    max-width: 400px;
+/* Estilo do checkbox - Acinzentado claro da paleta */
+.atividade input[type="checkbox"] {
+  width: 24px; 
+  height: 24px; 
+  cursor: pointer;
+  accent-color: #AFB3B7; /* Cor do checkmark (acinzentado claro) */
+  border: 1px solid #AFB3B7;
 }
 
-.resumo-title {
-    font-size: 1.2em;
-    font-weight: 700;
-    color: #333;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
+/* Hover - Efeito de brilho sutil com o tom claro da paleta */
+.atividade:hover {
+  background: #4B6E7B; /* Um tom ligeiramente mais claro para o hover */
+  border-color: #AFB3B7; /* Borda mais acentuada com o tom claro da paleta */
+  transform: translateY(-2px); 
 }
 
-.resumo-hours,
-.resumo-details {
-    margin-bottom: 15px;
-    font-size: 0.9em;
+/* Quando estiver concluída - Usando um tom mais escuro e acinzentado da paleta */
+.atividade.feito {
+  background: #5A636A; /* Cor de fundo para concluído */
+  border-color: #AFB3B7; /* Borda com o tom claro da paleta */
+  text-decoration: line-through;
+  color: #8D99A1; /* Texto riscado */
+  transform: scale(1); 
+  transition: 0.3s;
 }
 
-.icon {
-    margin-right: 5px;
-    font-size: 1.1em;
-}
-
-.normal-text {
-    margin: 5px 0;
-    color: #333;
-}
-
-.alert-text {
-    margin: 5px 0;
-    color: #e53935; /* Cor de alerta */
-    font-weight: 700;
-}
-
-.alert-icon {
-    font-size: 1.1em;
-}
-
-/* --- Barra de Progresso --- */
-.progress-text {
-    font-size: 0.8em;
-    color: #666;
-    margin: 15px 0 5px 0;
-}
-
-.progress-bar-container {
-    height: 8px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background-color: #4caf50; /* Cor verde para progresso */
-    transition: width 0.5s ease-in-out;
-}
-
-/* --- Seção Direita (Lista de Tarefas) --- */
-.tasks-list-card {
-    flex: 2;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-}
-
-.task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #f0f0f0;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.task-item:last-child {
-    border-bottom: none;
-}
-
-.task-item:hover {
-    background-color: #f9f9f9;
-}
-
-.task-name {
-    font-size: 1em;
-    color: #333;
-}
-
-.task-action {
-    color: #1e88e5; /* Cor para o ícone de ação (concluir) */
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.no-tasks {
-    padding: 20px;
-    text-align: center;
-    color: #999;
+/* Animação suave ao abrir */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

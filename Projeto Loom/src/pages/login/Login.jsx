@@ -75,9 +75,13 @@ const Login = () => {
         navigate("/TelaDoGerente");
       } else if (role === "Gestor") {
         navigate("/TelaDoGestor");
-      } else {
-        navigate("/funcionario");
+      } else if (role === "Funcionario") {
+        navigate("/Funcionario");
       }
+      else {
+        navigate("/");
+      }
+
     } catch (error) {
       console.error("Erro na autenticação:", error);
       alert(

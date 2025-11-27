@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Projeto_Code1Line.Domain;
 using Projeto_Code1Line.Domain.Interfaces;
 using System.Collections.Generic;
@@ -19,7 +20,9 @@ namespace Projeto_Code1Line.Controllers
 
 
         // GET: api/tarefas
+
         [HttpGet]
+        [Authorize(Roles = "Funcionario,Gerente,Gestor")]
         public async Task<ActionResult<IEnumerable<Tarefas>>> GetTarefas()
         {
             var tarefas = await _tarefasRepository.ListarTarefasAsync();
@@ -28,6 +31,7 @@ namespace Projeto_Code1Line.Controllers
 
         // GET: api/tarefas/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Funcionario,Gerente,Gestor")]
         public async Task<ActionResult<Tarefas>> GetTarefa(int id)
         {
             var tarefa = await _tarefasRepository.BuscarPorIdAsync(id);
@@ -39,6 +43,7 @@ namespace Projeto_Code1Line.Controllers
 
         // POST: api/tarefas
         [HttpPost]
+        [Authorize(Roles = "Funcionario,Gerente,Gestor")]
         public async Task<ActionResult> PostTarefa([FromBody] Tarefas tarefa)
         {
             if (!ModelState.IsValid)
@@ -50,6 +55,7 @@ namespace Projeto_Code1Line.Controllers
 
         // PUT: api/tarefas/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Funcionario,Gerente,Gestor")]
         public async Task<ActionResult> PutTarefa(int id, [FromBody] Tarefas tarefa)
         {
             if (id != tarefa.Id)
@@ -65,6 +71,7 @@ namespace Projeto_Code1Line.Controllers
 
         // DELETE: api/tarefas/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Funcionario,Gerente,Gestor")]
         public async Task<ActionResult> DeleteTarefa(int id)
         {
             var tarefa = await _tarefasRepository.BuscarPorIdAsync(id);
