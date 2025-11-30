@@ -21,6 +21,16 @@ namespace Projeto_Code1Line.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Tarefas>> ListarPorFuncionarioAsync(int funcionarioId)
+        {
+            return await _context.Tarefas
+                .Where(t => t.FuncionarioId == funcionarioId)
+                .Include(t => t.Funcionario)
+                .ToListAsync(); // List<T> é compatível com IEnumerable<T>
+        }
+
+
+
         public async Task<Tarefas?> BuscarPorIdAsync(int id)
         {
             return await _context.Tarefas
@@ -43,6 +53,7 @@ namespace Projeto_Code1Line.Infrastructure.Repositories
         public async Task RemoverAsync(int id)
         {
             var tarefa = await _context.Tarefas.FindAsync(id);
+
             if (tarefa != null)
             {
                 _context.Tarefas.Remove(tarefa);

@@ -1,132 +1,189 @@
-/* ============================= */
-/* ESTILO DARK MODERN - PALETA VERDE-AZULADA */
-/* ============================= */
+/* ================================ */
+/* DARK MODERN COM TOGGLE SWITCH */
+/* ================================ */
 
-/* Fundo: Baseado na paleta de cores da imagem (tom mais escuro e gradiente) */
-body {
-  /* Cor mais escura da paleta para o fundo principal */
-  background: #0D1F23; /* Verde-azulado escuro */
-  font-family: "Inter", sans-serif;
-  
-  /* Centralização total na tela - JÁ ESTÁ CORRETO */
+:root {
+  --color-bg-page: #1E293B;
+  --color-bg-card: #2D4A53;
+  --color-bg-item: #3A5C68;
+  --color-accent: #AFB3B7;
+  --color-done: #00A389;
+  --color-text-primary: #E2E8F0;
+  --color-text-done: #94A3B8;
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-border: rgba(255, 255, 255, 0.15);
+}
+
+/* CENTRALIZAÇÃO */
+.pagina-funcionario {
+  font-family: 'Inter', sans-serif;
+ 
+  color: var(--color-text-primary);
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;     /* Centraliza verticalmente */
-  min-height: 100vh;       
-  margin: 0;               
-  padding: 0;              
-  
-  /* Gradiente para simular o efeito da paleta */
-  background-image: linear-gradient(to bottom, #132E35 0%, #0D1F23 100%);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Card principal - Maior, usando um dos tons da paleta */
+/* CARD */
 .container {
-  width: 90%; 
-  max-width: 600px; 
-  margin-top: 100px;
-  
-  /* Cor base para o container, um tom médio-escuro da paleta */
-  background: #2D4A53; /* Verde-azulado médio */
-  backdrop-filter: blur(0px); 
-  
-  padding: 35px 40px; 
-  border-radius: 20px; 
-  
-  /* Sombra mais suave para combinar com o tema */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
-  animation: fadeIn 0.4s ease;
-  
-  /* Borda sutil usando um tom mais claro/acinzentado da paleta */
-  border: 1px solid rgba(175, 183, 187, 0.4); /* Baseado em #AFB3B7 */
+  width: 100%;
+  max-width: 600px;
+  background: var(--color-bg-card);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px var(--color-shadow);
+  border: 1px solid var(--color-border);
+  animation: fadeIn 0.5s ease-out;
 }
 
-/* Título - Mantido branco, com gradiente sutil */
+/* TÍTULO */
 .titulo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px; 
-  font-size: 2.2rem; 
+  gap: 12px;
+  font-size: 1.8rem;
   font-weight: 700;
-  
-  color: #ffffff; 
-  margin-bottom: 30px; 
-  
-  /* Gradiente de texto com tons claros da paleta */
-  background-image: linear-gradient(90deg, #E0E4E7, #ffffff);
+  background-image: linear-gradient(90deg, var(--color-accent), var(--color-text-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: 25px;
 }
 
 .titulo i {
-  /* Ícone de check - Usando um tom mais claro/verde da paleta para destaque */
-  color: #AFB3B7; /* Tom acinzentado claro da paleta */
-  font-size: 2.4rem; 
+  color: var(--color-accent);
 }
 
-/* Lista */
+/* LISTA */
 .lista {
   display: flex;
   flex-direction: column;
-  gap: 15px; 
+  gap: 12px;
 }
 
-/* Cada atividade - Usando tons da paleta para os cards */
+.atividade span {
+  background-image: linear-gradient(90deg, var(--color-accent), var(--color-text-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.2rem;
+  /* um pouco maior que o padrão 1.05rem */
+  font-weight: 600;
+  /* mais próximo do título */
+  margin-left: 0;
+  transition: all 0.2s ease;
+}
+
+/* Se a atividade estiver feita, mantém o estilo riscado com opacidade */
+.atividade.feito span {
+  color: var(--color-text-done);
+  text-decoration: line-through;
+  opacity: 0.9;
+}
+
+/* ATIVIDADE */
 .atividade {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--color-bg-item);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.atividade:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* FEITO */
+.atividade.feito {
+  background: #5A636A;
+  color: var(--color-text-done);
+  text-decoration: line-through;
+  opacity: 0.9;
+  transform: none;
+  box-shadow: none;
+}
+
+/* TOGGLE SWITCH */
+.atividade input[type="checkbox"] {
+  display: none;
+}
+
+/* TOGGLE SWITCH - borda visível quando desativado */
+/* TOGGLE SWITCH - centralizado verticalmente */
+.toggle {
+  width: 50px;
+  height: 30px;
+  background: transparent;
+  border: 2px solid var(--color-text-primary);
+  border-radius: 20px;
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 15px; 
-  padding: 18px 22px; 
-  
-  /* Fundo do card, um tom ligeiramente mais claro que o container */
-  background: #3A5C68; 
-  
-  /* Borda do card, um tom mais neutro/acinzentado */
-  border: 1px solid #5A636A; /* Similar ao #5A636A da paleta */
-  border-radius: 14px; 
-  cursor: pointer;
-  transition: 0.25s ease;
-  
-  /* Cor do texto para os itens da lista, um tom claro da paleta */
-  color: #AFB3B7; 
-  font-size: 1.15rem; 
-  line-height: 1.4;
+  /* centraliza o círculo verticalmente */
+  justify-content: flex-start;
+  padding: 2px;
+  /* pequeno espaçamento interno para o círculo */
+  transition: all 0.3s;
 }
 
-/* Estilo do checkbox - Acinzentado claro da paleta */
-.atividade input[type="checkbox"] {
-  width: 24px; 
-  height: 24px; 
-  cursor: pointer;
-  accent-color: #AFB3B7; /* Cor do checkmark (acinzentado claro) */
-  border: 1px solid #AFB3B7;
+.toggle::after {
+  content: '';
+  width: 18px;
+  /* deixa proporcional ao toggle */
+  height: 20px;
+  background: var(--color-text-primary);
+  border-radius: 50%;
+  transition: transform 0.3s, background 0.3s;
 }
 
-/* Hover - Efeito de brilho sutil com o tom claro da paleta */
-.atividade:hover {
-  background: #4B6E7B; /* Um tom ligeiramente mais claro para o hover */
-  border-color: #AFB3B7; /* Borda mais acentuada com o tom claro da paleta */
-  transform: translateY(-2px); 
+/* Quando marcado */
+.atividade input[type="checkbox"]:checked+.toggle::after {
+  transform: translateX(20px);
+  background: #fff;
 }
 
-/* Quando estiver concluída - Usando um tom mais escuro e acinzentado da paleta */
-.atividade.feito {
-  background: #5A636A; /* Cor de fundo para concluído */
-  border-color: #AFB3B7; /* Borda com o tom claro da paleta */
-  text-decoration: line-through;
-  color: #8D99A1; /* Texto riscado */
-  transform: scale(1); 
-  transition: 0.3s;
+
+.atividade input[type="checkbox"]:checked+.toggle::after {
+  transform: translateX(20px);
+  background: #fff;
+  /* círculo branco quando marcado */
 }
 
-/* Animação suave ao abrir */
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .container {
+    padding: 25px 15px;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+  }
+
+  .atividade {
+    font-size: 1rem;
+    padding: 14px 16px;
+  }
+}
+
+/* ANIMAÇÃO */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

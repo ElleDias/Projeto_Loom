@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Projeto_Code1Line.Domain;
 using Projeto_Code1Line.Domain.Interfaces;
 using System.Collections.Generic;
@@ -81,5 +82,20 @@ namespace Projeto_Code1Line.Controllers
             await _tarefasRepository.RemoverAsync(id);
             return NoContent();
         }
+
+
+        // GET: api/tarefas/funcionario/22
+        [HttpGet("funcionario/{funcionarioId}")]
+        [Authorize(Roles = "Funcionario,Gerente,Gestor")]
+        public async Task<IActionResult> GetTarefasPorFuncionario(int funcionarioId)
+        {
+            var tarefas = await _tarefasRepository.ListarPorFuncionarioAsync(funcionarioId);
+
+            if (tarefas == null || !tarefas.Any())
+                return NotFound(new { mensagem = "Nenhuma tarefa encontrada para esse funcionário" });
+
+            return Ok(tarefas);
+        }
+
     }
 }

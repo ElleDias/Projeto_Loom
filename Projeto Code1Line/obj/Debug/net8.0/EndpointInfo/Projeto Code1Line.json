@@ -821,6 +821,52 @@
         }
       }
     },
+    "/api/Funcionario/{funcionarioId}/tarefas": {
+      "get": {
+        "tags": [
+          "Funcionario"
+        ],
+        "parameters": [
+          {
+            "name": "funcionarioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Funcionario/usuario/{userId}": {
+      "get": {
+        "tags": [
+          "Funcionario"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Mensagem/list/{userId}": {
       "get": {
         "tags": [
@@ -1208,6 +1254,29 @@
         }
       }
     },
+    "/api/Tarefas/funcionario/{funcionarioId}": {
+      "get": {
+        "tags": [
+          "Tarefas"
+        ],
+        "parameters": [
+          {
+            "name": "funcionarioId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Usuario": {
       "get": {
         "tags": [
@@ -1464,6 +1533,10 @@
           },
           "departamento": {
             "$ref": "#/components/schemas/Departamento"
+          },
+          "usuarioId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

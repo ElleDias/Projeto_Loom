@@ -18,5 +18,9 @@ namespace Code1Line.Interfaces
 
         // Deletar funcionário
         Task DeletarAsync(int id);
+        Task<Funcionario?> BuscarPorUserIdAsync(Guid userId);
+
+
+
     }
 }

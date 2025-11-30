@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Projeto_Code1Line.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251125161248_Code1Line")]
+    [Migration("20251130182406_Code1Line")]
     partial class Code1Line
     {
         /// <inheritdoc />
@@ -144,9 +144,14 @@ namespace Projeto_Code1Line.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DepartamentoId");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Funcionarios");
                 });
@@ -326,7 +331,15 @@ namespace Projeto_Code1Line.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Code1Line.Domain.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Departamento");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Code1Line.Domain.Monitoramento", b =>

@@ -2,6 +2,7 @@
 using Code1Line.Domain;
 using Code1Line.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Projeto_Code1Line.Domain;
 
 namespace Code1Line.Repositories
 {
@@ -24,6 +25,13 @@ namespace Code1Line.Repositories
             return await _context.Funcionarios.FindAsync(id);
         }
 
+        public async Task<Funcionario?> BuscarPorUserIdAsync(Guid userId)
+        {
+            return await _context.Funcionarios
+                .Include(f => f.Usuario)
+                .FirstOrDefaultAsync(f => f.UsuarioId == userId);
+        }
+
         public async Task CadastrarAsync(Funcionario funcionario)
         {
             _context.Funcionarios.Add(funcionario);
@@ -44,6 +52,13 @@ namespace Code1Line.Repositories
                 _context.Funcionarios.Remove(funcionario);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<Tarefas>> ListarPorFuncionarioAsync(int funcionarioId)
+        {
+            return await _context.Tarefas
+                .Where(t => t.FuncionarioId == funcionarioId)
+                .ToListAsync();
         }
     }
 }

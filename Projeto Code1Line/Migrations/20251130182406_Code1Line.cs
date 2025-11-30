@@ -78,7 +78,8 @@ namespace Projeto_Code1Line.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cargo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DepartamentoId = table.Column<int>(type: "int", nullable: false)
+                    DepartamentoId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,6 +90,12 @@ namespace Projeto_Code1Line.Migrations
                         principalTable: "Departamentos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Funcionarios_Usuario_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuario",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -211,6 +218,11 @@ namespace Projeto_Code1Line.Migrations
                 column: "DepartamentoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Funcionarios_UsuarioId",
+                table: "Funcionarios",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Mensagens_ChatId",
                 table: "Mensagens",
                 column: "ChatId");
@@ -263,13 +275,13 @@ namespace Projeto_Code1Line.Migrations
                 name: "Tarefas");
 
             migrationBuilder.DropTable(
-                name: "Usuario");
-
-            migrationBuilder.DropTable(
                 name: "Funcionarios");
 
             migrationBuilder.DropTable(
                 name: "Departamentos");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
 
             migrationBuilder.DropTable(
                 name: "Mensagens");

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Code1Line.Domain;
 using Code1Line.Interfaces;
+using Projeto_Code1Line.Domain.Interfaces;
 
 namespace Code1Line.Controllers
 {
@@ -10,10 +11,14 @@ namespace Code1Line.Controllers
     public class FuncionarioController : ControllerBase
     {
         private readonly IFuncionarioRepository _repository;
+        private readonly ITarefasRepository _tarefasRepository;
 
-        public FuncionarioController(IFuncionarioRepository repository)
+        public FuncionarioController(
+            IFuncionarioRepository repository,
+            ITarefasRepository tarefasRepository)
         {
             _repository = repository;
+            _tarefasRepository = tarefasRepository;
         }
 
         [HttpGet]
@@ -33,6 +38,20 @@ namespace Code1Line.Controllers
                 return NotFound();
 
             return Ok(funcionario);
+        }
+
+        // ✔ Endpoint correto — pega tarefas pelo ID do funcionário
+        // GET api/funcionario/6/tarefas
+        [HttpGet("{funcionarioId:int}/tarefas")]
+        [Authorize]
+        public async Task<IActionResult> GetTarefasPorFuncionario(int funcionarioId)
+        {
+            var tarefas = await _tarefasRepository.ListarPorFuncionarioAsync(funcionarioId);
+
+            if (tarefas == null || !tarefas.Any())
+                return NotFound("Nenhuma tarefa encontrada para este funcionário.");
+
+            return Ok(tarefas);
         }
 
         [HttpPost]
@@ -73,5 +92,16 @@ namespace Code1Line.Controllers
             await _repository.DeletarAsync(id);
             return NoContent();
         }
+        [HttpGet("usuario/{userId}")]
+        public async Task<IActionResult> BuscarPorUsuarioId(Guid userId)
+        {
+            var funcionario = await _repository.BuscarPorUserIdAsync(userId);
+
+            if (funcionario == null)
+                return NotFound(new { message = "Nenhum funcionário encontrado para este usuário." });
+
+            return Ok(funcionario);
+        }
+
     }
 }

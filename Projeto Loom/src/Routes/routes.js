@@ -42,15 +42,16 @@ const Rotas = () => {
                 {/* http://localhost:3000/ => CadastroDeTarefas */}
                 <Route path="/CadastroDeTarefas" element={<CadastroDeTarefas />} exact />
                 {/* http://localhost:3000/ => Mensagens */}
-                <Route path="/Mensagem" element={<Mensagem />} />               
+                <Route path="/Mensagem" element={<Mensagem />} />
                 {/* http://localhost:3000/ => Comparacao */}
                 <Route path="/Comparacao" element={<Comparacao />} />
                 {/* http://localhost:3000/ => Perfil */}
                 <Route path="/Perfil" element={<TeladePerfil />} />
                 {/* http://localhost:3000/ => Redefinir Senha */}
-                <Route path="/Senha" element={<RedefinirSenha />} />      
+                <Route path="/Senha" element={<RedefinirSenha />} />
                 <Route path="/chat/:contatoId" element={<Chat />} />
                 <Route path="/funcionario" element={<Funcionario />} />
+
             </Routes>
         </BrowserRouter>
 

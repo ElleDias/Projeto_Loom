@@ -1,10 +1,21 @@
-namespace Code1Line.Domain;
+using System.Text.Json.Serialization;
 
-public class Funcionario
+namespace Code1Line.Domain
 {
-    public int Id { get; set; }
-    public string Nome { get; set; } = string.Empty;
-    public string Cargo { get; set; } = string.Empty;
-    public int DepartamentoId { get; set; }
-    public Departamento? Departamento { get; set; }
+    public class Funcionario
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Cargo { get; set; } = string.Empty;
+
+        public int DepartamentoId { get; set; }
+        public Departamento? Departamento { get; set; }
+
+        // ?? CHAVE ESTRANGEIRA OBRIGATÓRIA
+        public Guid UsuarioId { get; set; }
+
+        [JsonIgnore]
+        public Usuario? Usuario { get; set; }
+
+    }
 }

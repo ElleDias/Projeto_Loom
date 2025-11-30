@@ -452,6 +452,22 @@
   },
   {
     "ContainingType": "Code1Line.Controllers.FuncionarioController",
+    "Method": "GetTarefasPorFuncionario",
+    "RelativePath": "api/Funcionario/{funcionarioId}/tarefas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "funcionarioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.FuncionarioController",
     "Method": "GetById",
     "RelativePath": "api/Funcionario/{id}",
     "HttpMethod": "GET",
@@ -498,6 +514,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Code1Line.Controllers.FuncionarioController",
+    "Method": "BuscarPorUsuarioId",
+    "RelativePath": "api/Funcionario/usuario/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -739,6 +771,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Projeto_Code1Line.Controllers.TarefasController",
+    "Method": "GetTarefasPorFuncionario",
+    "RelativePath": "api/Tarefas/funcionario/{funcionarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "funcionarioId",
         "Type": "System.Int32",
         "IsRequired": true
       }
