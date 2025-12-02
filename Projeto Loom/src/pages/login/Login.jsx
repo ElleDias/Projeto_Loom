@@ -27,7 +27,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      // 🔥 LOGIN
+      // LOGIN
       const resposta = await api.post("https://localhost:7283/api/Auth/login", {
         email,
         senha,
@@ -41,10 +41,10 @@ const Login = () => {
 
       const tokenDecodificado = userDecodeToken(token);
 
-      // 🔥 Salvar token no contexto
+      // Salvar token no contexto
       login(token, tokenDecodificado);
 
-      // 🔥 PEGAR USER ID DO TOKEN
+      // PEGAR USER ID DO TOKEN
       const userId =
         tokenDecodificado.id ||
         tokenDecodificado.Id ||
@@ -53,33 +53,51 @@ const Login = () => {
 
       secureLocalStorage.setItem("userId", userId);
 
-      // 🔥 BUSCAR FUNCIONÁRIO PELO USERID
-      const funcionarioResponse = await api.get(
-        `https://localhost:7283/api/Funcionario/usuario/${userId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-
-      const funcionarioId = funcionarioResponse.data?.id;
-
-      if (funcionarioId) {
-        secureLocalStorage.setItem("funcionarioId", funcionarioId);
-        console.log("FuncionarioId salvo:", funcionarioId);
-
-
-
-        // 🔥 PEGAR ROLE
-        const role =
-          tokenDecodificado[
+      // PEGAR ROLE
+      const role =
+        tokenDecodificado[
           "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-          ];
+        ];
 
-        if (role === "Gerente") navigate("/TelaDoGerente");
-        else if (role === "Gestor") navigate("/TelaDoGestor");
-        else if (role === "Funcionario") navigate("/Funcionario");
-        else navigate("/");
+      let funcionarioId = null;
+
+      // ================================
+      // 👇 BUSCA DEPENDENDO DO TIPO
+      // ================================
+      if (role === "Funcionario") {
+        // FUNCIONÁRIO → BUSCA NA ROTA DE FUNCIONÁRIO
+        const funcionarioResponse = await api.get(
+          `https://localhost:7283/api/Funcionario/usuario/${userId}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
+        funcionarioId = funcionarioResponse.data?.id;
+
+        if (funcionarioId) {
+          secureLocalStorage.setItem("funcionarioId", funcionarioId);
+          console.log("FuncionarioId salvo:", funcionarioId);
+        }
+      } else {
+        // GERENTE OU GESTOR → BUSCA EM USUARIOCONTROLLER
+        const usuarioResponse = await api.get(
+          `https://localhost:7283/api/Usuario/${userId}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
+        secureLocalStorage.setItem("usuarioDados", usuarioResponse.data);
       }
+
+      // ================================
+      // 👇 REDIRECIONAMENTO PELO TIPO
+      // ================================
+      if (role === "Gerente") navigate("/TelaDoGerente");
+      else if (role === "Gestor") navigate("/TelaDoGestor");
+      else if (role === "Funcionario") navigate("/Funcionario");
+      else navigate("/");
 
     } catch (error) {
       console.error("Erro no login:", error);
@@ -89,7 +107,6 @@ const Login = () => {
     }
   };
 
-  // 🔥 AQUI COMEÇA O JSX — fora do try/catch
   return (
     <main className="main_login">
       <div className="fundo_loom"></div>

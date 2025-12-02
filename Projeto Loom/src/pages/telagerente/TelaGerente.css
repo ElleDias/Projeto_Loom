@@ -9,7 +9,7 @@
     --cor-card: rgba(255, 255, 255, 0.6);
     --cor-texto: #1b1b1d;
     --cor-texto-secundario: #6c6c6f;
-    --cor-accent: #00a2ff; /* azul Starlink */
+    --cor-accent: #00a2ff;
     --cor-botao: #eaeaea;
 
     --borda-glass: rgba(255, 255, 255, 0.5);
@@ -37,18 +37,18 @@
     transition: margin-left 0.3s ease;
 }
 
-/* Ajuste sidebar */
 .visao_gerente-container.sidebar-open {
-    margin-left: 203px;
+    margin-left: 230px;
 }
 
 .visao_gerente-container.sidebar-mini {
-    margin-left: 80px;
+    margin-left: 90px;
 }
 
+/* Painéis */
 .painel.moderno {
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     padding: 60px 80px;
     text-align: center;
 
@@ -89,30 +89,29 @@
     margin-top: 25px;
 }
 
-/* Links */
 .geral-retangulo a {
     color: var(--cor-accent);
     text-decoration: none;
     font-weight: 600;
 }
 
+/* Botões */
 .botao_tarefa,
 .botao_graficos {
     flex: 1;
     padding: 15px 0;
-
     border: none;
     border-radius: 14px;
-
-    background: var(--cor-botao);
-    color: var(--cor-texto);
+    background: #599d94;
+    color: white;
     font-weight: 600;
     font-size: 0.95rem;
     text-transform: uppercase;
-
     cursor: pointer;
     transition: 0.3s ease;
     backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 900px;
 }
 
 .botao_tarefa:hover,
@@ -125,47 +124,99 @@
 
 .tarefas-container.moderno {
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     display: flex;
     gap: 20px;
     justify-content: center;
 }
 
+/* ============================= */
+/*   GRÁFICO AJUSTADO FINAL     */
+/* ============================= */
+
 .grafico-desempenho-container {
     width: 100%;
-    max-width: 900px;
-
+    max-width: 1200px;
+    min-height: 480px;
     background: var(--cor-card);
     border-radius: 30px;
-
-    padding: 35px;
+    padding: 35px 50px;
     box-shadow: 0 8px 28px var(--sombra-glass);
     border: 1px solid var(--borda-glass);
     backdrop-filter: blur(12px);
-
+    margin: 0 auto;
     animation: fadeIn 0.5s ease;
 }
 
-.grafico-desempenho-container h3 {
+.titulo-grafico {
     color: var(--cor-texto);
-    font-size: 1.9rem;
+    font-size: 2.3rem;
     font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
+.grafico-wrapper {
+    width: 100%;
+    height: 420px;
+}
+
+/* Botões do gráfico */
+.botoes-grafico {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+.botao-tipo {
+       flex: 1;
+    padding: 15px 0;
+    border: none;
+    border-radius: 14px;
+    background: #599d94;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 900px;
+}
+
+.botao_graficos:hover {
+    background: #2d4a53;
+    transform: translateY(-3px);
+    color: white;
+}
+
+/* Animação */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     .visao_gerente-container {
         padding: 30px 20px;
         margin-left: 0 !important;
     }
 
-    .painel.moderno {
-        padding: 35px 25px;
-        border-radius: 25px;
+    .painel.moderno,
+    .grafico-desempenho-container {
+        max-width: 100%;
+        padding: 25px 20px;
     }
 
     .geral-header h2 {
@@ -181,6 +232,10 @@
     .botao_graficos {
         width: 100%;
     }
+
+    .grafico-wrapper {
+        height: 320px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -189,6 +244,6 @@
     }
 
     .painel.moderno {
-        padding: 25px 18px;
+        padding: 22px 15px;
     }
 }

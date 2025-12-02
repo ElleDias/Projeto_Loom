@@ -1,64 +1,44 @@
-﻿using Code1Line.Data;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Code1Line.Domain;
 using Code1Line.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Projeto_Code1Line.Domain;
 
-namespace Code1Line.Repositories
+namespace Code1Line.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class FuncionarioController : ControllerBase
 {
-    public class FuncionarioRepository : IFuncionarioRepository
+    private readonly IFuncionarioRepository _repo;
+
+    public FuncionarioController(IFuncionarioRepository repo)
     {
-        private readonly AppDbContext _context;
+        _repo = repo;
+    }
 
-        public FuncionarioRepository(AppDbContext context)
-        {
-            _context = context;
-        }
+    // LISTAR TODOS
+    [HttpGet]
+    [Authorize(Roles = "Gerente,Gestor")]
+    public async Task<IActionResult> Listar()
+        => Ok(await _repo.ListarAsync());
 
-        public async Task<List<Funcionario>> ListarAsync()
-        {
-            return await _context.Funcionarios.ToListAsync();
-        }
+    // BUSCAR POR ID DO FUNCIONÁRIO
+    [HttpGet("{id:int}")]
+    [Authorize(Roles = "Gerente,Gestor")]
+    public async Task<IActionResult> BuscarPorId(int id)
+    {
+        var f = await _repo.BuscarPorIdAsync(id);
+        if (f == null) return NotFound();
+        return Ok(f);
+    }
 
-        public async Task<Funcionario?> BuscarPorIdAsync(int id)
-        {
-            return await _context.Funcionarios.FindAsync(id);
-        }
-
-        public async Task<Funcionario?> BuscarPorUserIdAsync(Guid userId)
-        {
-            return await _context.Funcionarios
-                .Include(f => f.Usuario)
-                .FirstOrDefaultAsync(f => f.UsuarioId == userId);
-        }
-
-        public async Task CadastrarAsync(Funcionario funcionario)
-        {
-            _context.Funcionarios.Add(funcionario);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task AtualizarAsync(Funcionario funcionario)
-        {
-            _context.Funcionarios.Update(funcionario);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeletarAsync(int id)
-        {
-            var funcionario = await BuscarPorIdAsync(id);
-            if (funcionario != null)
-            {
-                _context.Funcionarios.Remove(funcionario);
-                await _context.SaveChangesAsync();
-            }
-        }
-
-        public async Task<IEnumerable<Tarefas>> ListarPorFuncionarioAsync(int funcionarioId)
-        {
-            return await _context.Tarefas
-                .Where(t => t.FuncionarioId == funcionarioId)
-                .ToListAsync();
-        }
+    // 🚀 **A ROTA QUE ESTAVA FALTANDO**
+    // BUSCAR FUNCIONÁRIO PELO USERID (GUID)
+    [HttpGet("usuario/{userId:guid}")]
+    public async Task<IActionResult> BuscarPorUserId(Guid userId)
+    {
+        var funcionario = await _repo.BuscarPorUserIdAsync(userId);
+        if (funcionario == null) return NotFound();
+        return Ok(funcionario);
     }
 }
