@@ -148,7 +148,7 @@ const dadosMensais = {
       {/* Sidebar */}
       <MenuLateral
         perfil={{ ativo: true, path: "/perfil", nome: "Perfil" }}
-        geral={{ ativo: true, path: "/gerente", nome: "Geral" }}
+        
         gestores={{ ativo: false, path: "/gestor", nome: "Gestores" }}
         funcionarios={{ ativo: false, path: "/funcionarios", nome: "Funcionários" }}
         mensagens={{ ativo: true, path: "/mensagem", nome: "Mensagens" }}

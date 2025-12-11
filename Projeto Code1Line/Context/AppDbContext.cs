@@ -63,7 +63,7 @@ public class AppDbContext : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer(
-                "Server=DESKTOP-DIMB9O9\\MSSQLSERVER01; Database=Code1Line; Trusted_Connection=True; Encrypt=False;");
+                "Server=NOTE16-S28\\SQLEXPRESS; Database=Code1Line; User Id=sa; Password=Senai@134; TrustServerCertificate=true;");
         }
     }
 }
